@@ -1,0 +1,34 @@
+{{repos}}
+<div>
+  <h1 style="display:inline-block">Install repo</h1>
+  {{#unless installRepo.isRunning}}
+    {{#if loadAvaliableRepos.isIdle}}
+      <div style="width:50%;display:inline-block">
+        {{#power-select options=availableRepos renderInPlace=true selected=selectedRepo onchange=(action "selectedRepo") as |name|}}
+          {{name}}
+        {{/power-select}}
+      </div>
+      <button {{action "installRepo"}}>Install {{selectedRepo}}</button>
+    {{else}}
+      <span> Loading available repos .... </span>
+    {{/if}}
+  {{else}}
+  <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
+  {{/unless}}
+</div>
+<div style="margin-top:50px;">
+<h1>Installed Repos: {{model.length}}</h1>
+{{#each model as |repo|}}
+  {{#link-to "repo" repo.id}}{{repo.name}}{{/link-to}}
+  <button {{action 'resolveHook' repo}}>
+    {{#unless resolveHook.isIdle}} Processing {{/unless}}
+    {{#unless repo.hook_id}}
+      Install Hook
+    {{else}}
+      Uninstall Hook
+    {{/unless}}
+  </button>
+  <br />
+{{/each}}
+</div>
+{{outlet}}

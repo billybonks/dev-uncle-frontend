@@ -1,0 +1,14 @@
+{{#if label}}
+  {{label-display label=label}} <span>Total: {{filteredPullRequests.length}}</span>
+{{else}}
+<span style="color:red">no label for state <b>{{name}}</b> found</span>
+{{/if}}
+{{#each filteredPullRequests as |pr|}}
+  <div>
+    <span>Active: {{days-since date=pr.updated_at}}</span>
+    <span>Age: {{days-since date=pr.created_at}}</span>
+    <span>{{pr.title}}</span>
+    <br />
+  </div>
+{{/each}}
+<br />

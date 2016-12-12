@@ -1,0 +1,12 @@
+<nav>
+  <ul class="navigation">
+    <li class="navigation_item">{{#link-to "application" classNames="navigation_item_link"}}Home{{/link-to}}</li>
+    <li class="navigation_item">{{#link-to "repos" classNames="navigation_item_link"}}Repos{{/link-to}}</li>
+    <li class="navigation_item"><a class="navigation_item_link" href="#">Contact</a></li>
+    <li class="navigation_item--right"><span>{{model.email}}</span></li>
+
+  </ul>
+</nav>
+<div class="body">
+  {{outlet}}
+</div>
