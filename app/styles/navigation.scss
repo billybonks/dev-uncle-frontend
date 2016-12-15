@@ -1,0 +1,19 @@
+#left-nav {
+  border-right:1px solid #555;
+  width: $left-nav-width;
+}
+
+.navigation_item {
+  border-bottom: 1px solid #555;
+  padding: 10px;
+}
+
+.navigation_item_link {
+  text-decoration: none;
+  color: black;
+}
+
+.navigation_item--right {
+  @extend .navigation_item;
+  float: right;
+}

@@ -1,12 +1,15 @@
-<nav>
-  <ul class="navigation">
-    <li class="navigation_item">{{#link-to "application" classNames="navigation_item_link"}}Home{{/link-to}}</li>
-    <li class="navigation_item">{{#link-to "repos" classNames="navigation_item_link"}}Repos{{/link-to}}</li>
-    <li class="navigation_item"><a class="navigation_item_link" href="#">Contact</a></li>
-    <li class="navigation_item--right"><span>{{model.email}}</span></li>
 
-  </ul>
-</nav>
-<div class="body">
-  {{outlet}}
+<div class="main-body-wrapper">
+  <nav id="left-nav">
+    <ul class="navigation">
+      <li class="navigation_item">{{#link-to "install" classNames="navigation_item_link"}}Install{{/link-to}}</li>
+      {{#each model as |repo|}}
+        <li class="navigation_item">{{#link-to  "repo" repo.id classNames="navigation_item_link"}}{{repo.name}}{{/link-to}}</li>
+      {{/each}}
+      <li class="navigation_item--right"><span>{{user.email}}</span></li>
+    </ul>
+  </nav>
+  <div class="body">
+    {{outlet}}
+  </div>
 </div>

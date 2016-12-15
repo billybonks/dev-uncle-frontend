@@ -1,14 +1,38 @@
 {{#if label}}
   {{label-display label=label}} <span>Total: {{filteredPullRequests.length}}</span>
+  {{#light-table table as |t|}}
+
+    {{t.head
+      onColumnClick=(action 'onColumnClick')
+      iconAscending='fa fa-sort-asc'
+      iconDescending='fa fa-sort-desc'}}
+
+    {{#t.body as |body|}}
+
+      {{#if isLoading}}
+        {{#body.loader}}
+          Loading...
+        {{/body.loader}}
+      {{/if}}
+
+      {{#if table.isEmpty}}
+        {{#body.no-data}}
+          No users found.
+        {{/body.no-data}}
+      {{/if}}
+    {{/t.body}}
+
+  {{/light-table}}
 {{else}}
 <span style="color:red">no label for state <b>{{name}}</b> found</span>
 {{/if}}
-{{#each filteredPullRequests as |pr|}}
+<br />
+
+{{!-- {{#each filteredPullRequests as |pr|}}
   <div>
     <span>Active: {{days-since date=pr.updated_at}}</span>
     <span>Age: {{days-since date=pr.created_at}}</span>
     <span>{{pr.title}}</span>
     <br />
   </div>
-{{/each}}
-<br />
+{{/each}} --}}

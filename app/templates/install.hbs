@@ -16,7 +16,7 @@
   <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
   {{/unless}}
 </div>
-<div style="margin-top:50px;">
+{{!-- <div style="margin-top:50px;">
 <h1>Installed Repos: {{model.length}}</h1>
 {{#each model as |repo|}}
   {{#link-to "repo" repo.id}}{{repo.name}}{{/link-to}}
@@ -30,5 +30,5 @@
   </button>
   <br />
 {{/each}}
-</div>
+</div> --}}
 {{outlet}}

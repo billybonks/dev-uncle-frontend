@@ -1,28 +1,16 @@
 @import 'reset';
+@import 'variables';
+@import 'fullbleed';
 @import 'ember-power-select';
+@import 'table';
+@import 'navigation';
+@import 'buttons';
 
-.navigation {
-  border-bottom: 1px solid #555;
-  width: 100%;
-}
-
-.navigation_item {
-  display: inline-block;
-  border-right: 1px solid #555;
-  padding: 10px;
-}
-
-.navigation_item_link {
-  text-decoration: none;
-  color: black;
-}
-
-.navigation_item--right {
-  @extend .navigation_item;
-  float: right;
-}
 
 .body {
+  position:absolute;
+  left: 180px;
+  top: 0;
   padding-top : 20px;
   padding-right: 100px;
   padding-left: 100px;
@@ -30,13 +18,4 @@
 
 h1 {
   font-size: 20px;
-}
-
-button {
-  padding: 8px;
-  background: #428bca;
-  border: none;
-  border-radius: 2px;
-  font-size: 13px;
-  color: white;
 }
