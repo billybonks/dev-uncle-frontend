@@ -2,15 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
+  labels: Ember.inject.service(),
   model(params){
-    return this.get('ajax').request(`api/prs?repo_id=${params.repo_id}`).then((results) => {
-      return results;
-    });
+    this.set('labels.repoId', params.repo_id)
+    this.get('labels.loadLabels').perform();
+    return this.get('store').find('repo',params.repo_id);
   },
-
-  setupController(controller, model){
-    controller.set('model', model.pull_requests);
-    controller.set('labels', model.labels);
-    controller.set('hook', model.hook);
+  actions: {
+    didTransition: function() {
+      //this.transitionTo('repo.stats')
+    }
   }
 });

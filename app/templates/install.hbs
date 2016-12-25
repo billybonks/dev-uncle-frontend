@@ -20,14 +20,6 @@
 <h1>Installed Repos: {{model.length}}</h1>
 {{#each model as |repo|}}
   {{#link-to "repo" repo.id}}{{repo.name}}{{/link-to}}
-  <button {{action 'resolveHook' repo}}>
-    {{#unless resolveHook.isIdle}} Processing {{/unless}}
-    {{#unless repo.hook_id}}
-      Install Hook
-    {{else}}
-      Uninstall Hook
-    {{/unless}}
-  </button>
   <br />
 {{/each}}
 </div> --}}

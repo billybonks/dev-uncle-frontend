@@ -1,0 +1,5 @@
+{{stateName}} =
+{{#power-select options=labels.currentLabels renderInPlace=true selected=label onchange=(action "changeLabel") as |label|}}
+  {{label.name}}
+{{/power-select}}
+{{power-button text="save" task=save}}

@@ -1,14 +1,16 @@
 
 <div class="main-body-wrapper">
-  <nav id="left-nav">
-    <ul class="navigation">
-      <li class="navigation_item">{{#link-to "install" classNames="navigation_item_link"}}Install{{/link-to}}</li>
-      {{#each model as |repo|}}
-        <li class="navigation_item">{{#link-to  "repo" repo.id classNames="navigation_item_link"}}{{repo.name}}{{/link-to}}</li>
-      {{/each}}
-      <li class="navigation_item--right"><span>{{user.email}}</span></li>
-    </ul>
-  </nav>
+  {{#unless failed}}
+    <nav id="left-nav">
+      <ul class="navigation">
+        <li class="navigation_item">{{#link-to "install" classNames="navigation_item_link"}}Install{{/link-to}}</li>
+        {{#each model as |repo|}}
+          <li class="navigation_item">{{#link-to  "repo" repo.id classNames="navigation_item_link"}}{{repo.name}}{{/link-to}}</li>
+        {{/each}}
+        <li class="navigation_item--right"><span>{{user.email}}</span></li>
+      </ul>
+    </nav>
+  {{/unless}}
   <div class="body">
     {{outlet}}
   </div>

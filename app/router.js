@@ -9,7 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('install');
-  this.route('repo', {path:'repo/:repo_id'});
+  this.route('repo', {path:'repo/:repo_id'}, function(){
+    this.route('stats')
+    this.route('manage')
+  });
 });
 
 export default Router;

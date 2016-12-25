@@ -1,0 +1,10 @@
+<h1>Pull Requests</h1>
+<p>{{labels.loadLabels.isIdle}}</p>
+{{#if labels.loadLabels.isIdle}}
+  {{#each states.states as |state|}}
+    {{state.name}}
+    {{pr-stats stateName=state.name pullRequests=model}}
+  {{/each}}
+{{else}}
+  Labels loading
+{{/if}}

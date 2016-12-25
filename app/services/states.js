@@ -5,7 +5,7 @@ export default Service.extend({
     {id:1,name:'review',description:'pull request requires review'},
     {id:2,name:'revision',description:'pull request requires revision'},
     {id:3,name:'hold',description:'pull request not being worked on'},
-    {id:4,name:'lgtm',description:'pull request has been approved'}
+    {id:4,name:'complete',description:'pull request has been approved'}
   ],
   review(labels){
     return this.findLabel(0,labels)
