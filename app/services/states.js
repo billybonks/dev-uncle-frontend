@@ -7,6 +7,9 @@ export default Service.extend({
     {id:3,name:'hold',description:'pull request not being worked on'},
     {id:4,name:'complete',description:'pull request has been approved'}
   ],
+  findByName(stateName){
+    return this.get('states').findBy('name', stateName);
+  },
   review(labels){
     return this.findLabel(0,labels)
   },
@@ -20,6 +23,6 @@ export default Service.extend({
     return this.findLabel(3,labels)
   },
   findLabel(index, labels){
-    return labels.findBy('state_id', this.get('states')[index].id.toString())
+    return labels.findBy('state_id', this.get('states')[index].id)
   }
 });

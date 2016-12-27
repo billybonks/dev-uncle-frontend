@@ -20,7 +20,7 @@ export default Component.extend({
   filteredPullRequests:computed('pullRequests', 'label', 'sortBy', 'direction', function () {
     if(this.get('label')){
       let prs = this.get('pullRequests').filter( pr => {
-        return pr.labels.findBy('id', parseInt(this.get('label').online_id))
+        return pr.get('labels').findBy('id', this.get('label.online_id'))
       }).sortBy(this.get('sortBy'))
       if(this.get('direction')){
         prs = prs.reverse();
@@ -42,12 +42,12 @@ export default Component.extend({
       width:'13%'
     },{
       label: 'Last Active',
-      valuePath: 'updated_at',
+      valuePath: 'updatedAt',
       width:'12%',
       cellComponent: 'days-since',
     }, {
       label: 'Age',
-      valuePath: 'created_at',
+      valuePath: 'createdAt',
       width:'10%',
       cellComponent: 'days-since'
     }]

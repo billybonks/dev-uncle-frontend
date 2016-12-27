@@ -25,10 +25,12 @@ export default Component.extend({
   }),
   actions:{
     changeLabel(label){
+      if(this.get('label')){
+        this.set('label.state_id', null);
+      }
+      let state = this.get('states').findByName(this.get('stateName'));
       this.set('label', label);
-    },
-    save(){
-
+      label.set('state_id', state.id);
     }
   }
 })

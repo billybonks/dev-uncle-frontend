@@ -1,7 +1,5 @@
-<button {{action (perform task)}}>
-  {{#if task.isRunning}}
-    loading
-  {{else}}
-    {{text}}
-  {{/if}}
-</button>
+{{#if task.isRunning}}
+  loading
+{{else}}
+  {{text}}
+{{/if}}

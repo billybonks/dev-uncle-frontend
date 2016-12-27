@@ -1,5 +1,13 @@
-{{stateName}} =
-{{#power-select options=labels.currentLabels renderInPlace=true selected=label onchange=(action "changeLabel") as |label|}}
-  {{label.name}}
-{{/power-select}}
-{{power-button text="save" task=save}}
+<div class="input-group">
+  <div class="input-group-addon">
+    {{stateName}}
+  </div>
+  <div class="form-control">
+    {{#power-select options=labels.currentLabels renderInPlace=true selected=label onchange=(action "changeLabel") as |label|}}
+      {{label.name}}
+    {{/power-select}}
+  </div>
+  <div class="input-group-btn">
+    {{power-button text="save" task=save disabled=(not label.hasDirtyAttributes)}}
+  </div>
+</div>

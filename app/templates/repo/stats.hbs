@@ -1,5 +1,8 @@
 <h1>Pull Requests</h1>
-<p>{{labels.loadLabels.isIdle}}</p>
+{{#link-to  "repo.manage" repoId}}Settings{{repo.id}}{{/link-to}}
+<br />
+<br />
+<br />
 {{#if labels.loadLabels.isIdle}}
   {{#each states.states as |state|}}
     {{state.name}}

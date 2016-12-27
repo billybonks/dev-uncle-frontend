@@ -1,20 +1,24 @@
 {{repos}}
 <div>
   <h1 style="display:inline-block">Install repo</h1>
-  {{#unless installRepo.isRunning}}
-    {{#if loadAvaliableRepos.isIdle}}
-      <div style="width:50%;display:inline-block">
-        {{#power-select options=availableRepos renderInPlace=true selected=selectedRepo onchange=(action "selectedRepo") as |name|}}
-          {{name}}
-        {{/power-select}}
-      </div>
-      <button {{action "installRepo"}}>Install {{selectedRepo}}</button>
+  <div class="input-group">
+    {{#unless installRepo.isRunning}}
+      {{#if loadAvaliableRepos.isIdle}}
+        <div class="form-control">
+          {{#power-select options=availableRepos renderInPlace=true selected=selectedRepo onchange=(action "selectedRepo") as |name|}}
+            {{name}}
+          {{/power-select}}
+        </div>
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-primary" {{action "installRepo"}}>Install</button>
+        </div>
+      {{else}}
+        <span> Loading available repos .... </span>
+      {{/if}}
     {{else}}
-      <span> Loading available repos .... </span>
-    {{/if}}
-  {{else}}
-  <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
-  {{/unless}}
+    <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
+    {{/unless}}
+  </div>
 </div>
 {{!-- <div style="margin-top:50px;">
 <h1>Installed Repos: {{model.length}}</h1>
