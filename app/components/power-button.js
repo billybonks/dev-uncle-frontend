@@ -5,6 +5,6 @@ export default Component.extend({
   classNames: ["btn", "btn-primary"],
   attributeBindings:["disabled"],
   click(){
-    this.get('task').perform
+    this.get('task').perform()
   }
 })

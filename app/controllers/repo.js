@@ -6,17 +6,6 @@ export default Controller.extend({
   count:computed('model.length', function(){
     return this.get('model.length')
   }),
-  slackOrgs: computed({
-    get(){
-      this.get('ajax').request('api/slack/orgs').then( (orgs) => {
-        this.set(orgs)
-      })
-      return value;
-    },
-    set(_, value){
-      return value;
-    }
-  })
   actions:{
 
     waitAFewSeconds(){
