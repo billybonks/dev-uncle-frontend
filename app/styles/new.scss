@@ -1,0 +1,76 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #243757;
+  color:#fff;
+}
+
+.marpad-reset {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  background-color: #fff;
+  border-right: 1px #273d66 solid;
+  height: 100%;
+}
+
+  .sidebar a.nav-link {
+    color: #2283f6;
+    background-color: #fff;
+    border-radius: 0;
+    font-size: 14px;
+    border-bottom: 1px #ddd solid;
+    padding: 1em;
+  }
+
+  .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
+    background-color: #fbc901;
+    color: #243757;
+  }
+
+  .sidebar a.nav-link.email {
+    background-color: #0177fd;
+    color: #d3ebf8;
+    border: 0;
+  }
+
+    .sidebar a.nav-link.email span.name {
+      font-size: 22px;
+      color: #fff;
+    }
+
+  .sidebar i {
+    margin-right: 8px;
+  }
+
+.content {
+  margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+  .content h1 {
+    font-size: 28px;
+}
+
+.big-dropdown { 
+  color: #fff;
+  background-color: #2e4367;
+  border: 1px #2e4367 solid;
+  width: 500px;
+}
+
+.big-dropdown:hover { 
+  background-color: #395078;
+  border: 1px #395078 solid;
+  color: #a8c2ed;
+}
+
+.sebtem {
+  padding: 1em;
+  width: 500px;
+}
+
+.mar-0 {
+  margin: 0;
+}

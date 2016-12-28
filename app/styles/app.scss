@@ -1,20 +1,7 @@
-@import 'reset';
+
 @import 'variables';
 @import 'fullbleed';
 @import 'ember-power-select';
 @import 'table';
-@import 'navigation';
+@import 'new';
 
-
-.body {
-  position:absolute;
-  left: 180px;
-  top: 0;
-  padding-top : 20px;
-  padding-left: 50px;
-  width:80%;
-}
-
-h1 {
-  font-size: 20px;
-}
