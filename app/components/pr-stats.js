@@ -35,15 +35,16 @@ export default Component.extend({
     return [{
       label: 'Title',
       valuePath: 'title',
-      sortable: false
+      sortable: false,
+	  width:'53%',
     }, {
       label: 'Owner',
       valuePath: 'owner',
-      width:'13%'
+      width:'22%'
     },{
       label: 'Last Active',
       valuePath: 'updatedAt',
-      width:'12%',
+      width:'15%',
       cellComponent: 'days-since',
     }, {
       label: 'Age',

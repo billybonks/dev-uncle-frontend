@@ -9,6 +9,33 @@ body {
   padding: 0;
 }
 
+h3 {
+  color:#fff;
+  font-size:22px;
+}
+
+.purple-colour {
+  color: #809df9;
+}
+
+  .seb-btn {
+  background-color: #7182ff;
+  border: #7182ff;
+}
+
+  .seb-btn a {
+  color: #fff;
+  text-decoration: none;
+  }
+
+  .seb-btn a:hover, .seb-btn:hover {
+  background-color: #0177fd;
+  border: #93cefd;
+}
+
+
+/* =============== sidebar =============== */
+
 .sidebar {
   background-color: #fff;
   border-right: 1px #273d66 solid;
@@ -25,8 +52,8 @@ body {
   }
 
   .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
-    background-color: #fbc901;
-    color: #243757;
+    background-color: #7182FF;
+    color: #fff;
   }
 
   .sidebar a.nav-link.email {
@@ -44,6 +71,9 @@ body {
     margin-right: 8px;
   }
 
+
+/* =============== content area =============== */
+
 .content {
   margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
@@ -52,6 +82,9 @@ body {
   .content h1 {
     font-size: 28px;
 }
+
+
+/* =============== dropdown =============== */
 
 .big-dropdown { 
   color: #fff;
@@ -66,6 +99,9 @@ body {
   color: #a8c2ed;
 }
 
+
+/* =============== dropdown list-item =============== */
+
 .sebtem {
   padding: 1em;
   width: 500px;
@@ -73,4 +109,23 @@ body {
 
 .mar-0 {
   margin: 0;
+}
+
+
+/* =============== labels =============== */
+
+.sebpo-tag-position {
+  text-align: right;
+  padding-bottom: 15px;
+}
+
+.sebpo-tag {
+  display: inline-block;
+  padding: 0.45em .85em;
+  font-size: 65%;
+  color: #222;
+  border-radius:0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right:10px;
 }

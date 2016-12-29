@@ -1,11 +1,16 @@
-<h1>Pull Requests</h1>
-{{#link-to  "repo.manage" repoId}}Settings{{repo.id}}{{/link-to}}
-<br />
-<br />
-<br />
+
+<ol style="list-style-type:none; margin:0 0 20px 0; padding:0 0 20px 0; border-bottom:1px #6c65fb dashed;">
+	<li style="float:left"><h1>Pull Requests</h1></li>
+	<li style="float:right">
+		<button type="button" class="btn btn-primary seb-btn">
+			{{#link-to  "repo.manage" repoId}}Settings{{repo.id}}{{/link-to}}
+		</button>
+	</li>
+	<li style="clear:both"></li>
+</ol>
+
 {{#if labels.loadLabels.isIdle}}
   {{#each states.states as |state|}}
-    {{state.name}}
     {{pr-stats stateName=state.name pullRequests=model}}
   {{/each}}
 {{else}}

@@ -1,5 +1,12 @@
 {{#if label}}
-  {{label-display label=label}} <span>Total: {{filteredPullRequests.length}}</span>
+  <div class="sebpo-tag-position">
+    <h3 style="display: inline;float: left;">{{stateName}}</h3>
+  	{{label-display label=label}}
+		<span class="purple-colour">
+			Total:
+		</span>
+		{{filteredPullRequests.length}}
+  </div>
   {{#light-table table as |t|}}
 
     {{t.head

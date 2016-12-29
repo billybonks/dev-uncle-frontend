@@ -1,10 +1,12 @@
 $border-color: #DADADA;
 
 .ember-light-table {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
-  font-family: 'Open Sans', sans-serif;
+  color: #cfe1ff;
+  border-radius:3px;
+  border-bottom: 1px #445e89 solid;
 
   .multi-select {
     -webkit-touch-callout: none;
@@ -20,7 +22,12 @@ $border-color: #DADADA;
   }
 
   thead .lt-column {
-    border-bottom: 1px solid $border-color;
+  	border: 1px #5c77a5 solid;
+  	border-bottom: 0px;
+    background-color: #445e89;
+    color: #99fde3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   thead th,
@@ -70,7 +77,7 @@ $border-color: #DADADA;
     }
 
     &:not(.is-selected):hover {
-      background-color: #F5F4F4 !important;
+      background-color: #172743 !important;
     }
 
     &:last-of-type {
@@ -89,12 +96,9 @@ $border-color: #DADADA;
     }
 
     td {
-      border-color: $border-color;
-      border-width: 0;
-      border-bottom-width: 1px;
-      border-style: solid;
       font-size: 13px;
-      padding: 0 10px;
+      padding: 10px;
+	  border: 1px #445e89 solid;
     }
   }
 }
