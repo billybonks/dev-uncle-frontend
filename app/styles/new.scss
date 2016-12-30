@@ -1,5 +1,4 @@
 body {
-  font-family: 'Montserrat', sans-serif;
   background-color: #243757;
   color:#fff;
 }
@@ -19,18 +18,13 @@ h3 {
 }
 
   .seb-btn {
-  background-color: #7182ff;
   border: #7182ff;
-}
-
-  .seb-btn a {
   color: #fff;
-  text-decoration: none;
-  }
 
-  .seb-btn a:hover, .seb-btn:hover {
-  background-color: #0177fd;
-  border: #93cefd;
+  &:hover {
+    background-color: #0177fd;
+    border: #93cefd;
+  }
 }
 
 
@@ -76,41 +70,11 @@ h3 {
 
 .content {
   margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
 }
 
   .content h1 {
     font-size: 28px;
 }
-
-
-/* =============== dropdown =============== */
-
-.big-dropdown { 
-  color: #fff;
-  background-color: #2e4367;
-  border: 1px #2e4367 solid;
-  width: 500px;
-}
-
-.big-dropdown:hover { 
-  background-color: #395078;
-  border: 1px #395078 solid;
-  color: #a8c2ed;
-}
-
-
-/* =============== dropdown list-item =============== */
-
-.sebtem {
-  padding: 1em;
-  width: 500px;
-}
-
-.mar-0 {
-  margin: 0;
-}
-
 
 /* =============== labels =============== */
 
@@ -120,12 +84,5 @@ h3 {
 }
 
 .sebpo-tag {
-  display: inline-block;
-  padding: 0.45em .85em;
-  font-size: 65%;
-  color: #222;
-  border-radius:0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   margin-right:10px;
 }
