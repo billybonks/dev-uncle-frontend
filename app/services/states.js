@@ -11,20 +11,20 @@ export default Service.extend({
     return this.get('states').findBy('name', stateName);
   },
   review(labels){
-    return this.findLabel(0,labels)
-  },
-  revision(labels){
     return this.findLabel(1,labels)
   },
-  hold(labels){
+  revision(labels){
     return this.findLabel(2,labels)
   },
-  complete(labels){
+  hold(labels){
     return this.findLabel(3,labels)
   },
-  findLabel(index, labels){
+  complete(labels){
+    return this.findLabel(4,labels)
+  },
+  findLabel(id, labels){
     if(labels){
-      return labels.findBy('state_id', this.get('states')[index].id)
+      return labels.findBy('state_id', id)
     } else {
       return []
     }

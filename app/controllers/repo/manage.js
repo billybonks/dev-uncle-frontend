@@ -15,6 +15,18 @@ export default Controller.extend({
       this.set('model.hook_id', 1);
     }
   }),
+  saveLabels: task(function * (stateMappings){
+    stateMappings.forEach( (mapping) => {
+      let oldLabel = this.get('repo.labels').filterBy('state_id', mapping.state.id)[0];
+      let newLabel = this.get('repo.labels').filterBy('id', mapping.label.id)[0];
+      if(oldLabel){
+        oldLabel.set('state_id', null);
+        oldLabel.save();
+      }
+      newLabel.set('state_id', mapping.state.id);
+      newLabel.save();
+    })
+  }),
   saveSlack: task(function *(){
     debugger
     results = yield this.get('ajax').request(`api/slack/orgs`,{

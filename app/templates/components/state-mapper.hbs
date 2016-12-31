@@ -1,13 +1,15 @@
-<div class="input-group">
-  <div class="input-group-addon">
-    {{stateName}}
+{{log stateMappings}}
+{{#each-in stateMappings as |state mappedState|}}
+  {{log mappedState}}
+  <div class="input-group">
+    <div class="input-group-addon">
+      {{mappedState.state.name}}
+    </div>
+    <div class="form-control">
+      {{#power-select options=availableLabels renderInPlace=true selected=mappedState.label onchange=(action "changeLabelState" mappedState.state) as |label|}}
+        {{label.name}}
+      {{/power-select}}
+    </div>
   </div>
-  <div class="form-control">
-    {{#power-select options=labels.currentLabels renderInPlace=true selected=label onchange=(action "changeLabel") as |label|}}
-      {{label.name}}
-    {{/power-select}}
-  </div>
-  <div class="input-group-btn">
-    {{power-button text="save" task=save}}
-  </div>
-</div>
+{{/each-in}}
+{{power-button text="save" action="save"}}
