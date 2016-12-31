@@ -2,35 +2,66 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import { task } from 'ember-concurrency';
 import  inject from 'ember-service/inject'
+
 export default Component.extend({
   ajax:   inject(),
   states: inject(),
-  labels: inject(),
-  label:  computed('labels.currentLabels', {
-    get(key) {
-      return this.get('states')[this.get('stateName')](this.get('labels.currentLabels'))
+  stateMappings: computed('labels',{
+    get(){
+      let mappings = {}
+      this.get('states.states').map( (state) => {
+        let label = this.get('states').findLabel(state.id,this.get('labels'));
+        mappings[state.id] = {label:label, state:state, isDirty:false};
+      })
+      return mappings
     },
-    set(key, value) {
-      return value;
+    set(_, value){
+      let mappings = this.get('stateMappings');
+      value.isDirty = true;
+      mappings[value.state.id] = value;
+      console.log(mappings);
+      this.notifyPropertyChange('stateMappings')
+      return mappings;
     }
   }),
-  save: task(function *(){
-    return this.get('ajax').request('/api/states', {
-      method: 'POST',
-      data: {
-        state_id: this.get('stateName'),
-        label_id: this.get('label.id')
+  availableLabels:computed('stateMappings',function(){
+    let usedIds = Object.keys(this.get('stateMappings')).map((key) => {
+      if(this.get(`stateMappings`)[key].label){
+        return this.get(`stateMappings`)[key].label.id;
       }
     });
+    usedIds = usedIds.filter((id)=>{
+      if(id){
+        return id
+      }
+    })
+    if(usedIds.length){
+      let labels = this.get('labels').filter((label) => {
+        if(!usedIds.includes(label.get('id'))){
+          return label
+        }
+      })
+      return labels;
+    }
+    return []
   }),
   actions:{
-    changeLabel(label){
-      if(this.get('label')){
-        this.set('label.state_id', null);
-      }
-      let state = this.get('states').findByName(this.get('stateName'));
-      this.set('label', label);
-      label.set('state_id', state.id);
+    changeLabelState(state,label){
+      this.set('stateMappings',{state:state,label:label})
+    },
+    save(){
+      let stateMappings = Object.keys(this.get('stateMappings')).map((key) => {
+        let state = this.get(`stateMappings`)[key]
+        if( state.label && state.isDirty){
+         return this.get(`stateMappings`)[key];
+        }
+      });
+      stateMappings = stateMappings.filter((label)=>{
+        if(label){
+          return label
+        }
+      })
+      this.get('save').perform(stateMappings)
     }
   }
-})
+});

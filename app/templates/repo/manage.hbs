@@ -1,8 +1,5 @@
 <h1> State Mappings </h1>
-{{#each states.states as |state|}}
-  {{single-state-mapper stateName=state.name  labels=repo.labels}}
-{{/each}}
-
+{{state-mapper labels=repo.labels save=saveLabels}}
 <h1>Hooks</h1>
 <button type="button" class="btn btn-primary" {{action 'resolveHook' repo}}>
   {{#unless resolveHook.isIdle}} Processing {{/unless}}
