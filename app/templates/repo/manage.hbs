@@ -1,6 +1,6 @@
 <h1> State Mappings </h1>
 {{#each states.states as |state|}}
-  {{state-mapper stateName=state.name  labels=labels}}
+  {{single-state-mapper stateName=state.name  labels=repo.labels}}
 {{/each}}
 
 <h1>Hooks</h1>

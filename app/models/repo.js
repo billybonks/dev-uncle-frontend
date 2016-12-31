@@ -6,5 +6,6 @@ export default DS.Model.extend({
   name:      DS.attr('string'),
   hook_id: DS.attr(),
   user_id: DS.attr(),
-  pullRequests: DS.hasMany('pullRequest')
+  pullRequests: DS.hasMany('pullRequest'),
+  labels: DS.hasMany('labels')
 });

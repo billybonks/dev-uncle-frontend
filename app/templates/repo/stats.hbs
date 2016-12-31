@@ -1,15 +1,17 @@
-
+{{log repo.id}}
 <ol style="list-style-type:none; margin:0 0 20px 0; padding:0 0 20px 0; border-bottom:1px #6c65fb dashed;">
 	<li style="float:left"><h1>Pull Requests</h1></li>
 	<li style="float:right">
-		{{#link-to  "repo.manage" repoId classNames="btn btn-primary seb-btn"}}Settings{{repo.id}}{{/link-to}}
+		{{#link-to  "repo.manage" repo.id classNames="btn btn-primary seb-btn"}}Settings{{/link-to}}
 	</li>
 	<li style="clear:both"></li>
 </ol>
 
 {{#if labels.loadLabels.isIdle}}
+	{{log repo.labels}}
+	{{log repo}}
   {{#each states.states as |state|}}
-    {{pr-stats stateName=state.name pullRequests=model}}
+    {{pr-stats labels=repo.labels stateName=state.name pullRequests=model}}
   {{/each}}
 {{else}}
   Labels loading

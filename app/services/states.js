@@ -23,6 +23,10 @@ export default Service.extend({
     return this.findLabel(3,labels)
   },
   findLabel(index, labels){
-    return labels.findBy('state_id', this.get('states')[index].id)
+    if(labels){
+      return labels.findBy('state_id', this.get('states')[index].id)
+    } else {
+      return []
+    }
   }
 });

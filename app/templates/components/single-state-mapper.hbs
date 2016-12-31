@@ -1,0 +1,13 @@
+<div class="input-group">
+  <div class="input-group-addon">
+    {{stateName}}
+  </div>
+  <div class="form-control">
+    {{#power-select options=labels renderInPlace=true selected=label onchange=(action "changeLabel") as |label|}}
+      {{label.name}}
+    {{/power-select}}
+  </div>
+  <div class="input-group-btn">
+    {{power-button text="save" task=save}}
+  </div>
+</div>

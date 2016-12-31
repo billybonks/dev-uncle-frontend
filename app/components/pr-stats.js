@@ -6,8 +6,6 @@ import Table from 'ember-light-table';
 
 export default Component.extend({
   states: Ember.inject.service(),
-  labelsService: Ember.inject.service('labels'),
-  labels:computed.alias('labelsService.currentLabels'),
   sortBy:'updated_at',
   direction: false,
   init(){

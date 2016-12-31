@@ -11,6 +11,7 @@ export default Ember.Route.extend({
 
   setupController(controller, model){
     controller.set('model', model);
-    controller.set('repoId', this.paramsFor('repo').repo_id);
+
+    controller.set('repo', this.store.findRecord('repo', this.paramsFor('repo').repo_id));
   }
 });
