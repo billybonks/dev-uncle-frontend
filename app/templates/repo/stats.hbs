@@ -7,11 +7,9 @@
 	<li style="clear:both"></li>
 </ol>
 
-{{#if labels.loadLabels.isIdle}}
-	{{log repo.labels}}
-	{{log repo}}
+{{#if repo.labels.length}}
   {{#each states.states as |state|}}
-    {{pr-stats labels=repo.labels stateName=state.name pullRequests=model}}
+    {{pr-stats labels=repo.labels state=state pullRequests=model}}
   {{/each}}
 {{else}}
   Labels loading

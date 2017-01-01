@@ -13,7 +13,7 @@ export default Component.extend({
     this.set('table', new Table(this.get('columns')))
   },
   label:computed('labels', function(){
-    return this.get('states')[this.get('stateName')](this.get('labels'));
+    return this.get('states').findLabel(this.get('state.id'),this.get('labels'));
   }),
   filteredPullRequests:computed('pullRequests', 'label', 'sortBy', 'direction', function () {
     if(this.get('label')){

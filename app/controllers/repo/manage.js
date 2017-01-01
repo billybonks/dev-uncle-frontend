@@ -3,7 +3,6 @@ import { task } from 'ember-concurrency';
 import computed from 'ember-computed';
 
 export default Controller.extend({
-  labels: Ember.inject.service(),
   states: Ember.inject.service(),
   ajax: Ember.inject.service(),
   resolveHook: task(function * (repo) {

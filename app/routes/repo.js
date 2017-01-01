@@ -2,11 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
-  labels: Ember.inject.service(),
   model(params){
-    this.set('labels.repoId', params.repo_id)
-    this.get('labels.loadLabels').perform();
     return this.get('store').find('repo',params.repo_id);
+  },
+  afterModel(repo){
+    if(!repo.get('labels.length')){
+      this.get('store').query('label',{repo_id:repo.get('id')}).then(function(){
+        console.log('loadedLabels');
+      })
+    }
   },
   actions: {
     didTransition: function() {
