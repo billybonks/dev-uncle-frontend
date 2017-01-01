@@ -3,6 +3,7 @@ import { task } from 'ember-concurrency';
 import service from 'ember-service/inject';
 
 export default Controller.extend({
+  ajax: service(),
   states: service(),
   model: [],
   init(){
