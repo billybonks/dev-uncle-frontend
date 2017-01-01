@@ -23,7 +23,7 @@ export default Component.extend({
       return mappings;
     }
   }),
-  availableLabels:computed('stateMappings',function(){
+  availableLabels:computed('labels', 'stateMappings',function(){
     let usedIds = Object.keys(this.get('stateMappings')).map((key) => {
       if(this.get(`stateMappings`)[key].label){
         return this.get(`stateMappings`)[key].label.id;
@@ -34,15 +34,12 @@ export default Component.extend({
         return id
       }
     })
-    if(usedIds.length){
-      let labels = this.get('labels').filter((label) => {
-        if(!usedIds.includes(label.get('id'))){
-          return label
-        }
-      })
-      return labels;
-    }
-    return []
+    let labels = this.get('labels').filter((label) => {
+      if(!usedIds.includes(label.get('id'))){
+        return label
+      }
+    })
+    return labels;
   }),
   actions:{
     changeLabelState(state,label){
