@@ -3,7 +3,6 @@ import { task } from 'ember-concurrency';
 import service from 'ember-service/inject';
 
 export default Controller.extend({
-  ajax: service(),
   states: service(),
   model: [],
   init(){
@@ -14,9 +13,8 @@ export default Controller.extend({
     this.set('availableRepos', repos);
   }),
   installRepo: task(function * () {
-    let result = yield this.get('ajax').request(`api/install?repo=${this.get('selectedRepo')}`);
-    this.get('model').push(result.repo);
-    this.notifyPropertyChange('model')
+    let newRepo = this.get('store').createRecord('repo',{name:this.get('selectedRepo')})
+    yield newRepo.save();
   }),
   actions: {
     installRepo(){
