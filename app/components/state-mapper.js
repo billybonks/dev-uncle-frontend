@@ -1,11 +1,10 @@
 import Component from 'ember-component';
 import computed from 'ember-computed';
 import { task } from 'ember-concurrency';
-import  inject from 'ember-service/inject'
+import service from 'ember-service/inject';
 
 export default Component.extend({
-  ajax:   inject(),
-  states: inject(),
+  states: service(),
   stateMappings: computed('labels',{
     get(){
       let mappings = {}

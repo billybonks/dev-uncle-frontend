@@ -1,10 +1,10 @@
 import Controller from 'ember-controller';
 import { task } from 'ember-concurrency';
 import computed from 'ember-computed';
-
+import service from 'ember-service/inject';
 export default Controller.extend({
-  states: Ember.inject.service(),
-  ajax: Ember.inject.service(),
+  states: service(),
+  ajax: service(),
   resolveHook: task(function * (repo) {
     if(this.get('model.hook_id')){
       yield this.get('ajax').request(`api/deleteHook?repo_id=${this.get('model.id')}`);

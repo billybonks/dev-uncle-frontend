@@ -1,5 +1,6 @@
 import Controller from 'ember-controller';
+import service from 'ember-service/inject';
 
 export default Controller.extend({
-  states: Ember.inject.service()
+  states: service()
 });

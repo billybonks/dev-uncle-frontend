@@ -2,10 +2,10 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import Ember from 'ember';
 import Table from 'ember-light-table';
-
+import service from 'ember-service/inject';
 
 export default Component.extend({
-  states: Ember.inject.service(),
+  states: service(),
   sortBy:'updated_at',
   direction: false,
   init(){

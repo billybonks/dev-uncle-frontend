@@ -1,9 +1,10 @@
 import Controller from 'ember-controller';
 import { task } from 'ember-concurrency';
+import service from 'ember-service/inject';
 
 export default Controller.extend({
-  ajax: Ember.inject.service(),
-  states: Ember.inject.service(),
+  ajax: service(),
+  states: service(),
   model: [],
   init(){
     this.get('loadAvaliableRepos').perform()
