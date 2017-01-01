@@ -6,9 +6,7 @@ export default Ember.Route.extend({
   },
   afterModel(repo){
     if(!repo.get('labels.length')){
-      this.get('store').query('label',{repo_id:repo.get('id')}).then(function(){
-        console.log('loadedLabels');
-      })
+      this.get('store').query('label',{repo_id:repo.get('id')})
     }
   },
   actions: {

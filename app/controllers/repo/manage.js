@@ -27,7 +27,6 @@ export default Controller.extend({
     })
   }),
   saveSlack: task(function *(){
-    debugger
     results = yield this.get('ajax').request(`api/slack/orgs`,{
       method: 'POST',
       data: {
