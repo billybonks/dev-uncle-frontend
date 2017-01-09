@@ -10,26 +10,11 @@ body > .ember-view {
   height: 100%;
 }
 
-.container {
+.site-wrapper {
   height: 100%;
 }
 
-.container > .row {
-  height: 100%;
-}
 
-.container > .row .col-md-4 {
-  height: 100%;
-}
-
-.main-body-wrapper {
-  height: 100%;
-}
-
-.navigation {
-  width: 100%;
-}
-
-#left-nav {
+.site-wrapper > .nav {
   height: 100%;
 }

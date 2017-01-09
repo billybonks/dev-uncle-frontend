@@ -1,26 +1,23 @@
-
-<div class="container marpad-reset">
-  <div class="row">
-    <div class="col-md-4" style="width:300px;position:fixed">
-      {{#unless failed}}
-        <nav class="nav nav-pills nav-stacked sidebar">
-          <a class="nav-link email">
-            <span class="name">MangerBot</span><br>
-            {{user.email}}
-          </a>
-          {{#link-to "install" classNames="nav-link"}}
-            <i class="fa fa-cog"></i>Install
-          {{/link-to}}
-          {{#each model as |repo|}}
-            {{#link-to  "repo.stats" repo.id classNames="nav-link"}}
-              <i class="fa fa-file-code-o"></i>{{repo.name}}
-            {{/link-to}}
-          {{/each}}
-        </nav>
-      {{/unless}}
-    </div>
-    <div class="col-md-10 content" style="margin-left:300px">
-      {{outlet}}
-    </div>
+<div class="site-wrapper" style="width:300px;position:fixed">
+  {{#unless failed}}
+    <nav class="nav nav-pills nav-stacked sidebar">
+      <a class="nav-link email">
+        <span class="name">MangerBot</span><br>
+        {{user.email}}
+      </a>
+      {{#link-to "install" classNames="nav-link"}}
+        <i class="fa fa-cog"></i>Install
+      {{/link-to}}
+      {{#each model as |repo|}}
+        {{#link-to  "repo.stats" repo.id classNames="nav-link"}}
+          <i class="fa fa-file-code-o"></i>{{repo.name}}
+        {{/link-to}}
+      {{/each}}
+    </nav>
+  {{/unless}}
+</div>
+<div style="margin-left:300px">
+  <div class="container">
+    {{outlet}}
   </div>
 </div>
