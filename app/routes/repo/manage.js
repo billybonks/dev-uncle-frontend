@@ -3,6 +3,7 @@ import service from 'ember-service/inject';
 import AbstractRoute from "client/routes/abstract-route";
 
 export default AbstractRoute.extend({
+  title: 'Settings',
   ajax: service(),
   model(params){
     return this.store.findRecord('repo', this.paramsFor('repo').repo_id);
