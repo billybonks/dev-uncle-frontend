@@ -3,11 +3,6 @@ body {
   color:#fff;
 }
 
-.marpad-reset {
-  margin: 0;
-  padding: 0;
-}
-
 h3 {
   color:#fff;
   font-size:22px;
@@ -17,16 +12,9 @@ h3 {
   color: #809df9;
 }
 
-  .seb-btn {
-  border: #7182ff;
-  color: #fff;
-
-  &:hover {
-    background-color: #0177fd;
-    border: #93cefd;
-  }
+.container h1 {
+  font-size: 28px;
 }
-
 
 /* =============== sidebar =============== */
 
@@ -65,17 +53,6 @@ h3 {
     margin-right: 8px;
   }
 
-
-/* =============== content area =============== */
-
-.container {
-  padding-top: 20px;
-}
-
-.container h1 {
-    font-size: 28px;
-}
-
 /* =============== labels =============== */
 
 .sebpo-tag-position {
@@ -85,4 +62,15 @@ h3 {
 
 .sebpo-tag {
   margin-right:10px;
+}
+
+.fixed-header {
+  width: calc(100% - 300px);
+  list-style-type:none;
+  border-bottom:1px #6c65fb dashed;
+  position:fixed;
+  background-color: #243757;
+  padding: 20px;
+  height: 80px;
+  z-index: 10;
 }

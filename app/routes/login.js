@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import AbstractRoute from "client/routes/abstract-route";
 
-export default Ember.Route.extend({
+export default AbstractRoute.extend({
 });
