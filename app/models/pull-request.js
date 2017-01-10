@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import computed from 'ember-computed';
 
 export default DS.Model.extend({
   title:     DS.attr('string'),
@@ -7,9 +8,17 @@ export default DS.Model.extend({
   repo:      DS.belongsTo('repo'),
   onlineId:  DS.attr('string'),
   ownerId:   DS.attr('string'),
+  number:    DS.attr('number'),
   labels:    DS.attr('array'),
   createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
+  linkInfo: computed('number','title', 'repo.name', function(){
+    return Ember.Object.create({
+      title:this.get('title'),
+      number: this.get('number'),
+      repo: this.get('repo.name')
+    });
+  })
 });
 
 

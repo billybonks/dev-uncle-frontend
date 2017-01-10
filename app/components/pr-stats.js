@@ -32,8 +32,9 @@ export default Component.extend({
   columns: computed(function() {
     return [{
       label: 'Title',
-      valuePath: 'title',
       sortable: false,
+      valuePath: 'linkInfo',
+      cellComponent:'columns/pr-title',
 	  width:'53%',
     }, {
       label: 'Owner',
