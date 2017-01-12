@@ -8,6 +8,10 @@ $border-color: #DADADA;
   border-radius:3px;
   border-bottom: 1px #445e89 solid;
 
+  a {
+    color: #cfe1ff;
+  }
+  
   .multi-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
