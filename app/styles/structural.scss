@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+body > .ember-view {
+  height: 100%;
+}
+
+.nav-wrapper {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+}
+
+
+.container.has-fixed-header {
+  padding-top: 90px;
+}
+
+.container.no-fixed-header {
+  padding: 20px;
+}
+
+.content-wrapper {
+  margin-left: 300px;
+}

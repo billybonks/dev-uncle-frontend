@@ -1,4 +1,4 @@
-<div class="site-wrapper" style="width:300px;position:fixed">
+<div class="nav-wrapper" style="width:300px;position:fixed">
   {{#unless failed}}
     <nav class="nav nav-pills nav-stacked sidebar">
       <a class="nav-link email">
@@ -16,8 +16,17 @@
     </nav>
   {{/unless}}
 </div>
-<div style="margin-left:300px">
-  <div class="container">
+<div class="content-wrapper">
+  {{#if fixedHeader.title}}
+    <ol class="fixed-header">
+      <li style="float:left"><h1>{{fixedHeader.title}}</h1></li>
+      <li style="float:right">
+        {{component fixedHeader.controlsPath model=fixedHeader.controlsParams}}
+      </li>
+      <li style="clear:both"></li>
+    </ol>
+  {{/if}}
+  <div class="{{if fixedHeader.title 'has-fixed-header' 'no-fixed-header'}} container">
     {{outlet}}
   </div>
 </div>

@@ -1,12 +1,3 @@
-{{log repo.id}}
-<ol style="list-style-type:none; margin:0 0 20px 0; padding:0 0 20px 0; border-bottom:1px #6c65fb dashed;">
-	<li style="float:left"><h1>Pull Requests</h1></li>
-	<li style="float:right">
-		{{#link-to  "repo.manage" repo.id classNames="btn btn-primary seb-btn"}}Settings{{/link-to}}
-	</li>
-	<li style="clear:both"></li>
-</ol>
-
 {{#if repo.labels.length}}
   {{#each states.states as |state|}}
     {{pr-stats labels=repo.labels state=state pullRequests=model}}

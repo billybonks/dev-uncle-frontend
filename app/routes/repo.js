@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AbstractRoute from "client/routes/abstract-route";
 
-export default Ember.Route.extend({
+export default AbstractRoute.extend({
   model(params){
     return this.get('store').find('repo',params.repo_id);
   },

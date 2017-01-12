@@ -1,0 +1,10 @@
+.fixed-header {
+  width: calc(100% - 300px);
+  list-style-type:none;
+  border-bottom:1px #6c65fb dashed;
+  position:fixed;
+  background-color: #243757;
+  padding: 20px;
+  height: 80px;
+  z-index: 10;
+}
