@@ -1,17 +1,18 @@
-$border-color: #DADADA;
+$table-border-color: #dadada;
+$table-font-color: #cfe1ff;
 
 .ember-light-table {
   width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
-  color: #cfe1ff;
-  border-radius:3px;
+  color: $table-font-color;
+  border-radius: 3px;
   border-bottom: 1px #445e89 solid;
 
   a {
     color: #cfe1ff;
   }
-  
+
   .multi-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -22,12 +23,12 @@ $border-color: #DADADA;
   }
 
   tfoot .lt-column {
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $table-border-color;
   }
 
   thead .lt-column {
-  	border: 1px #5c77a5 solid;
-  	border-bottom: 0px;
+    border: 1px #5c77a5 solid;
+  	border-bottom:0;
     background-color: #445e89;
     color: #99fde3;
     text-transform: uppercase;
@@ -43,11 +44,11 @@ $border-color: #DADADA;
 
     &.is-drag-target {
       &.drag-right {
-        border-right: 1px dotted $border-color;
+        border-right: 1px dotted $table-border-color;
       }
 
       &.drag-left {
-        border-left: 1px dotted $border-color;
+        border-left: 1px dotted $table-border-color;
       }
     }
   }
@@ -109,7 +110,7 @@ $border-color: #DADADA;
 
 tfoot {
   tr > td {
-    border-top: 1px solid #DADADA;
+    border-top: 1px solid $table-border-color;
     padding: 10px 10px 0 10px;
     font-size: 13px;
   }
