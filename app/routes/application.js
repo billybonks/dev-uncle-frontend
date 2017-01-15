@@ -4,6 +4,7 @@ import AbstractRoute from "client/routes/abstract-route";
 
 export default AbstractRoute.extend({
   ajax: service(),
+  session: service(),
   failed: false,
   model(){
     return this.get('store').findAll('repo').catch( (err) => {
@@ -16,7 +17,8 @@ export default AbstractRoute.extend({
     controller.set('model', model);
     controller.set('failed', this.get('failed'))
     this.get('ajax').request('api/me').then( (results) => {
-     controller.set('user', results)
+      this.set('session.user', results)
+      controller.set('user', results)
    })
   }
 

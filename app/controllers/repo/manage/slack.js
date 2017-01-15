@@ -5,21 +5,16 @@ import service from 'ember-service/inject';
 
 export default Controller.extend({
   ajax: service(),
+  session: service(),
   saveSlack: task(function *(){
-    results = yield this.get('ajax').request(`api/slack/orgs`,{
-      method: 'POST',
-      data: {
-        slack_id: this.get('slack.id'),
-        slack_channel: this.get('slackChannel'),
-        repo_id: this.get('model.id')
-      }
-    })
+    yield this.get('model').save();
   }),
   slackOrgs: computed({
     get(){
-      this.get('ajax').request('api/slack/orgs').then( (orgs) => {
+      this.store.findAll('slackOrganization').then( (orgs) => {
+        console.log(orgs);
         this.set('slackOrgs',orgs)
-      })
+      });
     },
     set(_, value){
       return value;
@@ -27,7 +22,7 @@ export default Controller.extend({
   }),
   actions: {
     setSlackOrg(org){
-      this.set('slack', org)
-    }
+      this.set('model.slackOrganization', org)
+    },
   }
 });
