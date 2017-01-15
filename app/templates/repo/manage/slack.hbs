@@ -1,0 +1,18 @@
+<h1>Slack</h1>
+<div class="input-group">
+  <div class="input-group-addon">
+    Slack Org
+  </div>
+  <div class="form-control">
+    {{#power-select options=slackOrgs renderInPlace=true selected=model.slackOrganization onchange=(action "setSlackOrg") as |label|}}
+      {{label.name}}
+    {{/power-select}}
+  </div>
+</div>
+<div class="input-group">
+  <div class="input-group-addon">
+    Channel
+  </div>
+  {{input value=model.slackChannel classNames="form-control"}}
+</div>
+{{power-button text="save" task=saveSlack}}
