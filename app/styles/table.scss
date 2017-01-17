@@ -1,5 +1,8 @@
 $table-border-color: #dadada;
 $table-font-color: #cfe1ff;
+$table-header-background-color: #445e89;
+$table-header-font-color: #99fde3;
+$table-header-border-color: #5c77a5;
 
 .ember-light-table {
   width: 100%;
@@ -7,7 +10,7 @@ $table-font-color: #cfe1ff;
   border-collapse: collapse;
   color: $table-font-color;
   border-radius: 3px;
-  border-bottom: 1px #445e89 solid;
+  border-bottom: 1px $table-header-background-color solid;
 
   a {
     color: #cfe1ff;
@@ -27,10 +30,10 @@ $table-font-color: #cfe1ff;
   }
 
   thead .lt-column {
-    border: 1px #5c77a5 solid;
+    border: 1px $table-header-border-color solid;
   	border-bottom:0;
-    background-color: #445e89;
-    color: #99fde3;
+    background-color: $table-header-background-color;
+    color: $table-header-font-color;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -103,7 +106,7 @@ $table-font-color: #cfe1ff;
     td {
       font-size: 13px;
       padding: 10px;
-	  border: 1px #445e89 solid;
+	    border: 1px $table-header-background-color solid;
     }
   }
 }
