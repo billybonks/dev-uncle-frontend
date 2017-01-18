@@ -1,6 +1,6 @@
-<h1> State Mappings </h1>
+<h2> State Mappings </h2>
 {{state-mapper labels=repo.labels save=saveLabels}}
-<h1>Hooks</h1>
+<h2>Hooks</h2>
 <button type="button" class="btn btn-primary" {{action 'resolveHook' repo}}>
   {{#unless resolveHook.isIdle}} Processing {{/unless}}
   {{#unless repo.hook_id}}

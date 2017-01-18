@@ -1,6 +1,6 @@
 {{repos}}
 <div>
-  <h1 style="display:inline-block">Install repo</h1>
+  <h2 style="display:inline-block">Install repo</h2>
   <div class="input-group">
     {{#unless installRepo.isRunning}}
       {{#if loadAvaliableRepos.isIdle}}
@@ -21,7 +21,7 @@
   </div>
 </div>
 {{!-- <div style="margin-top:50px;">
-<h1>Installed Repos: {{model.length}}</h1>
+<h2>Installed Repos: {{model.length}}</h2>
 {{#each model as |repo|}}
   {{#link-to "repo" repo.id}}{{repo.name}}{{/link-to}}
   <br />
