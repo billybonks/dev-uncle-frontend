@@ -1,6 +1,5 @@
 import Component from 'ember-component';
 import computed from 'ember-computed';
-import Ember from 'ember';
 import Table from 'ember-light-table';
 import service from 'ember-service/inject';
 

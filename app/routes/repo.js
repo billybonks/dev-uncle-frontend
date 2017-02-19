@@ -7,10 +7,10 @@ export default AbstractRoute.extend({
   },
   afterModel(repo){
     if(!repo.get('labels.length')){
-      this.get('store').query('label',{repo_id:repo.get('id')})
+      this.get('store').query('label',{repo_id:repo.get('id')});
     }
     if(!repo.get('members.length')){
-      this.get('store').query('repoMember',{repo_id:repo.get('id')})
+      this.get('store').query('repoMember',{repo_id:repo.get('id')});
     }
   },
   actions: {

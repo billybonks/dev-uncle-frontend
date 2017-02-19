@@ -9,7 +9,7 @@ export default Component.extend({
   direction: false,
   init(){
     this._super(...arguments);
-    this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}))
+    this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
   },
   columns: computed(function() {
     return [{
@@ -19,7 +19,7 @@ export default Component.extend({
       label: 'Access',
       valuePath: 'access',
       ortable: false
-    }]
+    }];
   }).readOnly(),
   actions:{
     onColumnClick(column){
