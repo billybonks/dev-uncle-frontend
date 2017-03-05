@@ -6,7 +6,6 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
   });
-  console.log(app.bowerDirectory);
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css.map', {destDir: 'assets'})
   // Use `app.import` to add additional libraries to the generated

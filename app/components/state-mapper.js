@@ -18,7 +18,6 @@ export default Component.extend({
       let mappings = this.get('stateMappings');
       value.isDirty = true;
       mappings[value.state.id] = value;
-      console.log(mappings);
       this.notifyPropertyChange('stateMappings')
       return mappings;
     }

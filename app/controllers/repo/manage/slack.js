@@ -12,7 +12,6 @@ export default Controller.extend({
   slackOrgs: computed({
     get(){
       this.store.findAll('slackOrganization').then( (orgs) => {
-        console.log(orgs);
         this.set('slackOrgs',orgs)
       });
     },
