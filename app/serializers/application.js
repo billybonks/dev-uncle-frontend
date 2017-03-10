@@ -11,6 +11,9 @@ export default DS.RESTSerializer.extend({
     if(attr == 'repo'){
       return 'repo_id'
     }
+    if(attr == 'user'){
+      return 'user_id'
+    }
     return attr
   }
 });

@@ -14,7 +14,7 @@ export default Component.extend({
   columns: computed(function() {
     return [{
       label: 'Username',
-      valuePath: 'githubUser',
+      valuePath: 'user.githubUser',
     }, {
       label: 'Access',
       valuePath: 'access',
