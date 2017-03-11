@@ -6,6 +6,5 @@ export default Component.extend({
   tagName:'span',
   dateObject: Computed('value', function(){
     return moment(this.get('value')).add(8,'hours')
-    return new Date();
   })
 })
