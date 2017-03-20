@@ -11,22 +11,22 @@ export default Service.extend({
     return this.get('states').findBy('name', stateName);
   },
   review(labels){
-    return this.findLabel(1,labels)
+    return this.findLabel(1,labels);
   },
   revision(labels){
-    return this.findLabel(2,labels)
+    return this.findLabel(2,labels);
   },
   hold(labels){
-    return this.findLabel(3,labels)
+    return this.findLabel(3,labels);
   },
   complete(labels){
-    return this.findLabel(4,labels)
+    return this.findLabel(4,labels);
   },
   findLabel(id, labels){
     if(labels){
-      return labels.findBy('state_id', id)
+      return labels.findBy('state_id', id);
     } else {
-      return []
+      return [];
     }
   }
 });

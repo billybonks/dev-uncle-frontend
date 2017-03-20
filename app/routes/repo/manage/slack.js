@@ -15,7 +15,7 @@ export default AbstractRoute.extend({
   setupController(controller, model){
     this._super();
     let repo = this.store.findRecord('repo', this.paramsFor('repo').repo_id).then( (repo) => {
-      model.set('repo', repo)
+      model.set('repo', repo);
     });
     controller.set('model', model);
   }

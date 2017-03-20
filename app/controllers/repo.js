@@ -4,6 +4,6 @@ import service from 'ember-service/inject';
 
 export default Controller.extend({
   count:computed('model.length', function(){
-    return this.get('model.length')
+    return this.get('model.length');
   })
 });

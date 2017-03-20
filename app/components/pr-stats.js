@@ -9,7 +9,7 @@ export default Component.extend({
   direction: false,
   init(){
     this._super(...arguments);
-    this.set('table', new Table(this.get('columns')))
+    this.set('table', new Table(this.get('columns')));
   },
   label:computed('labels', function(){
     return this.get('states').findLabel(this.get('state.id'),this.get('labels'));
@@ -17,8 +17,8 @@ export default Component.extend({
   filteredPullRequests:computed('pullRequests', 'label', 'sortBy', 'direction', function () {
     if(this.get('label')){
       let prs = this.get('pullRequests').filter( pr => {
-        return pr.get('labels').findBy('id', this.get('label.online_id'))
-      }).sortBy(this.get('sortBy'))
+        return pr.get('labels').findBy('id', this.get('label.online_id'));
+      }).sortBy(this.get('sortBy'));
       if(this.get('direction')){
         prs = prs.reverse();
       }
@@ -49,7 +49,7 @@ export default Component.extend({
       valuePath: 'createdAt',
       width:'10%',
       cellComponent: 'days-since'
-    }]
+    }];
   }).readOnly(),
   actions:{
     onColumnClick(column){
@@ -59,4 +59,4 @@ export default Component.extend({
       }
     }
   }
-})
+});

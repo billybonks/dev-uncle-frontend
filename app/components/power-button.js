@@ -7,9 +7,9 @@ export default Component.extend({
   text: 'save',
   click(){
     if(this.get('action')){
-      this.sendAction('action')
+      this.sendAction('action');
     } else {
-      this.get('task').perform()
+      this.get('task').perform();
     }
   }
-})
+});

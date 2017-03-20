@@ -12,7 +12,7 @@ export default Controller.extend({
   slackOrgs: computed({
     get(){
       this.store.findAll('slackOrganization').then( (orgs) => {
-        this.set('slackOrgs',orgs)
+        this.set('slackOrgs',orgs);
       });
     },
     set(_, value){
@@ -21,7 +21,7 @@ export default Controller.extend({
   }),
   actions: {
     setSlackOrg(org){
-      this.set('model.slackOrganization', org)
+      this.set('model.slackOrganization', org);
     },
   }
 });

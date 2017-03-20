@@ -5,6 +5,6 @@ export default DS.Transform.extend({
     return serialized;
   },
   serialize: function(deserialized, options) {
-    return deserialized
+    return deserialized;
   }
 });

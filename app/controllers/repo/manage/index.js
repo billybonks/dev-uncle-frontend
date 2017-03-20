@@ -24,7 +24,7 @@ export default Controller.extend({
       }
       newLabel.set('state_id', mapping.state.id);
       newLabel.save();
-    })
+    });
   }),
   saveSlack: task(function *(){
     results = yield this.get('ajax').request(`api/slack/orgs`,{
@@ -34,13 +34,13 @@ export default Controller.extend({
         slack_channel: this.get('slackChannel'),
         repo_id: this.get('model.id')
       }
-    })
+    });
   }),
   slackOrgs: computed({
     get(){
       this.get('ajax').request('api/slack/orgs').then( (orgs) => {
-        this.set('slackOrgs',orgs)
-      })
+        this.set('slackOrgs',orgs);
+      });
     },
     set(_, value){
       return value;
@@ -48,10 +48,10 @@ export default Controller.extend({
   }),
   actions: {
     setSlackOrg(org){
-      this.set('slack', org)
+      this.set('slack', org);
     },
     resolveHook(repo){
-      this.get('resolveHook').perform(repo)
+      this.get('resolveHook').perform(repo);
     }
   }
 });
