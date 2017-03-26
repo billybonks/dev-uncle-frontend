@@ -3,7 +3,7 @@
   {{log mappedState}}
   <div class="input-group">
     <div class="input-group-addon">
-      {{mappedState.state.name}}
+      {{mappedState.state.title}}
     </div>
     <div class="form-control">
       {{#power-select options=availableLabels renderInPlace=true selected=mappedState.label onchange=(action "changeLabelState" mappedState.state) as |label|}}

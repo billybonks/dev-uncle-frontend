@@ -12,6 +12,11 @@ export default AbstractRoute.extend({
     if(!repo.get('members.length')){
       this.get('store').query('repoMember',{repo_id:repo.get('id')});
     }
+    if(!repo.get('state.length')){
+      this.store.query('state', {repo_id: this.paramsFor('repo').repo_id}).then( (states) => {
+        this.set('states', states);
+      });
+    }
   },
   actions: {
     didTransition: function() {

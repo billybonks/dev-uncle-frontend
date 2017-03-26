@@ -4,12 +4,12 @@ import { task } from 'ember-concurrency';
 import service from 'ember-service/inject';
 
 export default Component.extend({
-  states: service(),
-  stateMappings: computed('labels',{
+  statesService: service('states'),
+  stateMappings: computed('labels','states',{
     get(){
       let mappings = {};
-      this.get('states.states').map( (state) => {
-        let label = this.get('states').findLabel(state.id,this.get('labels'));
+      this.get('states').map( (state) => {
+        let label = this.get('statesService').findLabel(state.get('id'), this.get('labels'));
         mappings[state.id] = {label:label, state:state, isDirty:false};
       });
       return mappings;
