@@ -1,4 +1,5 @@
 {{#if repo.labels.length}}
+  {{pullrequest-table labels=repo.labels state=state pullRequests=model}}
   {{#each repo.states as |state|}}
     {{pr-stats labels=repo.labels state=state pullRequests=model}}
   {{/each}}
