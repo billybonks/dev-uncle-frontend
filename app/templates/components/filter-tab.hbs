@@ -1,0 +1,13 @@
+{{#if filter.isEditing}}
+  {{input value=filter.name}}
+{{else}}
+  {{filter.name}}
+{{/if}}
+&nbsp;
+{{#if filter.isActive}}
+  {{#if filter.isEditing}}
+    {{fa-icon "caret-up" click=(action cancelEditingFilter filter)}}
+  {{else}}
+    {{fa-icon "caret-down" click=(action editFilter filter)}}
+  {{/if}}
+{{/if}}

@@ -9,7 +9,7 @@ export default DS.Model.extend({
   onlineId:  DS.attr('string'),
   ownerId:   DS.attr('string'),
   number:    DS.attr('number'),
-  labels:    DS.attr('array'),
+  labels: DS.hasMany('labels'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   linkInfo: computed('number','title', 'repo.name', function(){

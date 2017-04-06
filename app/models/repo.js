@@ -7,6 +7,7 @@ export default DS.Model.extend({
   hook_id: DS.attr(),
   user_id: DS.attr(),
   states: DS.hasMany('states'),
+  filters: DS.hasMany('filters'),
   pullRequests: DS.hasMany('pullRequest'),
   labels: DS.hasMany('labels'),
   members: DS.hasMany('repoMember')

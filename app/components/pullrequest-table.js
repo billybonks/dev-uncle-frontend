@@ -1,24 +1,60 @@
 import Component from 'ember-component';
-import computed from 'ember-computed';
+import computed, { readOnly }  from 'ember-computed-decorators';
 import Table from 'ember-light-table';
+import _ from 'underscore';
 
 export default Component.extend({
   sortBy:'updated_at',
   direction: false,
-  newFilter: false,
+
   init(){
     this._super(...arguments);
     this.set('table', new Table(this.get('columns')));
   },
-  filteredPullRequests:computed('pullRequests', 'sortBy', 'direction', function () {
-    let prs = this.get('pullRequests').sortBy(this.get('sortBy'));
+
+  @computed
+  activeFilter:{
+    get(){
+      this.set('filters.firstObject.isActive', true);
+      return this.get('filters.firstObject');
+    },
+    set(filter){
+      if(this.get('activeFilter.id') == filter.get('id')){
+        return filter
+      }
+      this.set('activeFilter.isEditing', false);
+      this.set('activeFilter.isActive', false);
+      filter.set('isActive', true);
+      return filter;
+    }
+  },
+
+  @computed('pullRequests',  'activeFilter.filters')
+  filteredPullRequests(){
+    let labelFilters = this.get('activeFilter.filters.labels');
+    return this.get('pullRequests').filter( (pullRequest) => {
+      let labelIds = pullRequest.get('labels').map( (label) => {
+        return label.get('id');
+      });
+      if(_.intersection(labelIds, labelFilters).length){
+        return true;
+      }
+    });
+  },
+
+  @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')
+  sortedPullRequests() {
+    let prs = this.get('filteredPullRequests').sortBy(this.get('sortBy'));
     if(this.get('direction')){
       prs = prs.reverse();
     }
     this.get('table').setRows(prs);
     return prs;
-  }),
-  columns: computed(function() {
+  },
+
+  @readOnly
+  @computed
+  columns() {
     return [{
       label: 'Title',
       sortable: false,
@@ -40,18 +76,11 @@ export default Component.extend({
       width:'10%',
       cellComponent: 'days-since'
     }];
-  }).readOnly(),
+  },
+
   actions:{
-    cancelFilter() {
-      this.set('newFilter', false);
-    },
-    createFilter() {
-      this.set('newFilter', true);
-    },
-    filterModified(){
-    },
-    labelToggled(label){
-      label.set('active', !label.get('active'));
+    selectedFilter(filter){
+      this.set('activeFilter', filter);
     },
     onColumnClick(column){
       if(column.get('sortable')){

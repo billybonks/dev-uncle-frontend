@@ -2,9 +2,9 @@
   <span class="purple-colour">
     Total:
   </span>
-  {{filteredPullRequests.length}}
+  {{sortedPullRequests.length}}
 </div>
-{{table-filters labels=labels}}
+{{filter-header repo=repo labels=labels activeFilter=activeFilter filters=filters selectedFilter=(action 'selectedFilter')}}
 {{#light-table table as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')

@@ -1,16 +1,3 @@
 {{#each labels as |label|}}
-  {{label-display label=label action=(action 'labelToggled')}}
+  {{label-display label=label action=(action 'labelToggled') selectable=true}}
 {{/each}}
-<div>
-  {{power-button action="saveFilter" text="save"}}
-  {{power-button action=cancelFilter text="cancel"}}
-</div>
-{{!-- <div class="input-group">
-  <span class="input-group-addon">Minumum age</span>
-  {{input value=model.age}}
-</div>
-
-<div class="input-group">
-  <span class="input-group-addon">Last active</span>
-  {{input value=model.active}}
-</div> --}}
