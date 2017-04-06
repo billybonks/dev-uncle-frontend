@@ -6,19 +6,15 @@ export default Component.extend({
   store: service(),
   @computed('editingFilter')
   showNewFilter(){
-    debugger
     let editingFilter = this.get('editingFilter')
     if(!editingFilter) return true
     if(!editingFilter.get('isNew')) return true
   },
   actions:{
     selectedFilter(filter){
-      this.send('cancelFilter');
+      if(this.get('editingFilter') == filter) return
+      this.send('cancelEditingFilter');
       this.sendAction('selectedFilter', filter)
-    },
-    cancelFilter() {
-      this.get('editingFilter').destroy();
-      this.set('editingFilter', null);
     },
     createFilter() {
       let filter = this.get('store').createRecord('filter');
@@ -32,7 +28,10 @@ export default Component.extend({
       this.get('editingFilter').save();
     },
     cancelEditingFilter(filter){
-      filter.set('isEditing', false);
+      if(this.get('editingFilter.isNew')){
+        this.get('editingFilter').deleteRecord();
+      }
+      this.get('editingFilter').set('isEditing', false);
       this.set('editingFilter', null);
     },
     editFilter(filter){
