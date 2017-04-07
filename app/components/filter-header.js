@@ -28,11 +28,14 @@ export default Component.extend({
       this.get('editingFilter').save();
     },
     cancelEditingFilter(filter){
-      if(this.get('editingFilter.isNew')){
-        this.get('editingFilter').deleteRecord();
+      let editingFilter = this.get('editingFilter');
+      if(editingFilter){
+        if(editingFilter.get('isNew')){
+          editingFilter.deleteRecord();
+        }
+        editingFilter.set('isEditing', false);
+        this.set('editingFilter', null);
       }
-      this.get('editingFilter').set('isEditing', false);
-      this.set('editingFilter', null);
     },
     editFilter(filter){
       filter.set('isEditing', true);
