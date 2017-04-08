@@ -25,7 +25,9 @@ export default Component.extend({
       this.send('editFilter', filter);
     },
     saveFilter(){
-      this.get('editingFilter').save();
+      this.get('editingFilter').save().then( () => {
+        this.send('cancelEditingFilter');
+      });
     },
     cancelEditingFilter(filter){
       let editingFilter = this.get('editingFilter');
