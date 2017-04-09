@@ -15,8 +15,10 @@ export default Component.extend({
   @computed
   activeFilter:{
     get(){
-      this.set('filters.firstObject.isActive', true);
-      return this.get('filters.firstObject');
+      if(this.get('filters.firstObject')){
+        this.set('filters.firstObject.isActive', true);
+        return this.get('filters.firstObject');  
+      }
     },
     set(filter){
       if(this.get('activeFilter.id') == filter.get('id')){
