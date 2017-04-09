@@ -2,10 +2,15 @@
   {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
 {{/each}}
 
+{{power-button action=(action "saveRules") text="save"}}
 
 
 
 {{!-- {{state-mapper labels=repo.labels states=repo.states save=saveLabels}} --}}
+<br />
+<br />
+<br />
+
 <h2>Hooks</h2>
 <button type="button" class="btn btn-primary" {{action 'resolveHook' repo}}>
   {{#unless resolveHook.isIdle}} Processing {{/unless}}

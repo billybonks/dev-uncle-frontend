@@ -17,7 +17,7 @@ export default Component.extend({
     get(){
       if(this.get('filters.firstObject')){
         this.set('filters.firstObject.isActive', true);
-        return this.get('filters.firstObject');  
+        return this.get('filters.firstObject');
       }
     },
     set(filter){
