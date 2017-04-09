@@ -10,5 +10,6 @@ export default DS.Model.extend({
   filters: DS.hasMany('filters'),
   pullRequests: DS.hasMany('pullRequest'),
   labels: DS.hasMany('labels'),
-  members: DS.hasMany('repoMember')
+  members: DS.hasMany('repoMember'),
+  rules: DS.hasMany('rules')
 });
