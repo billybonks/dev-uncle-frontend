@@ -1,6 +1,5 @@
 import DS from 'ember-data';
-import computed from 'ember-computed';
-
+import computed from 'ember-computed-decorators';
 export default DS.Model.extend({
   title:     DS.attr('string'),
   state:     DS.attr('string'),
@@ -12,13 +11,15 @@ export default DS.Model.extend({
   labels: DS.hasMany('labels'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
-  linkInfo: computed('number','title', 'repo.name', function(){
+
+  @computed('number','title', 'repo.name')
+  linkInfo(){
     return Ember.Object.create({
       title:this.get('title'),
       number: this.get('number'),
       repo: this.get('repo.name')
     });
-  })
+  }
 });
 
 

@@ -1,6 +1,6 @@
 import Controller from 'ember-controller';
 import { task } from 'ember-concurrency';
-import computed from 'ember-computed';
+import computed from 'ember-computed-decorators';
 import service from 'ember-service/inject';
 export default Controller.extend({
   states: service(),
@@ -36,7 +36,9 @@ export default Controller.extend({
       }
     });
   }),
-  slackOrgs: computed({
+
+  @computed
+  slackOrgs:{
     get(){
       this.get('ajax').request('api/slack/orgs').then( (orgs) => {
         this.set('slackOrgs',orgs);
@@ -45,7 +47,7 @@ export default Controller.extend({
     set(_, value){
       return value;
     }
-  }),
+  },
   actions: {
     setSlackOrg(org){
       this.set('slack', org);

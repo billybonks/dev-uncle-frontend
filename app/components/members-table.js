@@ -1,7 +1,7 @@
 import Component from 'ember-component';
-import computed from 'ember-computed';
 import Table from 'ember-light-table';
 import service from 'ember-service/inject';
+import computed, { readOnly } from 'ember-computed-decorators';
 
 export default Component.extend({
   store: service(),
@@ -11,7 +11,9 @@ export default Component.extend({
     this._super(...arguments);
     this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
   },
-  columns: computed(function() {
+  @readOnly
+  @computed
+  columns() {
     return [{
       label: 'Username',
       valuePath: 'user.githubUser',
@@ -20,7 +22,7 @@ export default Component.extend({
       valuePath: 'access',
       ortable: false
     }];
-  }).readOnly(),
+  },
   actions:{
     onColumnClick(column){
       if(column.get('sortable')){
