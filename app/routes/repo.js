@@ -17,6 +17,11 @@ export default AbstractRoute.extend({
         this.set('states', states);
       });
     }
+    if(!repo.get('filters.length')){
+      this.store.query('filter', {repo_id: this.paramsFor('repo').repo_id}).then( (states) => {
+        this.set('filters', states);
+      });
+    }
   },
   actions: {
     didTransition: function() {

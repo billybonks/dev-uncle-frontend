@@ -1,0 +1,18 @@
+.filter-tab {
+  background: $table-header-background-color;
+  color: $table-header-font-color;
+  display: inline-block;
+  padding: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.filter-builder {
+  background: $table-header-background-color;
+  color: $table-header-font-color;
+}
+
+.filter-tab__active {
+  background: #7182FF;
+  color: white;
+}

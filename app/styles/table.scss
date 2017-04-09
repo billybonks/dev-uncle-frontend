@@ -20,12 +20,13 @@
   }
 
   tfoot .lt-column {
-    border-top: 1px solid $table-border-color;
+    // border-top: 1px solid $table-border-color;
   }
 
   thead .lt-column {
+    border-top: none;
     border: 1px $table-header-border-color solid;
-  	border-bottom:0;
+  	border-bottom: 0;
     background-color: $table-header-background-color;
     color: $table-header-font-color;
     text-transform: uppercase;
@@ -107,7 +108,7 @@
 
 tfoot {
   tr > td {
-    border-top: 1px solid $table-border-color;
+    // border-top: 1px solid $table-border-color;
     padding: 10px 10px 0 10px;
     font-size: 13px;
   }
