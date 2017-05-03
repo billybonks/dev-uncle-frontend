@@ -49,6 +49,14 @@ export default Controller.extend({
     }
   },
   actions: {
+    saveRules(){
+      this.get('repo.rules').forEach( (rule) => {
+        if(rule.get('hasDirtyAttributes')){
+          rule.save();
+          rule.set('hasDirtyAttributes', false)
+        }
+      })
+    },
     setSlackOrg(org){
       this.set('slack', org);
     },

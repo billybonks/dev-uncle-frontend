@@ -6,26 +6,18 @@ export default AbstractRoute.extend({
     return this.get('store').find('repo',params.repo_id);
   },
   afterModel(repo){
-    if(!repo.get('labels.length')){
-      this.get('store').query('label',{repo_id:repo.get('id')});
-    }
     if(!repo.get('members.length')){
       this.get('store').query('repoMember',{repo_id:repo.get('id')});
     }
-    if(!repo.get('state.length')){
-      this.store.query('state', {repo_id: this.paramsFor('repo').repo_id}).then( (states) => {
-        this.set('states', states);
-      });
-    }
-    if(!repo.get('filters.length')){
-      this.store.query('filter', {repo_id: this.paramsFor('repo').repo_id}).then( (states) => {
-        this.set('filters', states);
-      });
-    }
+    this.ensureRecord(repo, 'rule');
+    this.ensureRecord(repo, 'filter');
+    this.ensureRecord(repo, 'label');
   },
-  actions: {
-    didTransition: function() {
-      //this.transitionTo('repo.stats')
+  ensureRecord(parentModel,childModelName){
+    if(!parentModel.get(`${Ember.String.pluralize(childModelName)}.length`)){
+      this.store.query(childModelName, {repo_id: parentModel.get('id')}).then( (results) => {
+        this.set(childModelName, results);
+      });
     }
   }
 });
