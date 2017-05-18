@@ -2,8 +2,18 @@ import Component from 'ember-component';
 import service from 'ember-service/inject';
 import computed from 'ember-computed-decorators';
 
+
+
 export default Component.extend({
   store: service(),
+  @computed('labels')
+  filtersTypes(){
+    return [{
+      title:'Active Labels',
+      component: 'filters/editors/label-picker',
+      model: this.get('labels')
+    }]
+  },
   @computed('editingFilter')
   showNewFilter(){
     let editingFilter = this.get('editingFilter')
