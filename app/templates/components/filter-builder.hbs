@@ -1,8 +1,10 @@
 {{#each filtersTypes as |filterType|}}
-  <div class="col-md-2">
-    {{filterType.title}}
-  </div>
-  <div class="col-md-10">
-    {{component filterType.component model=filterType.model action=action filter=filter}}
+  <div class="row">
+    <div class="col-md-2">
+      {{filterType.title}}
+    </div>
+    <div class="col-md-10">
+      {{component filterType.component model=filterType.model action=action filter=filter}}
+    </div>
   </div>
 {{/each}}

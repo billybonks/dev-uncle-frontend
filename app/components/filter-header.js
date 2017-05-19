@@ -9,6 +9,10 @@ export default Component.extend({
   @computed('labels')
   filtersTypes(){
     return [{
+        title:'Last Modified',
+        component: 'filters/editors/age-filter'
+      },
+      {
       title:'Active Labels',
       component: 'filters/editors/label-picker',
       model: this.get('labels')
