@@ -34,7 +34,7 @@ export default Component.extend({
   @computed('pullRequests',  'activeFilter.filters')
   filteredPullRequests(){
     let labelFilters = this.get('activeFilter.filters.labels');
-    return this.get('pullRequests').filter( (pullRequest) => {
+    let pullRequests = this.get('pullRequests').filter( (pullRequest) => {
       let labelIds = pullRequest.get('labels').map( (label) => {
         return label.get('id');
       });
@@ -42,6 +42,10 @@ export default Component.extend({
         return true;
       }
     });
+    let ageFilter = parseInt(this.get('activeFilter.filters.age'));
+    return this.get('pullRequests').filter( (pullRequest) => {
+      return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter
+    })
   },
 
   @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')
