@@ -1,9 +1,7 @@
-import Ember from 'ember';
-import service from 'ember-service/inject';
 import AbstractRoute from "client/routes/repo/manage/abstract-route";
 
 export default AbstractRoute.extend({
-  model(params){
+  model(){
     let repoId = this.paramsFor('repo').repo_id;
     return this.store.queryRecord('slackSetting', {repoId}).then( (record) => {
       if(!record){
@@ -13,10 +11,19 @@ export default AbstractRoute.extend({
     });
   },
   setupController(controller, model){
+    let repoId =  this.paramsFor('repo').repo_id;
     this._super();
-    let repo = this.store.findRecord('repo', this.paramsFor('repo').repo_id).then( (repo) => {
+    this.store.findRecord('repo', repoId).then( (repo) => {
       model.set('repo', repo);
+      controller.set('repo', repo);
     });
+
+    controller.set('filters', this.store.peekAll('filter'));
+
+    this.store.query('slackNotification', {repo_id:repoId}).then( results => {
+      controller.set('slackNotifications', results);
+    });
+
     controller.set('model', model);
   }
 });

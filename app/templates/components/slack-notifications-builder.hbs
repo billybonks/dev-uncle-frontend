@@ -1,0 +1,38 @@
+<h2>Slack Notifications</h2>
+<p> automatically post pull requests matching a prebuilt filter (usefull if you want to show stale pr"s to the team for example)</p>
+<div class="form-group">
+  <label>Filter</label>
+  {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
+    {{filter.name}}
+  {{/power-select}}
+</div>
+
+<div class="form-group">
+  <label>Time</label>
+  {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
+    {{time}}
+  {{/power-select}}
+</div>
+
+<div class="form-group">
+  <label>Target</label>
+  {{#power-select options=targets renderInPlace=true selected=notification.target onchange=(action "targetChanged") as |target|}}
+    {{target}}
+  {{/power-select}}
+</div>
+
+{{!-- <div class="form-group">
+  <label>Interval</label>
+  {{#power-select options=intervals renderInPlace=true selected=notification.interval onchange=(action "intervalChanged") as |interval|}}
+    {{interval}}
+  {{/power-select}}
+</div> --}}
+
+
+
+
+
+
+
+
+{{power-button text="Add" action=(action "addFilterNotifcation")}}

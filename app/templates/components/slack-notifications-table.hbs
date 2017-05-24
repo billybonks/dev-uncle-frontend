@@ -1,0 +1,22 @@
+{{#light-table table as |t|}}
+
+  {{t.head
+    iconAscending='fa fa-sort-asc'
+    iconDescending='fa fa-sort-desc'}}
+
+  {{#t.body as |body|}}
+
+    {{#if isLoading}}
+      {{#body.loader}}
+        Loading...
+      {{/body.loader}}
+    {{/if}}
+
+    {{#if table.isEmpty}}
+      {{#body.no-data}}
+        You have not created filter notifications yet
+      {{/body.no-data}}
+    {{/if}}
+  {{/t.body}}
+
+{{/light-table}}

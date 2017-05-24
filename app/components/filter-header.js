@@ -2,8 +2,6 @@ import Component from 'ember-component';
 import service from 'ember-service/inject';
 import computed from 'ember-computed-decorators';
 
-
-
 export default Component.extend({
   store: service(),
   @computed('labels')

@@ -5,15 +5,9 @@ export default DS.RESTSerializer.extend({
     return Ember.String.underscore(attr);
   },
   keyForRelationship: function(attr, method) {
-    if(attr == 'slackOrganization'){
-      return 'slack_organization_id';
+    if(attr == 'labels'){
+      return attr;
     }
-    if(attr == 'repo'){
-      return 'repo_id';
-    }
-    if(attr == 'user'){
-      return 'user_id';
-    }
-    return attr;
+    return `${Ember.String.underscore(attr)}_id`;
   }
 });
