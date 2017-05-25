@@ -15,6 +15,14 @@ export default Component.extend({
     return [{
       label: 'Filter',
       valuePath: 'filter.name',
+    },
+    {
+      label: 'Notification Time',
+      valuePath: 'time',
+    },
+    {
+      label: 'Target',
+      valuePath: 'target',
     }];
   },
 })
