@@ -6,7 +6,7 @@ export default DS.RESTSerializer.extend({
   },
   keyForRelationship: function(attr, method) {
     if(attr == 'labels'){
-      return attr;
+      return 'label_ids';
     }
     return `${Ember.String.underscore(attr)}_id`;
   }
