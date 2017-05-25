@@ -44,7 +44,7 @@ export default Component.extend({
     });
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
     return pullRequests.filter( (pullRequest) => {
-      return moment().diff(pullRequest.get('updatedAt'),'days') < ageFilter
+      return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter
     })
   },
 
