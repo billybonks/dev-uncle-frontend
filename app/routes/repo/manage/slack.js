@@ -13,6 +13,9 @@ export default AbstractRoute.extend({
   setupController(controller, model){
     let repoId =  this.paramsFor('repo').repo_id;
     this._super();
+    this.store.findAll('slackOrganization').then( (orgs) => {
+      controller.set('slackOrgs',orgs);
+    });
     this.store.findRecord('repo', repoId).then( (repo) => {
       model.set('repo', repo);
       controller.set('repo', repo);
