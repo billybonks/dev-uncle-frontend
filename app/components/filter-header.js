@@ -25,7 +25,10 @@ export default Component.extend({
   actions:{
     selectedFilter(filter){
       if(this.get('editingFilter') == filter) return
-      this.send('cancelEditingFilter');
+      if(filter.get('isEditing')){
+        this.send('cancelEditingFilter');
+        this.send('editFilter', filter);
+      }
       this.sendAction('selectedFilter', filter)
     },
     createFilter() {
