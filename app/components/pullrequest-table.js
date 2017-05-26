@@ -34,18 +34,26 @@ export default Component.extend({
   @computed('pullRequests',  'activeFilter.filters')
   filteredPullRequests(){
     let labelFilters = this.get('activeFilter.filters.labels');
-    let pullRequests = this.get('pullRequests').filter( (pullRequest) => {
-      let labelIds = pullRequest.get('labels').map( (label) => {
-        return label.get('id');
+    let pullRequests = this.get('pullRequests');
+    if(labelFilters){
+      pullRequests = this.get('pullRequests').filter( (pullRequest) => {
+        let labelIds = pullRequest.get('labels').map( (label) => {
+          return label.get('id');
+        });
+        if(_.intersection(labelIds, labelFilters).length){
+          return true;
+        }
       });
-      if(_.intersection(labelIds, labelFilters).length){
-        return true;
-      }
-    });
+    }
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
-    return pullRequests.filter( (pullRequest) => {
-      return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter
-    })
+    if(ageFilter){
+      return pullRequests.filter( (pullRequest) => {
+        return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter
+      })
+    } else {
+      return pullRequests;
+    }
+
   },
 
   @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')
