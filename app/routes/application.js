@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import service from 'ember-service/inject';
 import AbstractRoute from "client/routes/abstract-route";
 
@@ -7,7 +6,7 @@ export default AbstractRoute.extend({
   session: service(),
   failed: false,
   model(){
-    return this.get('store').findAll('repo').catch( (err) => {
+    return this.get('store').findAll('repo').catch( () => {
       this.transitionTo('login');
       this.set('failed', true);
     });

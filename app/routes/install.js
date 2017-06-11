@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import service from 'ember-service/inject';
 import AbstractRoute from "client/routes/abstract-route";
 

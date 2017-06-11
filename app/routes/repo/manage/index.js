@@ -1,10 +1,9 @@
-import Ember from 'ember';
 import service from 'ember-service/inject';
 import AbstractRoute from "client/routes/repo/manage/abstract-route";
 
 export default AbstractRoute.extend({
   ajax: service(),
-  model(params){
+  model(/*params*/){
     return this.store.findRecord('repo', this.paramsFor('repo').repo_id);
   },
   setupController(controller, model){
