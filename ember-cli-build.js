@@ -3,9 +3,12 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function() {
-  let app = new EmberApp({
-    'babel': {
-      "plugins": ["transform-decorators-legacy"],
+  var app = new EmberApp({
+    babel: {
+      plugins: [
+        'transform-decorators-legacy',
+        'transform-class-properties'
+      ]
     }
   });
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')
