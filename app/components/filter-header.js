@@ -14,22 +14,22 @@ export default Component.extend({
       title:'Active Labels',
       component: 'filters/editors/label-picker',
       model: this.get('labels')
-    }]
+    }];
   },
   @computed('editingFilter')
   showNewFilter(){
-    let editingFilter = this.get('editingFilter')
-    if(!editingFilter) return true
-    if(!editingFilter.get('isNew')) return true
+    let editingFilter = this.get('editingFilter');
+    if(!editingFilter) return true;
+    if(!editingFilter.get('isNew')) return true;
   },
   actions:{
     selectedFilter(filter){
-      if(this.get('editingFilter') == filter) return
+      if(this.get('editingFilter') == filter) return;
       if(filter.get('isEditing')){
         this.send('cancelEditingFilter');
         this.send('editFilter', filter);
       }
-      this.sendAction('selectedFilter', filter)
+      this.sendAction('selectedFilter', filter);
     },
     createFilter() {
       let filter = this.get('store').createRecord('filter');
@@ -44,7 +44,7 @@ export default Component.extend({
         this.send('cancelEditingFilter');
       });
     },
-    cancelEditingFilter(filter){
+    cancelEditingFilter(){
       let editingFilter = this.get('editingFilter');
       if(editingFilter){
         if(editingFilter.get('isNew')){

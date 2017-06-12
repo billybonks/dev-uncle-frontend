@@ -1,6 +1,7 @@
 import Component from 'ember-component';
 import computed, { readOnly }  from 'ember-computed-decorators';
 import Table from 'ember-light-table';
+import moment from 'moment';
 import _ from 'underscore';
 
 export default Component.extend({
@@ -22,7 +23,7 @@ export default Component.extend({
     },
     set(filter){
       if(this.get('activeFilter.id') == filter.get('id')){
-        return filter
+        return filter;
       }
       this.set('activeFilter.isEditing', false);
       this.set('activeFilter.isActive', false);
@@ -48,8 +49,8 @@ export default Component.extend({
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
     if(ageFilter){
       return pullRequests.filter( (pullRequest) => {
-        return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter
-      })
+        return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter;
+      });
     } else {
       return pullRequests;
     }

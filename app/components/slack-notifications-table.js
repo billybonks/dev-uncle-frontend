@@ -1,6 +1,5 @@
 import Component from 'ember-component';
 import Table from 'ember-light-table';
-import service from 'ember-service/inject';
 import computed, { readOnly } from 'ember-computed-decorators';
 
 export default Component.extend({
@@ -25,4 +24,4 @@ export default Component.extend({
       valuePath: 'target',
     }];
   },
-})
+});

@@ -5,12 +5,12 @@ import service from 'ember-service/inject';
 export default Controller.extend({
   states: service(),
   ajax: service(),
-  resolveHook: task(function * (repo) {
+  resolveHook: task(function * () {
     if(this.get('model.hook_id')){
       yield this.get('ajax').request(`api/deleteHook?repo_id=${this.get('model.id')}`);
       this.set('model.hook_id', null);
     } else {
-      let hook = yield this.get('ajax').request(`api/installHook?repo_id=${this.get('model.id')}`);
+      yield this.get('ajax').request(`api/installHook?repo_id=${this.get('model.id')}`);
       this.set('model.hook_id', 1);
     }
   }),
@@ -27,7 +27,7 @@ export default Controller.extend({
     });
   }),
   saveSlack: task(function *(){
-    results = yield this.get('ajax').request(`api/slack/orgs`,{
+    yield this.get('ajax').request(`api/slack/orgs`,{
       method: 'POST',
       data: {
         slack_id: this.get('slack.id'),
@@ -53,9 +53,9 @@ export default Controller.extend({
       this.get('repo.rules').forEach( (rule) => {
         if(rule.get('hasDirtyAttributes')){
           rule.save();
-          rule.set('hasDirtyAttributes', false)
+          rule.set('hasDirtyAttributes', false);
         }
-      })
+      });
     },
     setSlackOrg(org){
       this.set('slack', org);
