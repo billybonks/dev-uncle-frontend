@@ -5,5 +5,5 @@ export default DS.Model.extend({
   repo:      DS.belongsTo('repo'),
   event:     DS.attr('string'),
   createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
 });

@@ -1,1 +1,15 @@
-{{component editor rule=rule labels=labels states=repo.states}}
+<div class="row">
+  <div>
+    {{fa-icon "trash-o" click=(action "deleteRule")}}
+  </div>
+  <div class="col-4">
+  {{#power-select options=events renderInPlace=true selected=rule.event onchange=(action "changeEvent") as |event|}}
+    {{event}}
+  {{/power-select}}
+  </div>
+  <div class="col-7">
+    {{#if rule.event}}
+      {{component editor rule=rule labels=labels states=repo.states}}
+    {{/if}}
+  </div>
+</div>

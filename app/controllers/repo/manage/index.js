@@ -49,6 +49,10 @@ export default Controller.extend({
     }
   },
   actions: {
+    addRule(){
+      let rule = this.get('store').createRecord('rule');
+      this.get('repo.rules').pushObject(rule)
+    },
     saveRules(){
       this.get('repo.rules').forEach( (rule) => {
         if(rule.get('hasDirtyAttributes')){

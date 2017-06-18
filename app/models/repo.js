@@ -11,5 +11,5 @@ export default DS.Model.extend({
   pullRequests: DS.hasMany('pullRequest'),
   labels: DS.hasMany('labels'),
   members: DS.hasMany('repoMember'),
-  rules: DS.hasMany('rules')
+  rules: DS.hasMany('rules', { defaultValue: () => { return []; } }),
 });
