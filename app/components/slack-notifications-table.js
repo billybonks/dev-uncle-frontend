@@ -13,15 +13,18 @@ export default Component.extend({
   columns() {
     return [{
       label: 'Filter',
+      draggable: true,
       valuePath: 'filter.name',
     },
     {
       label: 'Notification Time',
+      draggable: true,
       valuePath: 'time',
     },
     {
       label: 'Target',
+      draggable: true,
       valuePath: 'target',
-    }];
+    }]
   },
 });
