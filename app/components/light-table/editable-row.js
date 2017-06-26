@@ -17,8 +17,9 @@ export default RowComponent.extend({
       this.set('row.isEditing', false);
     },
     save(){
-      this.get('row.content').save();
-      this.set('row.isEditing', false);
+      this.get('row.content').save().then( () => {
+        this.set('row.isEditing', false);
+      });
     }
   }
 });
