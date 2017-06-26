@@ -4,7 +4,7 @@
     iconAscending='fa fa-sort-asc'
     iconDescending='fa fa-sort-desc'}}
 
-  {{#t.body as |body|}}
+  {{#t.body rowComponent=(component "light-table/editable-row") as |body|}}
 
     {{#if isLoading}}
       {{#body.loader}}

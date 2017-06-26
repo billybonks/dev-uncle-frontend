@@ -1,0 +1,7 @@
+{{#if row.isEditing}}
+  {{#power-select options=column.collection renderInPlace=true selected=value onchange=(action "valueSelected") as |time|}}
+    {{time}}
+  {{/power-select}}
+{{else}}
+  {{value}}
+{{/if}}

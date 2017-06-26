@@ -1,0 +1,7 @@
+{{#if row.isEditing}}
+  {{power-button text="save" action="save"}}
+  {{power-button text="cancel" action="cancel"}}
+{{else}}
+  {{power-button text="edit" action="edit"}}
+  {{power-button text="delete" action="delete"}}
+{{/if}}
