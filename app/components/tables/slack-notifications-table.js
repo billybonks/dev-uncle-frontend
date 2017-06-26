@@ -7,9 +7,17 @@ const TARGET = ['global', 'private'];
 
 export default Component.extend({
   direction: false,
+  init(){
+    this._super(...arguments);
+    this.set('table', new Table(this.get('columns')));
+  },
   @computed('model.length')
-  table(){
-    return new Table(this.get('columns'), this.get('model'), {enableSync: true});
+  filteredRows(){
+    if(this.get('model')){
+      let rows = this.get('model').rejectBy('isDeleted');
+      this.get('table').setRows(rows);
+      return rows;
+    }
   },
   @readOnly
   @computed
@@ -42,7 +50,7 @@ export default Component.extend({
   actions:{
     deleteRow(row){
       row.content._content.destroyRecord().then(function(){
-
+        this.notifyPropertyChange('filteredRows');
       });
     }
   }
