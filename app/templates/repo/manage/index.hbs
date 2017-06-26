@@ -3,18 +3,4 @@
   {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
 {{/each}}
 {{power-button action=(action "saveRules") text="save"}}
-
-<br />
-<br />
-<br />
-
-<h2>Hooks</h2>
-<button type="button" class="btn btn-primary" {{action 'resolveHook' repo}}>
-  {{#unless resolveHook.isIdle}} Processing {{/unless}}
-  {{#unless repo.hook_id}}
-    Install Hook
-  {{else}}
-    Uninstall Hook
-  {{/unless}}
-</button>
 {{outlet}}
