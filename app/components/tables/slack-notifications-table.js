@@ -39,4 +39,11 @@ export default Component.extend({
       cellType: 'action-cell'
     }];
   },
+  actions:{
+    deleteRow(row){
+      row.content._content.destroyRecord().then(function(){
+
+      });
+    }
+  }
 });
