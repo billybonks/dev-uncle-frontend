@@ -1,10 +1,17 @@
 import Cell from 'ember-light-table/components/cells/base';
-import Changeset from 'ember-changeset';
 
 export default Cell.extend({
-  editAction:'edit',
-  cancelAction:'cancel',
-  saveAction:'save',
+  init(){
+    this._super(...arguments);
+    //protects againts undefined
+    if(this.get('column.deleteAble') === false){
+      this.set('deleteAble' ,false);
+    }
+  },
+  editAction: 'edit',
+  cancelAction: 'cancel',
+  saveAction: 'save',
+  deleteAble: true,
   actions:{
     edit(){
       this.sendAction('editAction');
