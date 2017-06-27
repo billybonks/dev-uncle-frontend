@@ -1,5 +1,4 @@
 import Cell from 'ember-light-table/components/cells/base';
-import computed, {alias} from 'ember-computed';
 
 export default Cell.extend({
   init(){
