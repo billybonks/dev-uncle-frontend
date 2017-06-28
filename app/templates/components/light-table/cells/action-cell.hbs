@@ -3,5 +3,7 @@
   {{power-button text="cancel" action="cancel"}}
 {{else}}
   {{power-button text="edit" action="edit"}}
-  {{power-button text="delete" action=(action tableActions.delete row)}}
+  {{#if deleteAble}}
+    {{power-button text="delete" action=(action tableActions.delete row)}}
+  {{/if}}
 {{/if}}

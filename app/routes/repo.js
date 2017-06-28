@@ -12,12 +12,5 @@ export default AbstractRoute.extend({
     this.ensureRecord(repo, 'rule');
     this.ensureRecord(repo, 'filter');
     this.ensureRecord(repo, 'label');
-  },
-  ensureRecord(parentModel,childModelName){
-    if(!parentModel.get(`${Ember.String.pluralize(childModelName)}.length`)){
-      this.store.query(childModelName, {repo_id: parentModel.get('id')}).then( (results) => {
-        this.set(childModelName, results);
-      });
-    }
   }
 });

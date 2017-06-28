@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  state_id:  DS.attr('number'),
+  isState:   DS.attr('boolean'),
   name:      DS.attr('string'),
   online_id: DS.attr('number'),
   repo:      DS.belongsTo('repo'),
