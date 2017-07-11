@@ -1,6 +1,6 @@
 @import 'variables';
-@import '../../../app/ember-bootstrap/variables';
-// @import 'ember-bootstrap/bootstrap';
+// @import 'bootstrap/variables';
+@import '_bootstrap/bootstrap';
 @import 'bootstrap/mixins/tag';
 @import 'bootstrap/tags';
 @import 'bootstrap-overrides';
