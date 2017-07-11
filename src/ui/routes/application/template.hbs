@@ -3,7 +3,7 @@
     <nav class="nav flex-column sidebar">
       <a class="nav-link email">
         <span class="name">MangerBot</span><br>
-        {{user.email}}
+        {{!user.email}}
       </a>
       {{#link-to "install" classNames="nav-link"}}
         <i class="fa fa-cog"></i>Install
@@ -21,6 +21,7 @@
     <ol class="fixed-header">
       <li style="float:left"><h1>{{fixedHeader.title}}</h1></li>
       <li style="float:right">
+        {{log fixedHeader.controlsPath}}
         {{component fixedHeader.controlsPath model=fixedHeader.controlsParams}}
       </li>
       <li style="clear:both"></li>

@@ -16,7 +16,7 @@ export default Component.extend({
   },
   @computed('rule.event')
   editor(){
-    return 'editors/rules/default-editor';
+    return 'rule-editors-default-editor';
   },
   actions: {
     changeEvent(event){
