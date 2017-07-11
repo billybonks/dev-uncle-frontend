@@ -3,10 +3,11 @@ import buildResolverConfig from 'ember-resolver/ember-config';
 import config from '../config/environment';
 
 let moduleConfig = buildResolverConfig(config.modulePrefix);
-/*
- * If your application has custom types and collections, modify moduleConfig here
- * to add support for them.
- */
+
+['breakpoints', 'session', 'session-store'].forEach(type => {
+  moduleConfig.types[type] = { definitiveCollection: 'main' };
+  moduleConfig.collections['main'].types.push(type);
+});
 
 export default Resolver.extend({
   config: moduleConfig
