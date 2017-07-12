@@ -74,7 +74,7 @@ export default Component.extend({
       label: 'Title',
       sortable: false,
       valuePath: 'linkInfo',
-      cellComponent:'columns/pr-title',
+      cellComponent:'light-table-cell-pr-title',
       width:'53%',
     }, {
       label: 'Owner',

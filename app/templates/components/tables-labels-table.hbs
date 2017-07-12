@@ -1,7 +1,7 @@
 {{filteredRows.length}}
 {{#light-table table tableActions=(hash delete=(action 'deleteRow')) as |t|}}
   {{t.head iconAscending='fa fa-sort-asc' iconDescending='fa fa-sort-desc'}}
-  {{#t.body rowComponent=(component "light-table/editable-row") as |body|}}
+  {{#t.body rowComponent=(component "light-table-row-editable") as |body|}}
 
     {{#if isLoading}}
       {{#body.loader}}
