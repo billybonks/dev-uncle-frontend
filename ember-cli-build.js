@@ -1,11 +1,14 @@
 /*jshint node:true*/
 /* global require, module */
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+module.exports = function() {
+  var app = new EmberApp({
     babel: {
-      optional: ['es7.decorators']
+      plugins: [
+        'transform-decorators-legacy',
+        'transform-class-properties'
+      ]
     }
   });
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')
