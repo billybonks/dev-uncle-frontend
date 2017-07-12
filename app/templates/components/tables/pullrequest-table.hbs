@@ -4,7 +4,7 @@
   </span>
   {{sortedPullRequests.length}}
 </div>
-{{filters/filter-header repo=repo labels=labels activeFilter=activeFilter filters=filters selectedFilter=(action 'selectedFilter')}}
+{{filters-filter-header repo=repo labels=labels activeFilter=activeFilter filters=filters selectedFilter=(action 'selectedFilter')}}
 {{#light-table table as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')
