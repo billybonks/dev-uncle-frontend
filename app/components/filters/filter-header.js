@@ -8,7 +8,7 @@ export default Component.extend({
   filtersTypes(){
     return [{
         title:'Last Modified',
-        component: 'filters/editors/age-filter'
+        component: 'filters-editors-age-filter'
       },
       {
       title:'Active Labels',
