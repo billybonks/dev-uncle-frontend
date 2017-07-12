@@ -12,7 +12,7 @@ export default Component.extend({
       },
       {
       title:'Active Labels',
-      component: 'filters/editors/label-picker',
+      component: 'filters-editors-label-picker',
       model: this.get('labels')
     }];
   },
