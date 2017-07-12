@@ -8,11 +8,11 @@ export default Component.extend({
   filtersTypes(){
     return [{
         title:'Last Modified',
-        component: 'filters/editors/age-filter'
+        component: 'filters-editors-age-filter'
       },
       {
       title:'Active Labels',
-      component: 'filters/editors/label-picker',
+      component: 'filters-editors-label-picker',
       model: this.get('labels')
     }];
   },
