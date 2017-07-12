@@ -1,5 +1,5 @@
 {{#each filters as |filter|}}
-  {{filters/filter-tab filter=filter selectFilter='selectedFilter' cancelEditingFilter=(action 'cancelEditingFilter') editFilter=(action 'editFilter')}}
+  {{filters-filter-tab filter=filter selectFilter='selectedFilter' cancelEditingFilter=(action 'cancelEditingFilter') editFilter=(action 'editFilter')}}
 {{/each}}
 {{#if showNewFilter}}
   <span class="filter-tab" {{action 'createFilter'}}>New Filter</span>
