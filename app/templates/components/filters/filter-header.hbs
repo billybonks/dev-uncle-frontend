@@ -6,7 +6,7 @@
 {{/if}}
 {{#if editingFilter}}
   <div class="filter-builder">
-    {{filters/filter-builder filter=editingFilter filtersTypes=filtersTypes labels=labels  action=(action 'filterModified')}}
+    {{filters-filter-builder filter=editingFilter filtersTypes=filtersTypes labels=labels  action=(action 'filterModified')}}
     <div>
       {{power-button action=(action "saveFilter") text="save"}}
       {{power-button action=(action "cancelEditingFilter") text="cancel"}}
