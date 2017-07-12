@@ -1,0 +1,12 @@
+{{#if repo.labels.length}}
+  <div class="sebpo-tag-position">
+    <span class="purple-colour">
+      Total:
+    </span>
+    {{model.length}}
+  </div>
+  {{filter-header repo=repo labels=repo.labels activeFilter=repo.filters.firstObject filters=repo.filters }}
+  {{!pullrequest-table filters=repo.filters repo=repo labels=repo.labels state=state pullRequests=model}}
+{{else}}
+  Labels loading
+{{/if}}

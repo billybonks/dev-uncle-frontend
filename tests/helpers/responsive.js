@@ -43,7 +43,7 @@ MediaService.reopen({
   }
 });
 
-export default Ember.Test.registerAsyncHelper('setBreakpoint', function(app, breakpoint) {
+export const helpers = Ember.Test.registerAsyncHelper('setBreakpoint', function(app, breakpoint) {
   // this should use getOwner once that's supported
   const mediaService = app.__deprecatedInstance__.lookup('service:media');
   mediaService._forceSetBreakpoint(breakpoint);
