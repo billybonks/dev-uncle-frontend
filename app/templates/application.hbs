@@ -1,10 +1,9 @@
 <div class="nav-wrapper" style="width:300px;position:fixed">
   {{#unless failed}}
     <nav class="nav flex-column sidebar">
-      <a class="nav-link email">
-        <span class="name">MangerBot</span><br>
-        {{user.email}}
-      </a>
+      <span class="logo-container">
+        <img src="manager-bot-logo.svg">
+      </span>
       {{#link-to "install" classNames="nav-link"}}
         <i class="fa fa-cog"></i>Install
       {{/link-to}}
@@ -17,15 +16,14 @@
   {{/unless}}
 </div>
 <div class="content-wrapper">
-  {{#if fixedHeader.title}}
-    <ol class="fixed-header">
-      <li style="float:left"><h1>{{fixedHeader.title}}</h1></li>
-      <li style="float:right">
-        {{component fixedHeader.controlsPath model=fixedHeader.controlsParams}}
-      </li>
-      <li style="clear:both"></li>
-    </ol>
-  {{/if}}
+  <ol class="fixed-header">
+    <li style="float:left">{{fa-icon "fa-address-card"}} <span>Guten Morgen: </span><span>{{user.github_user}}</span></li>
+    <li style="float:right">
+      logout
+      {{!component fixedHeader.controlsPath model=fixedHeader.controlsParams}}
+    </li>
+    <li style="clear:both"></li>
+  </ol>
   <div class="{{if fixedHeader.title 'has-fixed-header' 'no-fixed-header'}} container">
     {{outlet}}
   </div>

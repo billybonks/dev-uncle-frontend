@@ -17,13 +17,13 @@
     background-color: #e2e4e6;
   }
 
-  .sidebar a.nav-link.email {
+  .logo-container {
+    padding: 1em;
     background-color: #223140;
-  }
 
-  .sidebar a.nav-link.email span.name {
-    font-size: 22px;
-    color: #fff;
+    img {
+      width:134px;
+    }
   }
 
   .sidebar i {
