@@ -14,7 +14,7 @@ export default Ember.Route.extend({
   },
   actions: {
     didTransition: function() {
-      this.set('fixedHeader.title', this.get('title'));
+      // this.set('fixedHeader.title', this.get('title'));
       this.set('fixedHeader.controlsPath', this.get('controlsPath'));
       this.set('fixedHeader.controlsParams', this.get('controlsParams'));
       return false;
