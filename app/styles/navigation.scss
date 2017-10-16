@@ -1,12 +1,12 @@
 .sidebar {
-  background-color: #fff;
-  border-right: 1px #273d66 solid;
+  background-color: $navbar-background;
+  border-right: 1px $navbar-border-background solid;
   height: 100%;
 }
 
   .sidebar a.nav-link {
-    color: #2283f6;
-    background-color: #fff;
+    color: $navbar-font-color;
+    background-color: $navbar-background;
     border-radius: 0;
     font-size: 14px;
     border-bottom: 1px #ddd solid;
@@ -14,20 +14,17 @@
   }
 
   .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
-    background-color: #7182FF;
-    color: #fff;
+    background-color: #e2e4e6;
   }
 
   .sidebar a.nav-link.email {
-    background-color: #0177fd;
-    color: #d3ebf8;
-    border: 0;
+    background-color: #223140;
   }
 
-    .sidebar a.nav-link.email span.name {
-      font-size: 22px;
-      color: #fff;
-    }
+  .sidebar a.nav-link.email span.name {
+    font-size: 22px;
+    color: #fff;
+  }
 
   .sidebar i {
     margin-right: 8px;

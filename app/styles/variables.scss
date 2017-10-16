@@ -1,29 +1,35 @@
-//bootstrap
-$brand-primary: #7182FF;
-$tag-padding-y: 0.45em;
-$tag-padding-x: 0.85em;
-$tag-color: #222;
-$font-family-sans-serif  : 'Montserrat', sans-serif;
-$navbar-light-active-color:#fff;
-$navbar-light-hover-color:#fff;
-$navbar-light-color:#2283f6;
-$body-color: #fff;
-$body-bg: #243757;
 //custom
+$body-background: #fff;
+$body-font-color: #000;
+
+//navbar
+$navbar-font-color: #2c3e50;
+$navbar-background: #f8f8f8;
+$navbar-border-background: #273d66;
+
+$navbar-active-font-color: #2c3e50;
+$navbar-active-background: #f8f8f8;
+$navbar-active-border-background: #273d66;
+
+$navbar-hover-font-color: $navbar-active-font-color;
+$navbar-hover-background: $navbar-active-background;
+$navbar-hover-border-background: $navbar-active-border-background;
+
+//table
 $table-border-color: #dadada;
 $table-font-color: #cfe1ff;
 $table-header-background-color: #445e89;
 $table-header-font-color: #99fde3;
 $table-header-border-color: #5c77a5;
 
-
+// Tags
 $gray-light:                #818a91 !default;
 $brand-primary:             #0275d8 !default;
 $brand-success:             #5cb85c !default;
 $brand-info:                #5bc0de !default;
 $brand-warning:             #f0ad4e !default;
 $brand-danger:              #d9534f !default;
-// Tags
+
 
 $tag-default-bg:            $gray-light !default;
 $tag-primary-bg:            $brand-primary !default;
@@ -41,3 +47,13 @@ $tag-pill-padding-x:        .6em !default;
 // Use a higher than normal value to ensure completely rounded edges when
 // customizing padding or font-size on labels.
 $tag-pill-border-radius:    10rem !default;
+
+
+//bootstrap
+$brand-primary: #7182FF;
+$tag-padding-y: 0.45em;
+$tag-padding-x: 0.85em;
+$tag-color: #222;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$body-color: $body-font-color;
+$body-bg: $body-background;
