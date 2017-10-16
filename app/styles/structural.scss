@@ -17,12 +17,10 @@ body > .ember-view {
 }
 
 
-.container.has-fixed-header {
-  padding-top: 90px;
-}
-
-.container.no-fixed-header {
-  padding: 20px;
+.container {
+  padding-top: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .content-wrapper {
