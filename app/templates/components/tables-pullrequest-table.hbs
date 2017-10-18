@@ -1,5 +1,5 @@
 <span style="display:none">{{sortedPullRequests.length}}</span>
-{{filters-filter-header filterTypes=filtersTypes activeFilter=activeFilter filters=filters
+{{filters-filter-header filterTypes=filtersTypes selectedFilter=activeFilter filters=filters
   filterSelected=(action 'selectedFilter') createFilter=(action 'createFilter') }}
 {{#light-table table as |t|}}
   {{t.head

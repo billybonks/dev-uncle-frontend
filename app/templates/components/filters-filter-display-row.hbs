@@ -1,0 +1,7 @@
+<div class="row" style="padding-bottom:0">
+    {{filter.title}}
+</div>
+<div class="row" style="padding-bottom:0">
+  {{component filter.component model=filter.model isEditing=false
+    action=filterUpdated filter=filter value=filter.value}}
+</div>

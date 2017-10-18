@@ -1,3 +1,5 @@
 {{#each labels as |label|}}
-  {{label-display label=label action=(action 'labelToggled') selectable=true}}
+  {{#if (or isEditing label.isActive)}}
+    {{tag-component value=label.name action=(action 'labelToggled' label) isActive=label.isActive selectable=isEditing}}
+  {{/if}}
 {{/each}}

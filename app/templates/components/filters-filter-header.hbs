@@ -1,13 +1,15 @@
 {{#each filters as |filter|}}
-  {{filters-filter-tab filter=filter isEditing=isEditing selectFilter=(action 'selectFilter')
-  cancelEditingFilter=(action 'cancelEditingFilter') editFilter=(action 'editFilter')}}
+  {{filters-filter-tab filter=filter isEditing=isEditing selectFilter=(action 'selectFilter')}}
 {{/each}}
 {{#if showNewFilter}}
   <span class="filter-tab" {{action 'createFilter'}}>New Filter</span>
 {{/if}}
-{{#if isEditing}}
+{{#if selectedFilter}}
   <div class="filter-builder container">
-    {{filters-filter-builder selectedFilter=selectedFilter filterHash=selectedFilter.filters
-      filterTypes=filterTypes save=(action 'saveFilter') cancel=(action 'cancelEditingFilter')}}
+    {{filters-filter-builder isEditing=isEditing selectedFilter=selectedFilter filterHash=selectedFilter.filters
+      filterTypes=filterTypes
+      save=(action 'saveFilter')
+      cancel=(action 'cancelEditingFilter')
+      edit=(action 'editFilter' selectedFilter)}}
   </div>
 {{/if}}

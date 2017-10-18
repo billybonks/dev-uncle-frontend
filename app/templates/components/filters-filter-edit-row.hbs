@@ -3,7 +3,7 @@
     {{fa-icon "trash" click=deleteFilter}} {{filter.title}}:
   </div>
   <div class="col-md-9">
-    {{component filter.component model=filter.model
+    {{component filter.component model=filter.model isEditing=true
       action=filterUpdated filter=filter value=filter.value}}
   </div>
 </div>
