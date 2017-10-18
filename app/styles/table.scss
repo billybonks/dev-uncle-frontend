@@ -5,7 +5,7 @@
   color: $table-font-color;
   border-radius: 3px;
   border-bottom: 1px $table-header-background-color solid;
-  background-color: $navbar-background;
+  background-color: $table-background-color;
 
   a {
     color: $table-font-color;
@@ -80,9 +80,9 @@
       background-color: #172743 !important;
     }
 
-    &:not(.is-selected):hover {
-      background-color: #172743 !important;
-    }
+    // &:not(.is-selected):hover {
+    //   background-color: #172743 !important;
+    // }
 
     &:last-of-type {
       td {
