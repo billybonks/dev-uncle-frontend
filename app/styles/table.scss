@@ -5,9 +5,10 @@
   color: $table-font-color;
   border-radius: 3px;
   border-bottom: 1px $table-header-background-color solid;
+  background-color: $navbar-background;
 
   a {
-    color: #cfe1ff;
+    color: $table-font-color;
   }
 
   .multi-select {
@@ -101,7 +102,7 @@
     td {
       font-size: 13px;
       padding: 10px;
-	    border: 1px $table-header-background-color solid;
+	    border: 1px $table-header-border-color solid;
     }
   }
 }

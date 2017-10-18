@@ -16,15 +16,19 @@
   {{/unless}}
 </div>
 <div class="content-wrapper">
-  <ol class="fixed-header">
-    <li style="float:left">{{fa-icon "fa-address-card"}} <span>Guten Morgen: </span><span>{{user.github_user}}</span></li>
-    <li style="float:right">
-      logout
-      {{!component fixedHeader.controlsPath model=fixedHeader.controlsParams}}
-    </li>
+  <ol class="main-header">
+    <li>{{fa-icon "fa-address-card"}} <span>Guten Morgen: </span><span>{{user.github_user}}</span></li>
+    <li>logout</li>
     <li style="clear:both"></li>
+
   </ol>
-  <div class="{{if fixedHeader.title 'has-fixed-header' 'no-fixed-header'}} container">
+  <div class="fixed-header">
+    <div style="border-bottom: 1px solid;padding-bottom: 5px;">
+      <span> {{fa-icon "home"}} </span>
+      {{component fixedHeader.controlsPath tagName="span" model=fixedHeader.controlsParams}}
+    </div>
+  </div>
+  <div class="container content">
     {{outlet}}
   </div>
 </div>

@@ -17,11 +17,23 @@ $navbar-hover-border-background: $navbar-active-border-background;
 
 //table
 $table-border-color: #dadada;
-$table-font-color: #cfe1ff;
-$table-header-background-color: #445e89;
-$table-header-font-color: #99fde3;
-$table-header-border-color: #5c77a5;
+$table-font-color: #000;
+$table-header-background-color: #eeeef1;
+$table-header-font-color: #849bb5;
+$table-header-border-color: #3bc6eb;
 
+$filter-builder-font-color: #000;
+$filter-builder-tab-background-color: #eeeef1;
+$filter-builder-tab-font-color: #849bb5;
+
+$filter-builder-tab-selected-font-color: #fff;
+$filter-builder-tab-selected-background-color: #3bc6eb;
+
+$filter-builder-hover-font-color: $filter-builder-tab-selected-font-color;
+$filter-builder-hover-background-color: $filter-builder-tab-selected-background-color;
+
+$power-button-color: #849bb5;
+$power-button-hover-color: #199be2;
 // Tags
 $gray-light:                #818a91 !default;
 $brand-primary:             #0275d8 !default;

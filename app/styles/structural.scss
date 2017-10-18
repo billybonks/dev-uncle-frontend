@@ -16,17 +16,14 @@ body > .ember-view {
   position: fixed;
 }
 
-
-.container {
-  padding-top: 100px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
 .content-wrapper {
   margin-left: 300px;
 }
 
 .flex {
   display: flex;
+}
+
+.row {
+  padding: 10px;
 }
