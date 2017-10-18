@@ -41,6 +41,10 @@ export default Component.extend({
   },
 
   actions: {
+    deleteFilter(filter){
+      this.set('filters', this.get('filters').rejectBy('id',filter.id));
+      delete this.get('filterHash')[filter.id];
+    },
     filterSelected(filter){
       this.get('filters').pushObject(filter);
     },

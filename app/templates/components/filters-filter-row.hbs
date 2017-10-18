@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    {{fa-icon "trash"}} {{filter.title}}:
+    {{fa-icon "trash" click=deleteFilter}} {{filter.title}}:
   </div>
   <div class="col-md-9">
     {{component filter.component model=filter.model

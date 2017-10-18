@@ -5,7 +5,7 @@
 <p class="table-filters__message">select one or more filters </p>
 
 {{#each filters as |filter|}}
-  {{filters-filter-row filter=filter filterUpdated=(action 'filterUpdated')}}
+  {{filters-filter-row filter=filter deleteFilter=(action 'deleteFilter' filter) filterUpdated=(action 'filterUpdated')}}
 {{/each}}
 
 <div class="row">
