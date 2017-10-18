@@ -1,9 +1,30 @@
-.fixed-header {
+.main-header {
   width: calc(100% - 300px);
   list-style-type:none;
   position:fixed;
   color: #fff;
-  padding:1em;
+  padding:16px;
+  height:60px;
   background: linear-gradient(to right, #1c9ee3  , #3bc6eb);
   z-index: 10;
+
+  li {
+    float: right;
+  }
+
+  li:first-child {
+    float: left;
+  }
+}
+
+
+.fixed-header {
+  position: relative;
+  top: 60px;
+  width: 100%;
+  padding:16px;
+}
+
+.content {
+  margin-top: 60px;
 }

@@ -1,5 +1,6 @@
 import Component from 'ember-component';
 import computed, { readOnly }  from 'ember-computed-decorators';
+import service from 'ember-service/inject';
 import Table from 'ember-light-table';
 import moment from 'moment';
 import _ from 'underscore';
@@ -7,10 +8,26 @@ import _ from 'underscore';
 export default Component.extend({
   sortBy:'updated_at',
   direction: false,
+  store: service(),
 
   init(){
     this._super(...arguments);
     this.set('table', new Table(this.get('columns')));
+  },
+
+  @computed('labels')
+  filtersTypes(){
+    return [{
+        id: 'age',
+        title: 'Last Modified',
+        component: 'filters-editors-age-filter'
+      },
+      {
+        id: 'labels',
+        title: 'Active Labels',
+        component: 'filters-editors-label-picker',
+        model: this.get('labels')
+    }];
   },
 
   @computed
@@ -96,6 +113,12 @@ export default Component.extend({
   actions:{
     selectedFilter(filter){
       this.set('activeFilter', filter);
+    },
+    createFilter(){
+      let filter = this.get('store').createRecord('filter');
+      filter.set('name', 'Filter');
+      filter.set('repo', this.get('repo'));
+      return filter;
     },
     onColumnClick(column){
       if(column.get('sortable')){

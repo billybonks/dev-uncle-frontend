@@ -12,7 +12,7 @@ export default Component.extend({
       return 'filter-tab__active';
     }
   },
-  
+
   click(){
     this.sendAction('selectFilter', this.get('filter'));
   }

@@ -1,10 +1,22 @@
-{{#each filtersTypes as |filterType|}}
-  <div class="row">
-    <div class="col-md-2">
-      {{filterType.title}}
-    </div>
-    <div class="col-md-10">
-      {{component filterType.component model=filterType.model action=action filter=filter}}
-    </div>
-  </div>
+<div class="table-filters__saveBar">
+  {{power-button action=save text="save changes"}}
+  {{power-button action=cancel text="cancel"}}
+</div>
+<p class="table-filters__message">select one or more filters </p>
+
+{{#each filters as |filter|}}
+  {{filters-filter-row filter=filter filterUpdated=(action 'filterUpdated')}}
 {{/each}}
+
+<div class="row">
+  <div class="col-md-3">
+    {{#if filteredFilterTypes.length}}
+      {{#power-select options=filteredFilterTypes renderInPlace=true selected=selected searchEnabled=false
+                      onchange=(action "filterSelected") placeholder="Select a filter" as |filterType|}}
+        {{filterType.title}}
+      {{/power-select}}
+    {{else}}
+      <p class="table-filters__message"> All filters selected </p>
+    {{/if}}
+  </div>
+</div>

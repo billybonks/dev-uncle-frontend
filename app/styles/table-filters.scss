@@ -1,18 +1,39 @@
 .filter-tab {
-  background: $table-header-background-color;
-  color: $table-header-font-color;
+  background: $filter-builder-tab-background-color;
+  color: $filter-builder-tab-font-color;
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
+  text-transform: capitalize;
   font-size: 12px;
   cursor: pointer;
 }
 
-.filter-builder {
-  background: $table-header-background-color;
-  color: $table-header-font-color;
+.filter-tab__active {
+  background: $filter-builder-tab-selected-background-color;
+  color: $filter-builder-tab-selected-font-color;
 }
 
-.filter-tab__active {
-  background: #7182FF;
-  color: white;
+.filter-builder {
+  color: $filter-builder-font-color;
+  background: $table-header-background-color;
+  border-top: 2px solid $filter-builder-tab-selected-background-color;
+}
+
+
+.table-filters__saveBar {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  & * {
+    margin-left: 15px;
+  }
+}
+
+.table-filters__message{
+  text-transform: uppercase;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
 }

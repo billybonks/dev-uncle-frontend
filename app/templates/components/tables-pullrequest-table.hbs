@@ -1,16 +1,11 @@
-<div class="sebpo-tag-position">
-  <span class="purple-colour">
-    Total:
-  </span>
-  {{sortedPullRequests.length}}
-</div>
-{{filters-filter-header repo=repo labels=labels activeFilter=activeFilter filters=filters selectedFilter=(action 'selectedFilter')}}
+<span style="display:none">{{sortedPullRequests.length}}</span>
+{{filters-filter-header filterTypes=filtersTypes activeFilter=activeFilter filters=filters
+  filterSelected=(action 'selectedFilter') createFilter=(action 'createFilter') }}
 {{#light-table table as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')
     iconAscending='fa fa-sort-asc'
     iconDescending='fa fa-sort-desc'}}
-
   {{#t.body as |body|}}
 
     {{#if isLoading}}

@@ -4,13 +4,12 @@ import EmberObject from 'ember-object';
 export default Component.extend({
   init(){
     this._super(...arguments);
-    let labelFilters = this.get('filter.filters.labels') || [];
     let labels = this.get('model').map((label) => {
       return new EmberObject({
         id: label.get('id'),
         name: label.get('name'),
         color: label.get('color'),
-        isActive: labelFilters.includes(`${label.get('id')}`)
+        isActive: this.get('value').includes(`${label.get('id')}`)
       });
     });
     this.set('labels', labels);
@@ -18,7 +17,13 @@ export default Component.extend({
   actions:{
     labelToggled(label){
       label.set('isActive', !label.get('isActive'));
-      this.sendAction('action', this.get('labels'));
+      let labelIds = this.get('labels').reduce( (acc, label) => {
+        if(label.get('isActive')){
+          acc.push(label.get('id'));
+        }
+        return acc;
+      }, []);
+      this.sendAction('action',this.get('filter'), labelIds);
     }
   }
 });
