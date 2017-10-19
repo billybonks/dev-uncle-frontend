@@ -2,7 +2,7 @@ import Component from 'ember-component';
 
 export default Component.extend({
   tagName: "button",
-  classNames: ["btn", "btn-primary"],
+  classNames: ["power-button"],
   attributeBindings:["disabled"],
   text: 'save',
   click(){
