@@ -1,6 +1,10 @@
+<h4> Automation </h4>
 {{power-button action=(action "addRule") text="new rule"}}
 {{#each repo.rules as |rule|}}
   {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
 {{/each}}
 {{power-button action=(action "saveRules") text="save"}}
-{{tables-labels-table model=labels}}
+
+{{state-label-selector labels=repo.labels}}
+
+{{!-- TODO: DELETE THIS CODE {{tables-labels-table model=labels}} --}}

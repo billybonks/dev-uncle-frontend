@@ -11,5 +11,6 @@ export default AbstractRoute.extend({
     this.ensureRecord(model, 'label', controller);
     controller.set('model', model);
     controller.set('repo', model);
-  }
+  },
+
 });
