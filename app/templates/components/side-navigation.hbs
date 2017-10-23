@@ -1,0 +1,19 @@
+<nav class="nav flex-column side-navigation">
+  <span class="side-navigation__logoContainer">
+    <img class="side-navigation__logo" src="manager-bot-logo.svg">
+  </span>
+  {{#link-to "install" classNames="side-navigation__link"}}
+    {{fa-icon "fa-cog" classNames="side-navigation__linkIcon"}}Install
+  {{/link-to}}
+  {{#each repos as |repo|}}
+    {{#link-to  "repo.stats" repo.id classNames="side-navigation__link"}}
+      {{fa-icon "fa-file-code-o" classNames="side-navigation__linkIcon"}} {{repo.name}}
+    {{/link-to}}
+  {{/each}}
+</nav>
+
+
+{{!-- {{side-navigation-link "install" text="install" icon="fa-cog"}}
+{{#each repos as |repo|}}
+  {{side-navigation-link "install" text="install" icon="fa-cog"}}
+{{/each}} --}}

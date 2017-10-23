@@ -1,20 +1,6 @@
-<div class="nav-wrapper" style="width:300px;position:fixed">
-  {{#unless failed}}
-    <nav class="nav flex-column sidebar">
-      <span class="logo-container">
-        <img src="manager-bot-logo.svg">
-      </span>
-      {{#link-to "install" classNames="nav-link"}}
-        <i class="fa fa-cog"></i>Install
-      {{/link-to}}
-      {{#each model as |repo|}}
-        {{#link-to  "repo.stats" repo.id classNames="nav-link"}}
-          <i class="fa fa-file-code-o"></i>{{repo.name}}
-        {{/link-to}}
-      {{/each}}
-    </nav>
-  {{/unless}}
-</div>
+{{#unless failed}}
+  {{side-navigation repos=model classNames="nav-wrapper"}}
+{{/unless}}
 <div class="content-wrapper">
   <ol class="main-header">
     <li>{{fa-icon "fa-address-card"}} <span>Guten Morgen: </span><span>{{user.github_user}}</span></li>

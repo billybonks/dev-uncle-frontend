@@ -1,0 +1,56 @@
+$side-navigation-font-color: $deep-blue;
+$side-navigation-background: #f8f8f8;
+$side-navigation-border: 1px #273d66 solid;
+
+$side-navigation-active-font-color: $deep-blue;
+$side-navigation-active-background: #e2e4e6;
+
+$side-navigation-hover-font-color: $side-navigation-active-font-color;
+$side-navigation-hover-background: $side-navigation-active-background;
+$side-navigation-hover-border-background: #273d66;
+$side-navigation-logo-background: #223140;
+$side-navigation-link-border: 1px #ddd solid;
+
+@mixin navigation-font {
+  color: $side-navigation-font-color;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.side-navigation {
+  background-color: $side-navigation-background;
+  border-right: $side-navigation-border;
+  height: 100%;
+
+  &__logoContainer {
+    padding: 17px;
+    height: 60px;
+    background-color: $side-navigation-logo-background;
+  }
+
+  &__logo {
+    width:134px;
+  }
+
+  &__link {
+    @include navigation-font;
+    background-color: $side-navigation-background;
+    border-radius: 0;
+    border-bottom: $side-navigation-link-border;
+    padding: 1em;
+
+    &:hover {
+      @include navigation-font;
+      background-color: $side-navigation-hover-background;
+
+    }
+
+    &.active {
+      background-color: $side-navigation-active-background;
+    }
+
+    &Icon {
+      margin-right: 8px;
+    }
+  }
+}
