@@ -1,3 +1,25 @@
+// Tags
+$gray-light:                #818a91 !default;
+
+
+
+$tag-default-bg:            $gray-light !default;
+$tag-primary-bg:            $brand-primary !default;
+$tag-success-bg:            $brand-success !default;
+$tag-info-bg:               $brand-info !default;
+$tag-warning-bg:            $brand-warning !default;
+$tag-danger-bg:             $brand-danger !default;
+
+$tag-color:                 $black !default;
+$tag-link-hover-color:      $black !default;
+$tag-font-size:             75% !default;
+$tag-font-weight:           bold !default;
+
+$tag-pill-padding-x:        .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$tag-pill-border-radius:    10rem !default;
+
 .tag {
   display: inline-block;
   padding: $tag-padding-y $tag-padding-x;
