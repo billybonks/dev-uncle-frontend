@@ -5,7 +5,7 @@ import EmberObject from 'ember-object';
 export default Component.extend({
   init(){
     if(!this.get('value')){
-      this.set('value', A())
+      this.set('value', A());
     }
     this._super(...arguments);
     let labels = this.get('model').map((label) => {

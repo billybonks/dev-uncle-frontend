@@ -16,4 +16,4 @@ export default Cell.extend({
       return value;
     }
   }
-})
+});

@@ -1,7 +1,7 @@
 import Controller from 'ember-controller';
 import { task } from 'ember-concurrency';
-import computed from 'ember-computed-decorators';
 import service from 'ember-service/inject';
+
 export default Controller.extend({
   states: service(),
   ajax: service(),
@@ -23,14 +23,14 @@ export default Controller.extend({
         oldLabel.save();
       }
       newLabel.set('state_id', mapping.state.id);
-      newLabel.save();
+      yield newLabel.save();
     });
   }),
 
   actions: {
     addRule(){
       let rule = this.get('store').createRecord('rule');
-      this.get('repo.rules').pushObject(rule)
+      this.get('repo.rules').pushObject(rule);
     },
     saveRules(){
       this.get('repo.rules').forEach( (rule) => {

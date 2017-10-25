@@ -19,7 +19,7 @@ export default Component.extend({
   },
   actions: {
     changeEvent(event){
-      this.set('rule.event', event)
+      this.set('rule.event', event);
     },
     deleteRule(){
       this.get('rule').destroyRecord();
