@@ -1,10 +1,14 @@
-<h4> Automation </h4>
-{{power-button action=(action "addRule") text="new rule"}}
-{{#each repo.rules as |rule|}}
-  {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
-{{/each}}
-{{power-button action=(action "saveRules") text="save"}}
+{{#if repo.labels.isFulfilled}}
+  <h4> Automation </h4>
+  {{power-button action=(action "addRule") text="new rule"}}
+  {{#each repo.rules as |rule|}}
+    {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
+  {{/each}}
+  {{power-button action=(action "saveRules") text="save"}}
 
-{{state-label-selector labels=repo.labels}}
-
+  {{state-label-selector labels=repo.labels}}
+{{/if}}
+<h4> Slack </h4>
+{{slack-org-linker repo=repo}}
+{{slackSetting}}
 {{!-- TODO: DELETE THIS CODE {{tables-labels-table model=labels}} --}}

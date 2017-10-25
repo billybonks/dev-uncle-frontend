@@ -26,28 +26,7 @@ export default Controller.extend({
       newLabel.save();
     });
   }),
-  saveSlack: task(function *(){
-    yield this.get('ajax').request(`api/slack/orgs`,{
-      method: 'POST',
-      data: {
-        slack_id: this.get('slack.id'),
-        slack_channel: this.get('slackChannel'),
-        repo_id: this.get('model.id')
-      }
-    });
-  }),
 
-  @computed
-  slackOrgs:{
-    get(){
-      this.get('ajax').request('api/slack/orgs').then( (orgs) => {
-        this.set('slackOrgs',orgs);
-      });
-    },
-    set(_, value){
-      return value;
-    }
-  },
   actions: {
     addRule(){
       let rule = this.get('store').createRecord('rule');

@@ -8,7 +8,7 @@ export default AbstractRoute.extend({
   },
   setupController(controller, model){
     this._super();
-    this.ensureRecord(model, 'label', controller);
+    // this.ensureRecord(model, 'label', controller);
     controller.set('model', model);
     controller.set('repo', model);
   },
