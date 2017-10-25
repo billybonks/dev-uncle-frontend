@@ -1,10 +1,11 @@
+import { A } from '@ember/array';
 import Component from 'ember-component';
 import EmberObject from 'ember-object';
 
 export default Component.extend({
   init(){
     if(!this.get('value')){
-      this.set('value', Ember.A())
+      this.set('value', A())
     }
     this._super(...arguments);
     let labels = this.get('model').map((label) => {

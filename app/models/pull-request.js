@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 import DS from 'ember-data';
 import computed from 'ember-computed-decorators';
 export default DS.Model.extend({
@@ -15,7 +15,7 @@ export default DS.Model.extend({
 
   @computed('number','title', 'repo.name')
   linkInfo(){
-    return Ember.Object.create({
+    return EmberObject.create({
       title:this.get('title'),
       number: this.get('number'),
       repo: this.get('repo.name')

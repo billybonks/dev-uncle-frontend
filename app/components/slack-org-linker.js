@@ -1,9 +1,10 @@
+import { inject as service } from '@ember/service';
 import Component from 'ember-component';
 import { task } from 'ember-concurrency';
 
 export default Component.extend({
-  ajax: Ember.inject.service(),
-  store: Ember.inject.service(),
+  ajax: service(),
+  store: service(),
   init(){
     this._super(...arguments);
     let repoId = this.get('repo.id');
