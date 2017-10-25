@@ -23,7 +23,7 @@ export default Controller.extend({
         oldLabel.save();
       }
       newLabel.set('state_id', mapping.state.id);
-      yield newLabel.save();
+      newLabel.save();
     });
   }),
 

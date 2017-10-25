@@ -1,6 +1,6 @@
 import EmberObject from '@ember/object';
 import DS from 'ember-data';
-import computed from 'ember-computed-decorators';
+import { computed } from 'ember-decorators/object';
 export default DS.Model.extend({
   title:     DS.attr('string'),
   state:     DS.attr('string'),

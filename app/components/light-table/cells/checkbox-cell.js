@@ -1,5 +1,5 @@
 import Cell from 'ember-light-table/components/cells/base';
-import computed from 'ember-computed-decorators';
+import { computed } from 'ember-decorators/object';
 export default Cell.extend({
   init(){
     this._super(...arguments);

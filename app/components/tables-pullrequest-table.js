@@ -1,5 +1,5 @@
 import Component from 'ember-component';
-import computed, { readOnly }  from 'ember-computed-decorators';
+import { computed, readOnly } from 'ember-decorators/object';
 import service from 'ember-service/inject';
 import Table from 'ember-light-table';
 import moment from 'moment';

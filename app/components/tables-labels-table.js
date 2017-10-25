@@ -1,5 +1,5 @@
 import EditableTable from 'client/components/tables-editable-table';
-import computed, { readOnly } from 'ember-computed-decorators';
+import { computed, readOnly } from 'ember-decorators/object';
 
 export default EditableTable.extend({
   @readOnly

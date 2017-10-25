@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import Table from 'ember-light-table';
-import computed from 'ember-computed-decorators';
+import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
   direction: false,
