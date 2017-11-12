@@ -1,9 +1,7 @@
 {{#if repo.labels.isFulfilled}}
   <h4> Automation </h4>
   {{power-button action=(action "addRule") text="new rule"}}
-  {{#each repo.rules as |rule|}}
-    {{rule-mapper rule=rule labels=repo.labels states=repo.states}}
-  {{/each}}
+  {{automation-builder workflows=repo.rules labels=repo.labels}}
   {{power-button action=(action "saveRules") text="save"}}
 
   {{state-label-selector labels=repo.labels}}

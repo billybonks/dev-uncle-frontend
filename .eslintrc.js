@@ -4,12 +4,16 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  extends: 'eslint:recommended',
+  extends: [
+    'plugin:ember/recommended',
+    'eslint:recommended',
+  ],
   env: {
     browser: true
   },
   parser: 'babel-eslint',
   rules: {
+    'ember/use-ember-get-and-set': 0,
     semi: 2
   }
 };

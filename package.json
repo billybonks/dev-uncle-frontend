@@ -59,6 +59,9 @@
     "ember-responsive": "2.0.0",
     "ember-simple-auth": "1.1.0",
     "ember-source": "~2.16.0",
-    "loader.js": "^4.2.3"
+    "eslint-plugin-ember": "^4.5.0",
+    "loader.js": "^4.2.3",
+    "stylelint-declaration-use-variable": "^1.6.0",
+    "stylelint-scss": "^2.1.0"
   }
 }
