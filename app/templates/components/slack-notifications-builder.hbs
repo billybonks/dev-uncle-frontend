@@ -15,9 +15,9 @@
 </div>
 
 <div class="form-group">
-  <label>Target</label>
-  {{#power-select options=targets renderInPlace=true selected=notification.target onchange=(action "targetChanged") as |target|}}
-    {{target}}
+  <label>Type</label>
+  {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
+    {{type}}
   {{/power-select}}
 </div>
 

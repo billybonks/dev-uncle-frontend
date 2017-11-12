@@ -3,7 +3,7 @@ import Table from 'ember-light-table';
 import { computed, readOnly } from 'ember-decorators/object';
 
 const TIME = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
-const TARGET = ['global', 'private'];
+const TYPE = ['overview', 'private', 'summary'];
 
 export default Component.extend({
   direction: false,
@@ -37,11 +37,11 @@ export default Component.extend({
       collection: TIME
     },
     {
-      label: 'Target',
+      label: 'Type',
       draggable: true,
-      valuePath: 'target',
+      valuePath: 'type',
       cellType: 'select-cell',
-      collection: TARGET
+    collection: TYPE
     },{
       label: 'Actions',
       cellType: 'action-cell'
