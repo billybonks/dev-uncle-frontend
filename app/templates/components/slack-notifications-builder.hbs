@@ -1,26 +1,37 @@
 <h2>Slack Notifications</h2>
 <p> automatically post pull requests matching a prebuilt filter (usefull if you want to show stale pr"s to the team for example)</p>
-<div class="form-group">
-  <label>Filter</label>
-  {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
-    {{filter.name}}
-  {{/power-select}}
-</div>
+<form class=".form-inline">
 
-<div class="form-group">
-  <label>Time</label>
-  {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
-    {{time}}
-  {{/power-select}}
-</div>
+  <div class="row">
+    <label>Filter</label>
+    <div class="col">
+      {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
+        {{filter.name}}
+      {{/power-select}}
+    </div>
 
-<div class="form-group">
-  <label>Type</label>
-  {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
-    {{type}}
-  {{/power-select}}
-</div>
+    <label>Time</label>
+    <div class="col">
+      {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
+        {{time}}
+      {{/power-select}}
+    </div>
 
+    <label>Type</label>
+    <div class="col">
+      {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
+        {{type}}
+      {{/power-select}}
+    </div>
+
+  </div>
+  <div class="row">
+    <label>Channel</label>
+    <div class="col">
+      {{one-way-input value=channel update=(action (mut notification.channel))}}
+    </div>
+  </div>
+</form>
 {{!-- <div class="form-group">
   <label>Interval</label>
   {{#power-select options=intervals renderInPlace=true selected=notification.interval onchange=(action "intervalChanged") as |interval|}}

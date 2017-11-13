@@ -1,16 +1,19 @@
 import Component from 'ember-component';
 import Table from 'ember-light-table';
 import { computed, readOnly } from 'ember-decorators/object';
+import { action } from 'ember-decorators/object';
 
 const TIME = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
 const TYPE = ['overview', 'private', 'summary'];
 
-export default Component.extend({
-  direction: false,
-  init(){
-    this._super(...arguments);
+export default class TablesSlackNotificationTable extends Component {
+  direction = false
+
+  constructor() {
+    super(...arguments);
     this.set('table', new Table(this.get('columns')));
-  },
+  }
+
   @computed('model.length')
   filteredRows(){
     if(this.get('model')){
@@ -18,7 +21,8 @@ export default Component.extend({
       this.get('table').setRows(rows);
       return rows;
     }
-  },
+  }
+
   @readOnly
   @computed
   columns() {
@@ -41,17 +45,25 @@ export default Component.extend({
       draggable: true,
       valuePath: 'type',
       cellType: 'select-cell',
-    collection: TYPE
-    },{
+      collection: TYPE
+    },
+    {
+      label: 'Channel',
+      draggable: true,
+      valuePath: 'channel',
+    },
+    {
       label: 'Actions',
       cellType: 'action-cell'
     }];
-  },
-  actions:{
-    deleteRow(row){
-      row.content._content.destroyRecord().then(function(){
-        this.notifyPropertyChange('filteredRows');
-      });
-    }
   }
-});
+
+  @action
+  deleteRow(row){
+    row.content._content.destroyRecord().then(this.notifyRowsChanged.bind(this));
+  }
+
+  notifyRowsChanged(){
+    this.notifyPropertyChange('filteredRows');
+  }
+}
