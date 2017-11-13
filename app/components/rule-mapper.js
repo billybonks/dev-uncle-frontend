@@ -7,14 +7,10 @@ export default class RuleMapper extends Component {
     if(!this.get('rule.rules')){
       this.set('rule.rules', {});
     }
-    // this.set('events',[
-    //   'pull_request_synchronised',
-    //   'pull_request_rejected',
-    //   'pull_request_opened'
-    // ]);
+
     let events = [
       {
-        name:'pull_request_synchronised',
+        name:'pull_request_synchronize',
         displayName: 'PR Code Updated',
         actions: ['apply_label, message_reviewers', 'message_channel']
       },
@@ -33,13 +29,24 @@ export default class RuleMapper extends Component {
   }
 
   @computed('rule.event')
+  get selectedEvent() {
+    return this.get('events').filterBy('name',this.get('rule.event'))[0];
+  }
+
+  set selectedEvent(event) {
+    this.set('rule.event', event.name);
+    return event;
+  }
+
+
+  @computed('rule.event')
   editor(){
     return 'editors-rules-default-editor';
   }
 
   @action
   changeEvent(event){
-    this.set('rule.event', event);
+    this.set('selectedEvent', event);
   }
 
   @action

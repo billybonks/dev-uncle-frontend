@@ -3,12 +3,12 @@
     {{fa-icon "trash-o" click=(action "deleteRule")}}
     <span> When : </span>
   </div>
-  <div class="col-3">
-  {{#power-select options=events renderInPlace=true selected=rule.event onchange=(action "changeEvent") as |event|}}
-    {{event}}
+  <div class="col-4">
+  {{#power-select options=events renderInPlace=true selected=selectedEvent onchange=(action "changeEvent") as |event|}}
+    {{event.displayName}}
   {{/power-select}}
   </div>
-  <div class="col-7">
+  <div class="col-6">
     {{#if rule.event}}
       {{component editor rule=rule labels=labels states=repo.states}}
     {{/if}}
