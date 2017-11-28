@@ -20,6 +20,11 @@ export default class RuleMapper extends Component {
         actions: ['apply_label, message_owner', 'message_channel']
       },
       {
+        name:'pull_request_approved',
+        displayName: 'Reviewer Approved Changes',
+        actions: ['apply_label, message_owner', 'message_channel']
+      },
+      {
         name:'pull_request_opened',
         displayName: 'PR Opened',
         actions: ['apply_label, message_owner', 'message_channel']
