@@ -1,6 +1,5 @@
 {{#workflow-builder-step-single options=options stepType=stepType labelPath=labelPath configurable=true
                                 step=_step stepChanged=(action "changeStep") editorName=editorName as |singleStep|}}
-  {{editorName}}
   {{#if _step.kind}}
     {{#singleStep.rows.third}}
       {{workflow-builder-simple-select options=(get comparatorArray _step.kind) selected=_comparator
