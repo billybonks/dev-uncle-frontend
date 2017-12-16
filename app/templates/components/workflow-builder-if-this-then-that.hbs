@@ -1,0 +1,16 @@
+{{#with (assign publicAPI (hash
+  data=this
+  conditions=(component 'workflow-builder-step-multi' actionText="if"
+              step=selectedFilters options=availableConditions
+              labelPath='key' stepsChanged=(action 'changeFilters'))
+
+  actions=(component 'workflow-builder-step-single' actionText="if"
+            step=selectedAction stepData=selectedActionData stepType="then" labelPath="label"
+            options=availableActions stepChanged=(action 'changeAction'))
+
+  events=(component 'workflow-builder-step-single' actionText="if"
+            step=selectedEvent stepType="when" labelPath="displayName"
+            options=events stepChanged=(action 'changedEvent') configurable=false)
+)) as |iftt|}}
+  {{yield iftt}}
+{{/with}}
