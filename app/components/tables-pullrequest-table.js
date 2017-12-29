@@ -6,13 +6,31 @@ import moment from 'moment';
 import _ from 'underscore';
 
 export default Component.extend({
+  store: service(),
   sortBy:'updated_at',
   direction: false,
-  store: service(),
 
   init(){
     this._super(...arguments);
     this.set('table', new Table(this.get('columns')));
+  },
+
+  actions:{
+    selectedFilter(filter){
+      this.set('activeFilter', filter);
+    },
+    createFilter(){
+      let filter = this.get('store').createRecord('filter');
+      filter.set('name', 'Filter');
+      filter.set('repo', this.get('repo'));
+      return filter;
+    },
+    onColumnClick(column){
+      if(column.get('sortable')){
+        this.set('sortBy',column.get('valuePath'));
+        this.set('direction', column.get('ascending'));
+      }
+    }
   },
 
   @computed('labels')
@@ -109,22 +127,4 @@ export default Component.extend({
       cellComponent: 'days-since'
     }];
   },
-
-  actions:{
-    selectedFilter(filter){
-      this.set('activeFilter', filter);
-    },
-    createFilter(){
-      let filter = this.get('store').createRecord('filter');
-      filter.set('name', 'Filter');
-      filter.set('repo', this.get('repo'));
-      return filter;
-    },
-    onColumnClick(column){
-      if(column.get('sortable')){
-        this.set('sortBy',column.get('valuePath'));
-        this.set('direction', column.get('ascending'));
-      }
-    }
-  }
 });
