@@ -2,6 +2,19 @@ import Component from 'ember-component';
 import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
+  actions: {
+    deleteFilter(filter){
+      this.set('filters', this.get('filters').rejectBy('id',filter.id));
+      delete this.get('filterHash')[filter.id];
+    },
+    filterSelected(filter){
+      this.get('filters').pushObject(filter);
+    },
+    filterUpdated(filter, value){
+      this.get('filterHash')[filter.id] = value;
+    }
+  },
+
   @computed('selectedFilter')
   filterTypeHash(){
     return this.get('filterTypes').reduce( (acc, filterType) => {
@@ -40,16 +53,4 @@ export default Component.extend({
     });
   },
 
-  actions: {
-    deleteFilter(filter){
-      this.set('filters', this.get('filters').rejectBy('id',filter.id));
-      delete this.get('filterHash')[filter.id];
-    },
-    filterSelected(filter){
-      this.get('filters').pushObject(filter);
-    },
-    filterUpdated(filter, value){
-      this.get('filterHash')[filter.id] = value;
-    }
-  }
 });

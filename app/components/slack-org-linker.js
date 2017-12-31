@@ -21,9 +21,6 @@ export default Component.extend({
       this.set('slackSetting', record);
     });
   },
-  saveSlack: task(function *(){
-    yield this.get('slackSetting').save();
-  }),
   actions:{
     redirectSlackAuth(){
       window.location = '/api/auth/slack';
@@ -31,5 +28,8 @@ export default Component.extend({
     setSlackOrg(org){
       this.set('slackSetting.slackOrganization', org);
     }
-  }
+  },
+  saveSlack: task(function *(){
+    yield this.get('slackSetting').save();
+  }),
 });

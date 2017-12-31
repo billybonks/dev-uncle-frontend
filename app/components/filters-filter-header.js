@@ -2,13 +2,6 @@ import Component from 'ember-component';
 import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
-  @computed('editingFilter')
-  showNewFilter(){
-    let editingFilter = this.get('selectedFilter');
-    if(!editingFilter) return true;
-    if(!editingFilter.get('isNew')) return true;
-  },
-
   actions:{
     selectFilter(filter){
       if(this.get('selectedFilter') == filter) return;
@@ -45,5 +38,11 @@ export default Component.extend({
       this.set('isEditing', true);
       this.set('selectedFilter', filter);
     },
-  }
+  },
+  @computed('editingFilter')
+  showNewFilter(){
+    let editingFilter = this.get('selectedFilter');
+    if(!editingFilter) return true;
+    if(!editingFilter.get('isNew')) return true;
+  },
 });

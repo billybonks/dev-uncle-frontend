@@ -8,6 +8,7 @@ export default class TablesDashboard extends Component {
     super(...arguments);
     this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
   }
+  
   @action
   onColumnClick(column){
     if(column.get('sortable')){

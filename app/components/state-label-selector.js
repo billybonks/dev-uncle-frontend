@@ -8,10 +8,6 @@ export default class StateLabelSelector extends Component {
     get(this, 'labels').then(this.setStateLabels.bind(this));
   }
 
-  setStateLabels(labels){
-    set(this, 'stateLabels', labels.filterBy('isState', true));
-  }
-
   @action
   saveStateLabels() {
     this.get('labels').forEach( (label) => {
@@ -32,5 +28,9 @@ export default class StateLabelSelector extends Component {
       stateLabel.set('isState', true);
     });
     this.set('stateLabels', stateLabels);
+  }
+
+  setStateLabels(labels){
+    set(this, 'stateLabels', labels.filterBy('isState', true));
   }
 }

@@ -6,7 +6,7 @@ export default Component.extend({
   classNames: ['tag','tag-default','sebpo-tag', 'pointer'],
   attributeBindings:['style'],
 
-  @computed('label.color', 'label.isActive')
+  @computed('label.{color.isActive}')
   style() {
     let background = `background-color:#${this.get('label.color')}`;
     if(this.get('label.isActive')){
