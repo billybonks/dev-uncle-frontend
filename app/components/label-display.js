@@ -3,7 +3,7 @@ import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
   tagName:'span',
-  classNames: ['tag','tag-default','sebpo-tag', 'pointer'],
+  classNames: ['tag','tag-default','sebpo-tag'],
   attributeBindings:['style'],
 
   @computed('label.{color.isActive}')

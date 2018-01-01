@@ -7,7 +7,7 @@
   border-bottom: 1px $table-header-background-color solid;
   background-color: $table-background-color;
 
-  a {
+  .table-link {
     color: $table-font-color;
   }
 
@@ -20,24 +20,20 @@
     user-select: none;
   }
 
-  tfoot .lt-column {
-    // border-top: 1px solid $table-border-color;
-  }
-
-  thead .lt-column {
-    border-top: none;
+  .lt-head .lt-column {
+    border-top: 0;
     border: 1px $table-header-border-color solid;
-  	border-bottom: 0;
+    border-bottom: 0;
     background-color: $table-header-background-color;
     color: $table-header-font-color;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
-  thead th,
-  tfoot th {
+  .lt-head  .lt-column,
+  .lt-foot  .lt-column {
     &.is-dragging {
-      opacity: 0.75;
+      opacity: .75;
       background: #eee;
     }
 
@@ -62,7 +58,7 @@
     }
 
     &.lt-group-column {
-      border: none !important;
+      border: 0;
       padding-bottom: 10px;
     }
 
@@ -74,15 +70,11 @@
 
   .lt-row {
     padding-top: 5px;
-    padding-bottom:5px;
+    padding-bottom: 5px;
 
     &.is-selected {
-      background-color: #172743 !important;
+      background-color: #172743;
     }
-
-    // &:not(.is-selected):hover {
-    //   background-color: #172743 !important;
-    // }
 
     &:last-of-type {
       td {
@@ -92,8 +84,9 @@
 
     &.lt-expanded-row, &.lt-no-data {
       &:hover {
-        background-color: transparent !important;
+        background-color: transparent;
       }
+
       td {
         padding: 15px;
       }
@@ -102,15 +95,14 @@
     td {
       font-size: 13px;
       padding: 10px;
-	    border: 1px $table-header-border-color solid;
+      border: 1px $table-header-border-color solid;
     }
   }
 }
 
 tfoot {
   tr > td {
-    // border-top: 1px solid $table-border-color;
-    padding: 10px 10px 0 10px;
+    padding: 10px 10px 0;
     font-size: 13px;
   }
 

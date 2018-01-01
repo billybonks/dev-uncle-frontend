@@ -1,9 +1,11 @@
 import Controller from 'ember-controller';
 import service from 'ember-service/inject';
+import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
   ajax: service(),
   session: service(),
+  slackSettings: alias('model'),
   actions: {
     setSlackOrg(org){
       this.set('model.slackOrganization', org);

@@ -1,19 +1,16 @@
 import Cell from 'ember-light-table/components/cells/base';
 import { computed } from 'ember-decorators/object';
-export default Cell.extend({
-  init(){
-    this._super(...arguments);
-  },
+
+export default class CheckboxCell extends Cell{
   @computed
-  value:{
-    get(){
-      let changeSet = this.get('row.content');
-      return changeSet.get(this.get('column.valuePath'));
-    },
-    set(value){
-      let changeSet = this.get('row.content');
-      changeSet.set(this.get('column.valuePath'), value);
-      return value;
-    }
+  get value(){
+    let changeSet = this.get('row.content');
+    return changeSet.get(this.get('column.valuePath'));
   }
-});
+
+  set value(value){
+    let changeSet = this.get('row.content');
+    changeSet.set(this.get('column.valuePath'), value);
+    return value;
+  }
+}

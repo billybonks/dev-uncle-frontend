@@ -4,15 +4,15 @@
   font-size: 12px;
   font-weight: 700;
   background: none;
-  border: none;
+  border: 0;
   border-bottom: 2px solid;
   border-color: $power-button-color;
-  margin-right:2px;
+  margin-right: 2px;
   cursor: pointer;
   padding: 0;
-  
+
   &:hover {
     border-color: $power-button-hover-color;
-    color:  $power-button-hover-color;
+    color: $power-button-hover-color;
   }
 }

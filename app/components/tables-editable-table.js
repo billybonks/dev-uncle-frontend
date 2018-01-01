@@ -4,12 +4,12 @@ import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
   direction: false,
-  defaultColumns:[{
-    label: 'Actions',
-    cellType: 'action-cell'
-  }],
   init(){
     this._super(...arguments);
+    this.set('defaultColumns', [{
+      label: 'Actions',
+      cellType: 'action-cell'
+    }]);
     this.set('table', new Table(this.get('columns')));
   },
   @computed('model.length')
