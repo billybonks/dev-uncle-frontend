@@ -1,0 +1,35 @@
+{{#workflow-builder-if-this-then-that event=selectedEvent action=selectedAction conditions=selectedConditions
+  events=events updated=(action 'updated') as |iftt|}}
+  <div class="row">
+    <div class="col-6">
+      {{iftt.events}}
+    </div>
+  </div>
+  <div class="row" style="border-bottom:solid black 1px">
+    {{#if iftt.selectedEvent}}
+      <div class="col-6">
+        {{#iftt.actions as |step|}}
+          {{#if (eq step.step.key 'apply_label')}}
+            {{step.editorComponent options=labels key='label'}}
+          {{else}}
+            {{step.editorComponent}}
+          {{/if}}
+        {{/iftt.actions}}
+      </div>
+    {{/if}}
+    {{#if iftt.selectedAction}}
+      <div class="col-6">
+        {{#iftt.conditions as |step|}}
+          {{#step.component as |conditional|}}
+            {{#if (eq conditional.type 'labels')}}
+              {{conditional.editorComponent options=labels}}
+            {{else}}
+              {{log conditional.editorComponent}}
+              {{component conditional.editorComponent}}
+            {{/if}}
+          {{/step.component}}
+        {{/iftt.conditions}}
+      </div>
+    {{/if}}
+  </div>
+{{/workflow-builder-if-this-then-that}}

@@ -1,0 +1,18 @@
+{{#workflow-builder-step-single options=options stepType=stepType labelPath=labelPath configurable=true
+                                step=_step stepChanged=(action "changeStep") editorName=editorName as |singleStep|}}
+  {{#if _step.kind}}
+    {{#singleStep.rows.third}}
+      {{workflow-builder-simple-select options=(get comparatorArray _step.kind) selected=_comparator
+                      onchange=(action "changeConditionType") path='key'}}
+    {{/singleStep.rows.third}}
+  {{/if}}
+  {{#if _comparator}}
+    {{#singleStep.rows.fourth}}
+      {{#if hasBlock}}
+        {{yield (hash type=(get _step 'key' ) editorComponent=singleStep.editorComponent)}}
+      {{else}}
+        {{component singleStep.editorComponent}}
+      {{/if}}
+    {{/singleStep.rows.fourth}}
+  {{/if}}
+{{/workflow-builder-step-single}}
