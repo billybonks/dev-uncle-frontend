@@ -34,9 +34,11 @@ export default class WorkflowBuilderIftt extends Component {
 
   @action
   changedEvent(step){
-    set(this, 'selectedEvent', step);
-    set(this, 'availableActions', step.actions);
-    set(this, 'availableConditions', step.attributes);
+    if(step) {
+      set(this, 'selectedEvent', step);
+      set(this, 'availableActions', step.actions);
+      set(this, 'availableConditions', step.attributes);
+    }
   }
 
   @action

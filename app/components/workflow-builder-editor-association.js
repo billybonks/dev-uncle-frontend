@@ -26,6 +26,7 @@ export default class WorkflowBuilderEditorAssociation extends Component {
     let id = get(this, `selectedObject.${get(this, 'idPath')}`);
     let key = get(this, 'key');
     if(key) {
+      data = {};
       data[get(this, 'key')] = id;
     } else {
       data = id;

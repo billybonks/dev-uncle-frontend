@@ -13,10 +13,13 @@ export default class AutomationBuilderIftt extends Component {
 
   @computed('selectedEvent','rule.rules')
   get selectedAction() {
-    return {
-      step: get(get(this, 'selectedEvent.step'), 'actions').findBy('key', this.get('rule.rules.action')),
-      data: get(this, 'rule.rules.data'),
-    };
+    let step = get(this, 'selectedEvent.step');
+    if(step) {
+      return {
+        step: get(get(this, 'selectedEvent.step'), 'actions').findBy('key', this.get('rule.rules.action')),
+        data: get(this, 'rule.rules.data'),
+      };
+    }
   }
 
   @action
@@ -32,7 +35,6 @@ export default class AutomationBuilderIftt extends Component {
         };
       })
     };
-    console.log(rules)
     set(this, 'rule.event', get(workflow, 'event.name'));
     set(this, 'rule.rules', rules);
   }
