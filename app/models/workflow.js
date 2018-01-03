@@ -4,11 +4,5 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   name:      DS.attr('string'),
-  states: DS.hasMany('states'),
-  filters: DS.hasMany('filters'),
-  pullRequests: DS.hasMany('pullRequest'),
-  labels: DS.hasMany('labels'),
-  workflows: DS.hasMany('workflows'),
-  members: DS.hasMany('repoMember'),
   rules: DS.hasMany('rules', { defaultValue: () => { return []; } }),
 });
