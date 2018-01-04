@@ -16,6 +16,10 @@ Router.map(function() {
       this.route('members');
       this.route('workflows');
     });
+
+    this.route('workflows', function() {
+      this.route('new');
+    });
   });
 });
 
