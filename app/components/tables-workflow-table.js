@@ -17,6 +17,7 @@ export default class TablesWorkflowTable extends Component{
       label: 'Name',
       sortable: false,
       valuePath: 'name',
+      cellComponent:'columns/workflow-link',
     }];
   }
 
