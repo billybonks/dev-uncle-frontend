@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import get from "ember-metal/get";
 import set from "ember-metal/set";
-import { action, computed } from 'ember-decorators/object';
+import { action } from 'ember-decorators/object';
 
 export default class WorkflowBuilderEditorAssociation extends Component {
   idPath = 'id'
@@ -23,7 +23,7 @@ export default class WorkflowBuilderEditorAssociation extends Component {
   @action
   selectionChanged(object){
     let data = null;
-    let id = get(this, `selectedObject.${get(this, 'idPath')}`);
+    let id = get(object, get(this, 'idPath'));
     let key = get(this, 'key');
     if(key) {
       data = {};

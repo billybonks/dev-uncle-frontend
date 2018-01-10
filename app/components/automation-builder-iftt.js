@@ -36,7 +36,9 @@ export default class AutomationBuilderIftt extends Component {
       })
     };
     set(this, 'rule.event', get(workflow, 'event.name'));
-    set(this, 'rule.rules', rules);
+    set(this, 'rule.rules.action', get(rules, 'action'));
+    set(this, 'rule.rules.data', get(rules, 'data'));
+    set(this, 'rule.hasDirtyAttributes', true);
   }
 
 }
