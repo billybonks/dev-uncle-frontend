@@ -19,6 +19,7 @@ Router.map(function() {
 
     this.route('workflows', function() {
       this.route('new');
+      this.route('edit', {path:'workflows/:workflow_id'});
     });
   });
 });
