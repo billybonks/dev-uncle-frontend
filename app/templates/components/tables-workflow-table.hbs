@@ -1,4 +1,4 @@
-{{#light-table table as |t|}}
+{{#light-table table tableActions=(hash delete=(action 'deleteRow') deactivate=(action 'deactivateRow')) as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')
     iconAscending='fa fa-sort-asc'

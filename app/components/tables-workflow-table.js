@@ -18,7 +18,11 @@ export default class TablesWorkflowTable extends Component{
       sortable: false,
       valuePath: 'name',
       cellComponent:'columns/workflow-link',
-    }];
+    },
+  {
+    label: 'Actions',
+    cellComponent: 'columns/destroy-action-cell'
+  }];
   }
 
   @action
@@ -27,5 +31,27 @@ export default class TablesWorkflowTable extends Component{
       this.set('sortBy',column.get('valuePath'));
       this.set('direction', column.get('ascending'));
     }
+  }
+
+  @action
+  deleteRow(row){
+    let model = row.content._content || row.content;
+    model.destroyRecord().then(function(){
+      this.notifyPropertyChange('filteredRows');
+    });
+  }
+
+  @action
+  deactivateRow(row){
+    let model = row.content;
+    model.set('active', false);
+    model.save();
+  }
+
+  @action
+  activateRow(row){
+    let model = row.content;
+    model.set('active', true);
+    model.save();
   }
 }
