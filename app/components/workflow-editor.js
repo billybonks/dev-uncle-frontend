@@ -8,6 +8,7 @@ export default class ComponentWorkflowEditor extends Component {
   @action
   addRule(){
     let rule = this.get('store').createRecord('rule');
+    rule.set('rules', {});
     rule.set('repo', this.get('workflow.repo') );
     this.get('workflow.rules').pushObject(rule);
   }
@@ -21,7 +22,9 @@ export default class ComponentWorkflowEditor extends Component {
       }
     });
     RSVP.all(promises).then(() => {
-      this.get('workflow').save();
+      this.get('workflow').save().then((workflow) => {
+        this.transitionAfterSave(workflow);
+      });
     });
   }
 }
