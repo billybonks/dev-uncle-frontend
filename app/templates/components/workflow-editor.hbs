@@ -1,0 +1,5 @@
+Name: {{one-way-input workflow.name type="text" update=(action (mut workflow.name))}}
+
+{{power-button action=(action "addRule") text="new rule"}}
+{{automation-builder workflows=workflow.rules labels=labels}}
+{{power-button action=(action "saveWorkflow") text="save"}}

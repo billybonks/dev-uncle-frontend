@@ -9,6 +9,9 @@ export default DS.RESTSerializer.extend({
     if(attr == 'labels'){
       return 'label_ids';
     }
+    if(attr == 'rules'){
+      return 'rules_id';
+    }
     return `${underscore(attr)}_id`;
   }
 });

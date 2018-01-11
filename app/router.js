@@ -14,6 +14,12 @@ Router.map(function() {
     this.route('manage', function(){
       this.route('slack');
       this.route('members');
+      this.route('workflows');
+    });
+
+    this.route('workflows', function() {
+      this.route('new');
+      this.route('edit', {path:'workflows/:workflow_id'});
     });
   });
 });

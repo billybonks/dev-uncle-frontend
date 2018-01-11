@@ -24,7 +24,6 @@
             {{#if (eq conditional.type 'labels')}}
               {{conditional.editorComponent options=labels}}
             {{else}}
-              {{log conditional.editorComponent}}
               {{component conditional.editorComponent}}
             {{/if}}
           {{/step.component}}
