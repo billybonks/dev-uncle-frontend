@@ -26,7 +26,7 @@
     "selector-max-compound-selectors": 4,
     "selector-pseudo-element-colon-notation": "double",
     "selector-list-comma-newline-after": "always-multi-line",
-    "selector-no-id": true,
+    "selector-max-id": 0,
     "selector-no-qualifying-type": [ true, {
         "ignore": [ "attribute" ]
       } ],
@@ -41,7 +41,7 @@
     "number-leading-zero": "never",
     "number-no-trailing-zeros": true,
     "length-zero-no-unit": true,
-    "rule-nested-empty-line-before": ["always-multi-line", {
+    "rule-empty-line-before": ["always-multi-line", {
       "ignore": ["after-comment"],
       "except": ["first-nested"]
       } ],
