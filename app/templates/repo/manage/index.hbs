@@ -1,11 +1,3 @@
-{{#if repo.labels.isFulfilled}}
-  <h4> Automation </h4>
-  {{power-button action=(action "addRule") text="new rule"}}
-  {{automation-builder workflows=repo.rules labels=repo.labels}}
-  {{power-button action=(action "saveRules") text="save"}}
-
-  {{state-label-selector labels=repo.labels}}
-{{/if}}
 <h4> Slack </h4>
 {{slack-org-linker repo=repo}}
 {{slackSetting}}
