@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import Table from 'ember-light-table';
 import { computed, readOnly } from 'ember-decorators/object';
 import { action } from 'ember-decorators/object';
@@ -15,7 +15,7 @@ export default class TablesSlackNotificationTable extends Component {
   }
 
   @computed('model.length')
-  filteredRows(){
+  get filteredRows(){
     if(this.get('model')){
       let rows = this.get('model').rejectBy('isDeleted');
       this.get('table').setRows(rows);
@@ -23,9 +23,8 @@ export default class TablesSlackNotificationTable extends Component {
     }
   }
 
-  @readOnly
   @computed
-  columns() {
+  get columns() {
     return [{
       label: 'Filter',
       draggable: true,

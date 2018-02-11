@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
@@ -7,7 +7,7 @@ export default Component.extend({
   classNameBindings: ['active'],
 
   @computed('filter.isActive')
-  active(){
+  get active(){
     if(this.get('filter.isActive')){
       return 'filter-tab__active';
     }

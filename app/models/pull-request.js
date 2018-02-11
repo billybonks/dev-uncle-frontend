@@ -15,7 +15,7 @@ export default DS.Model.extend({
   labels:     DS.hasMany('labels'),
 
   @computed('number','title', 'repo.name')
-  linkInfo(){
+  get linkInfo(){
     return EmberObject.create({
       title:this.get('title'),
       number: this.get('number'),

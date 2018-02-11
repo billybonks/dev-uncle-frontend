@@ -1,5 +1,5 @@
 import { A } from '@ember/array';
-import Component from 'ember-component';
+import Component from '@ember/component';
 import EmberObject from 'ember-object';
 
 export default Component.extend({

@@ -1,10 +1,9 @@
 import EditableTable from 'client/components/tables-editable-table';
-import { computed, readOnly } from 'ember-decorators/object';
+import { computed } from 'ember-decorators/object';
 
 export default EditableTable.extend({
-  @readOnly
   @computed
-  columns() {
+  get columns() {
     return [{
       label: 'Name',
       draggable: true,

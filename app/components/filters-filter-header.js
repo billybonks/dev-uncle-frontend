@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
@@ -40,7 +40,7 @@ export default Component.extend({
     },
   },
   @computed('editingFilter')
-  showNewFilter(){
+  get showNewFilter(){
     let editingFilter = this.get('selectedFilter');
     if(!editingFilter) return true;
     if(!editingFilter.get('isNew')) return true;

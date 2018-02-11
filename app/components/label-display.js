@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
@@ -7,7 +7,7 @@ export default Component.extend({
   attributeBindings:['style'],
 
   @computed('label.{color.isActive}')
-  style() {
+  get style() {
     let background = `background-color:#${this.get('label.color')}`;
     if(this.get('label.isActive')){
       return background;

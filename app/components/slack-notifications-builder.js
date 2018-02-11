@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import service from 'ember-service/inject';
 
 const INTERVAL = ['daily', 'weekly', 'hourly'];
