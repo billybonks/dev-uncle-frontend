@@ -1,7 +1,8 @@
 import Component from '@ember/component';
-import get from "ember-metal/get";
-import set from "ember-metal/set";
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 import { action, computed } from 'ember-decorators/object';
+import { next } from '@ember/runloop';
 
 export default class WorkflowBuilderIftt extends Component {
   constructor() {
@@ -12,7 +13,7 @@ export default class WorkflowBuilderIftt extends Component {
     set(this, 'selectedActionData', get(this, 'action.data'));
     set(this, 'selectedConditions', get(this, 'condtions.step'));
     this.send('changedEvent', step);
-    Ember.run.next(() => {
+    next(() => {
       if(! get(this, 'isDestroyed')){
         set(this, 'selectedAction', {
           step: get(this, 'selectedAction'),

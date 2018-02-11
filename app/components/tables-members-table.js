@@ -1,7 +1,7 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import Table from 'ember-light-table';
-import service from 'ember-service/inject';
-import { computed, readOnly } from 'ember-decorators/object';
+import { inject as service } from '@ember/service';
+import { computed } from 'ember-decorators/object';
 
 export default Component.extend({
   store: service(),
@@ -11,9 +11,8 @@ export default Component.extend({
     this._super(...arguments);
     this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
   },
-  @readOnly
   @computed
-  columns() {
+  get columns() {
     return [{
       label: 'Username',
       valuePath: 'user.githubUser',

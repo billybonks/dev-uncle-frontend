@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
-import Ember from 'ember';
-import service from 'ember-service/inject';
+import { inject as service } from '@ember/service';
+import { pluralize } from 'ember-inflector';
+
 export default Route.extend({
   fixedHeader: service(),
   actions: {
@@ -12,7 +13,7 @@ export default Route.extend({
     }
   },
   ensureRecord(parentModel,childModelName, target){
-    let pluralizedype = Ember.String.pluralize(childModelName);
+    let pluralizedype = pluralize(childModelName);
     if(!parentModel.get(`${pluralizedype}.length`)){
       return this.store.query(childModelName, {repo_id: parentModel.get('id')}).then( (results) => {
         if(target){

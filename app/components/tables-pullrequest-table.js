@@ -1,5 +1,5 @@
-import Component from 'ember-component';
-import { computed, readOnly, action } from 'ember-decorators/object';
+import Component from '@ember/component';
+import { computed, action } from 'ember-decorators/object';
 import { service } from 'ember-decorators/service';
 import Table from 'ember-light-table';
 import moment from 'moment';
@@ -15,9 +15,8 @@ export default class PullRequestTable extends Component{
     this.set('direction', false);
   }
 
-  @readOnly
   @computed
-  columns() {
+  get columns() {
     return [{
       label: 'Title',
       sortable: false,

@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import Table from 'ember-light-table';
-import { computed, readOnly, action } from 'ember-decorators/object';
+import { computed, action } from 'ember-decorators/object';
 
 export default class TablesWorkflowTable extends Component{
   constructor(){
@@ -10,9 +10,8 @@ export default class TablesWorkflowTable extends Component{
     this.set('direction', false);
   }
 
-  @readOnly
   @computed
-  columns() {
+  get columns() {
     return [{
       label: 'Name',
       sortable: false,

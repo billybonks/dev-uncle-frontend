@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import Table from 'ember-light-table';
 import { computed } from 'ember-decorators/object';
 
@@ -13,7 +13,7 @@ export default Component.extend({
     this.set('table', new Table(this.get('columns')));
   },
   @computed('model.length')
-  filteredRows(){
+  get filteredRows(){
     if(this.get('model')){
       let rows = this.get('model').rejectBy('isDeleted');
       this.get('table').setRows(rows);
