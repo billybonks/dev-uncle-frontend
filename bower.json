@@ -1,0 +1,6 @@
+{
+  "name": "client",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
