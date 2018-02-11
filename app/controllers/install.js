@@ -1,12 +1,13 @@
-import Controller from 'ember-controller';
+import Controller from '@ember/controller';
 import { task } from 'ember-concurrency';
-import service from 'ember-service/inject';
+import { inject as service } from '@ember/service';
 import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
   ajax: service(),
   states: service(),
   init(){
+    this._super(...arguments);
     this.get('loadAvaliableRepos').perform();
   },
   repo: alias('model'),

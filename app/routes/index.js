@@ -1,5 +1,5 @@
 import AbstractRoute from "client/routes/abstract-route";
-import service from 'ember-service/inject';
+import { inject as service } from '@ember/service';
 
 export default AbstractRoute.extend({
   ajax: service(),

@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
-import Ember from 'ember';
-import service from 'ember-service/inject';
+import { inject as service } from '@ember/service';
 import { pluralize } from 'ember-inflector';
 
 export default Route.extend({

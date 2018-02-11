@@ -1,7 +1,8 @@
 import Component from '@ember/component';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import { action, computed } from 'ember-decorators/object';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
+import { computed, defineProperty } from '@ember/object';
+import { action } from 'ember-decorators/object';
 
 export default class SingleStepBuilder extends Component {
 
@@ -16,8 +17,8 @@ export default class SingleStepBuilder extends Component {
       set(this, 'editorKey', 'editor');
     }
     if(!get(this, 'editorName')){
-      let comptued = Ember.computed('_step', () => {return get(this, `_step.${get(this, 'editorKey')}`);});
-      Ember.defineProperty(this, 'editorName', comptued);
+      let comptued = computed('_step', () => {return get(this, `_step.${get(this, 'editorKey')}`);});
+      defineProperty(this, 'editorName', comptued);
     }
   }
 

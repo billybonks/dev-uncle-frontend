@@ -1,6 +1,5 @@
 import Component from '@ember/component';
-import get from "ember-metal/get";
-import set from "ember-metal/set";
+import { get, set } from '@ember/object';
 import { computed, action } from 'ember-decorators/object';
 
 export default class AutomationBuilderIftt extends Component {
