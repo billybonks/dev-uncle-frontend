@@ -3,7 +3,7 @@ import { computed, action } from 'ember-decorators/object';
 import { service } from 'ember-decorators/service';
 import Table from 'ember-light-table';
 import moment from 'moment';
-import _ from 'underscore';
+import _ from 'lodash';
 
 export default class PullRequestTable extends Component{
   @service store
