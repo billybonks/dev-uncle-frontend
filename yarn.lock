@@ -3038,7 +3038,7 @@ ember-cli-babel@6.12.0, ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, e
     ember-cli-version-checker "^2.1.0"
     semver "^5.4.1"
 
-ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -3274,12 +3274,6 @@ ember-cli-uglify@^2.0.0:
   dependencies:
     broccoli-uglify-sourcemap "^2.0.1"
     lodash.defaultsdeep "^4.6.0"
-
-ember-cli-underscore@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ember-cli-underscore/-/ember-cli-underscore-0.0.3.tgz#60178d13c3b232237cad268ced2fc81cfea9108f"
-  dependencies:
-    ember-cli-babel "^5.1.5"
 
 ember-cli-valid-component-name@^1.0.0:
   version "1.0.0"
