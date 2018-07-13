@@ -1,9 +1,5 @@
-<div class="row">
-  <div  class="col-12">
-    {{#if repo.labels.length}}
-      {{tables-pullrequest-table filters=repo.filters repo=repo labels=repo.labels state=state pullRequests=model}}
-    {{else}}
-      Labels loading
-    {{/if}}
-  </div>
-</div>
+{{#if repo.labels.length}}
+  {{tables-pullrequest-table filters=repo.filters repo=repo labels=repo.labels state=state pullRequests=model}}
+{{else}}
+  Labels loading
+{{/if}}

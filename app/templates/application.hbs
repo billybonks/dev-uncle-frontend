@@ -1,20 +1,13 @@
-{{#unless failed}}
-  {{side-navigation repos=model classNames="nav-wrapper"}}
-{{/unless}}
-<div class="content-wrapper">
-  <ol class="main-header">
-    <li>{{fa-icon "address-card"}} <span>Guten Morgen: </span><span>{{user.github_user}}</span></li>
-    <li>logout</li>
-    <li style="clear:both"></li>
-
-  </ol>
-  <div class="fixed-header">
-    <div style="border-bottom: 1px solid;padding-bottom: 5px;">
-      <span> {{fa-icon "home"}} </span>
-      {{component fixedHeader.controlsPath tagName="span" model=fixedHeader.controlsParams}}
-    </div>
-  </div>
-  <div class="container content">
-    {{outlet}}
-  </div>
+<div class="managerbot">
+  <aside class="sidebar-wrapper">
+    {{app-logo}}
+    {{app-navigation repos=model}}
+  </aside>
+  {{app-header}}
+  <main> //contents
+    {{route-header fixedHeader=fixedHeader}}
+    <article class="route-outlet">
+      {{outlet}}
+    </article>
+  </main>
 </div>

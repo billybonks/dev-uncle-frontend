@@ -1,0 +1,9 @@
+{{#if segment}}
+  {{#link-to route class="sidebar-link"}}
+    {{icon-text icon=icon text=text}}
+  {{/link-to}}
+{{else}}
+  {{#link-to  route segment class="sidebar-link"}}
+    {{icon-text icon=icon text=text}}
+  {{/link-to}}
+{{/if}}

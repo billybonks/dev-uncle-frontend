@@ -1,27 +1,92 @@
-html {
+$side-navigation-logo-background: #223140;
+$side-navigation-font-color: $deep-blue;
+$side-navigation-background: #f8f8f8;
+$side-navigation-border: 1px #273d66 solid;
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0px;
+}
+
+main {
+  display: contents;
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.managerbot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+  "logo    app-header"
+  "sidebar route-header"
+  "sidebar route-outlet";
   height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
-body {
-  height: 100%;
+.sidebar-wrapper {
+  display:contents;
 }
 
-body > .ember-view {
-  height: 100%;
+.main-header {
+  grid-area: app-header;
+  color: $white;
+  padding: 16px;
+  background: linear-gradient(to right ,#1c9ee3  ,#3bc6eb);
+  z-index: 10;
 }
 
-.nav-wrapper {
-  height: 100%;
-  width: 300px;
-  position: fixed;
+.route-header {
+  grid-area: route-header;
+  padding: 16px;
+  border-bottom: 1px solid;
+  margin-bottom: 5px;
 }
 
-.content-wrapper {
-  margin-left: 300px;
+.logo-container {
+  padding: 17px;
+  line-height: 0px;
+  background-color: $side-navigation-logo-background;
+  grid-area: logo;
 }
 
-.flex {
-  display: flex;
+.sidebar-container {
+  width:300px
+}
+
+.logo {
+  width: 134px;
+}
+
+.side-navigation {
+  grid-area: sidebar;
+  overflow-y: auto;
+  background-color: $side-navigation-background;
+  border-right: $side-navigation-border;
+}
+
+.route-outlet {
+  overflow-y: auto;
+  grid-area: route-outlet;
+  padding: 0 40px;
 }
 
 .row {

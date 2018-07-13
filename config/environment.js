@@ -8,6 +8,7 @@ module.exports = function(environment) {
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
+        'ember-glimmer-remove-application-template-wrapper': true,
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       },
