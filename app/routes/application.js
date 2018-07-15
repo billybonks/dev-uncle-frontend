@@ -14,7 +14,7 @@ export default AbstractRoute.extend({
 
   setupController(controller, model){
     controller.set('model', model);
-    controller.set('failed', this.get('failed'));
+    controller.set('unAuthenticated', this.get('unAuthenticated'));
     this.get('ajax').request('api/me').then( (results) => {
       this.set('session.user', results);
       controller.set('user', results);

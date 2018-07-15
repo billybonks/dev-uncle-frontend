@@ -1,5 +1,5 @@
 {{#if isEditing}}
-  {{one-way-input value type="number" update=(action 'updateFilter')}} days ago
+  <input value={{value}} type="number" oninput={{action 'updateFilter' value="target.value"}}> days ago
 {{else}}
   {{value}} days ago
 {{/if}}

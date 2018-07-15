@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ember-font-awesome": "^4.0.0-rc.2"
+    "ember-font-awesome": "^4.0.0-rc.4"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.2",
@@ -60,15 +60,14 @@
     "ember-math-helpers": "^2.3.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.6.0",
-    "ember-one-way-controls": "^2.0.1",
     "ember-power-select": "^2.0.0-beta.2",
     "ember-resolver": "^4.0.0",
     "ember-responsive": "^2.0.5",
     "ember-source": "~3.2.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
-    "qunit-dom": "^0.6.2",
+    "qunit-dom": "^0.7.0",
     "stylelint-declaration-use-variable": "^1.6.0",
-    "stylelint-scss": "^2.1.0"
+    "stylelint-scss": "^3.1.3"
   }
 }

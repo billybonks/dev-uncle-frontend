@@ -1,4 +1,5 @@
-{{#if unAuthenticated}}
+{{unAuthenticated}}
+{{#unless unAuthenticated}}
 <div class="managerbot">
   <aside class="sidebar-wrapper">
     {{app-logo}}
@@ -13,10 +14,10 @@
   </main>
 </div>
 {{else}}
-<div class="authentication-outlet">
+<div class="authentication-outlet" style="display:none">
   <div class="authentication-container">
     {{app-logo}}
     {{outlet}}
   </div>
 </div>
-{{/if}}
+{{/unless}}
