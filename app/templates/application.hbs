@@ -1,3 +1,4 @@
+{{#if unAuthenticated}}
 <div class="managerbot">
   <aside class="sidebar-wrapper">
     {{app-logo}}
@@ -11,3 +12,11 @@
     </article>
   </main>
 </div>
+{{else}}
+<div class="authentication-outlet">
+  <div class="authentication-container">
+    {{app-logo}}
+    {{outlet}}
+  </div>
+</div>
+{{/if}}

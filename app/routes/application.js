@@ -4,11 +4,11 @@ import AbstractRoute from "client/routes/abstract-route";
 export default AbstractRoute.extend({
   ajax: service(),
   session: service(),
-  failed: false,
+  unAuthenticated: false,
   model(){
     return this.get('store').findAll('repo').catch( () => {
       this.transitionTo('login');
-      this.set('failed', true);
+      this.set('unAuthenticated', true);
     });
   },
 
