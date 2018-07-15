@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="col-md-3">
+<div class="table-filter_filter-row">
+  <div class="table-filter_filter-row--left">
     {{fa-icon "trash" click=deleteFilter}} {{filter.title}}:
   </div>
-  <div class="col-md-9">
+  <div class="table-filter_filter-row--right">
     {{component filter.component model=filter.model isEditing=true
       action=filterUpdated filter=filter value=filter.value}}
   </div>
