@@ -26,4 +26,4 @@ export default class MembersComponent extends Controller {
     });
     newMember.save();
   }
-};
+}

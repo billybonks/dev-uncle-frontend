@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, action } from '@ember-decorators/object';
+import { action } from '@ember-decorators/object';
 
 export default class TablesWorkflowTable extends Component{
 
@@ -19,7 +19,7 @@ export default class TablesWorkflowTable extends Component{
 
   @action
   deleteRow(row){
-    return row.destroyRecord()
+    return row.destroyRecord();
   }
 
   @action

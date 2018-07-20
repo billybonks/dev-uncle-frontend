@@ -117,7 +117,7 @@ tfoot {
     color: $table-font-color;
     border-radius: 3px;
     border: 1px $table-header-background-color solid;
-    border-top: none;
+    border-top: 0;
     background-color: $table-background-color;
   }
 

@@ -36,7 +36,7 @@ export default class PullRequestTable extends Component{
 
   @action
   saveFilter(filter){
-    return filter.save()
+    return filter.save();
   }
 
   @action

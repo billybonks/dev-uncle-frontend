@@ -1,19 +1,19 @@
 {{#each steps as | step index|}}
-  {{#unless hasBlock}}
-    {{workflow-builder-step-conditional stepCollection=steps stepType="if"
-      options=options labelPath=labelPath attributeLabelPath='key'
-      stepChanged=(action "changedStep" index) }}
-  {{else}}
+  {{#if hasBlock}}
     {{yield (hash component=(component 'workflow-builder-step-conditional' stepCollection=steps stepType="if"
       options=options labelPath=labelPath attributeLabelPath='key'
       stepChanged=(action "changedStep" index)))}}
-  {{/unless}}
+  {{else}}
+    {{workflow-builder-step-conditional stepCollection=steps stepType="if"
+      options=options labelPath=labelPath attributeLabelPath='key'
+      stepChanged=(action "changedStep" index) }}
+  {{/if}}
 {{/each}}
 {{#if hasBlock}}
   {{!yield}}
 {{/if}}
 {{#if steps.length}}
-  <span {{action "addStep"}}>{{fa-icon "plus"}} and</span>
+  <span role="button" {{action "addStep"}}>{{fa-icon "plus"}} and</span>
 {{else}}
-  <span {{action "addStep"}}>{{fa-icon "plus"}} {{actionText}}</span>
+  <span role="button" {{action "addStep"}}>{{fa-icon "plus"}} {{actionText}}</span>
 {{/if}}

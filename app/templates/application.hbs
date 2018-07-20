@@ -1,22 +1,22 @@
 {{#unless unAuthenticated}}
-<div class="managerbot">
-  <aside class="sidebar-wrapper">
-    <AppLogo />
-    <AppNavigation @repos={{this.model}} />
-  </aside>
-  <AppHeader />
-  <main>
-    <RouteHeader @fixedHeader={{fixedHeader}} />
-    <article class="route-outlet">
-      {{outlet}}
-    </article>
-  </main>
-</div>
-{{else}}
-<div class="authentication-outlet">
-  <div class="authentication-container">
-    <AppLogo />
-    {{outlet}}
+  <div class="managerbot">
+    <aside class="sidebar-wrapper">
+      <AppLogo />
+      <AppNavigation @repos={{this.model}} />
+    </aside>
+    <AppHeader />
+    <main>
+      <RouteHeader @fixedHeader={{fixedHeader}} />
+      <article class="route-outlet">
+        {{outlet}}
+      </article>
+    </main>
   </div>
-</div>
+  {{else}}
+  <div class="authentication-outlet">
+    <div class="authentication-container">
+      <AppLogo />
+      {{outlet}}
+    </div>
+  </div>
 {{/unless}}

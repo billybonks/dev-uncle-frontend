@@ -11,11 +11,11 @@
       path=labelPath
     }}
   {{/rows.second}}
-    {{#if editorName }}
-      {{store-handlebars-object this 'editorComponent'
-        (component (concat 'workflow-builder-editor-' editorName) stepDataChanged=(action 'stepDataChanged') stepData=_stepData)
-      }}
-    {{/if}}
+  {{#if editorName }}
+    {{store-handlebars-object this 'editorComponent'
+      (component (concat 'workflow-builder-editor-' editorName) stepDataChanged=(action 'stepDataChanged') stepData=_stepData)
+    }}
+  {{/if}}
   {{#if hasBlock}}
     {{#if editorName}}
       {{yield (hash rows=rows editorComponent=editorComponent step=_step)}}

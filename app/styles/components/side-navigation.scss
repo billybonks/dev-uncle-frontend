@@ -19,11 +19,11 @@ $side-navigation-link-border: 1px #ddd solid;
 
   &:hover {
     background-color: $side-navigation-active-background;
-    color: $side-navigation-active-font-color
+    color: $side-navigation-active-font-color;
   }
 
   &.active {
     background-color: $side-navigation-active-background;
-    color: $side-navigation-active-font-color
+    color: $side-navigation-active-font-color;
   }
 }

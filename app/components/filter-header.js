@@ -10,13 +10,13 @@ export default class FilterHeader extends Component {
     @action
     deleteFilter(filter, filterTemplate){
       delete filter.filters[filterTemplate.id];
-      let newFilters = Object.assign({}, this.activeFilter.filters)
+      let newFilters = Object.assign({}, this.activeFilter.filters);
       this.activeFilter.set('filters', newFilters);
     }
 
     @action
     filterAdded(activeFilter, filter){
-      let newFilters = Object.assign({}, this.activeFilter.filters, {[filter.id]: null})
+      let newFilters = Object.assign({}, this.activeFilter.filters, {[filter.id]: null});
       this.activeFilter.set('filters', newFilters );
     }
 }

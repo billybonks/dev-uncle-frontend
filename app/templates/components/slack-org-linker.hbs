@@ -2,12 +2,12 @@
   <p> You have not linked any slack organisations </p>
   <div class="row">
     <div class="col-6">
-    {{#power-select options=slackOrgs renderInPlace=true selected=slackSetting.slackOrganization onchange=(action "setSlackOrg") as |label|}}
-      {{label.name}}
-    {{/power-select}}
+      {{#power-select options=slackOrgs renderInPlace=true selected=slackSetting.slackOrganization onchange=(action "setSlackOrg") as |label|}}
+        {{label.name}}
+      {{/power-select}}
     </div>
     <div class="col-3">
-    {{power-button text="link slack organisation" task=saveSlack}}
+      {{power-button text="link slack organisation" task=saveSlack}}
     </div>
   </div>
   {{power-button text="can't find organisation?" action=(action "redirectSlackAuth")}}

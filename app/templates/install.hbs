@@ -2,7 +2,9 @@
 <div>
   <h2 style="display:inline-block">Install repo</h2>
   <div class="input-group">
-    {{#unless installRepo.isRunning}}
+    {{#if installRepo.isRunning}}
+      <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
+    {{else}}
       {{#if loadAvaliableRepos.isIdle}}
         <div class="form-control">
           {{#power-select options=availableRepos renderInPlace=true selected=selectedRepo onchange=(action "selectedRepo") as |name|}}
@@ -15,9 +17,7 @@
       {{else}}
         <span> Loading available repos .... </span>
       {{/if}}
-    {{else}}
-    <span>Busy installing <b>{{selectedRepo}}</b> please wait ....</span>
-    {{/unless}}
+    {{/if}}
   </div>
 </div>
 {{!-- <div style="margin-top:50px;">

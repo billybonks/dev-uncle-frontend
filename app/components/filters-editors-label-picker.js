@@ -35,7 +35,6 @@ export default class FiltersEditorsLabelPicker extends Component {
       }
       return acc;
     }, []);
-    debugger
     this.filterUpdated(labelIds);
   }
 }
