@@ -1,11 +1,10 @@
-<span style="display:none">{{sortedPullRequests.length}}</span>
 {{#filter-header
   filters=filters
   onFilterClicked=(action 'selectedFilter')
   onFilterNewClicked=(action 'createFilter')
   onFilterSaved=(action 'saveFilter')
   activeFilter=this.activeFilter
-as |filterHeader|}}
+  as |filterHeader|}}
   {{component filterHeader.builder
     filterTypes=(hash
       age=(hash
@@ -21,24 +20,6 @@ as |filterHeader|}}
     )
   }}
 {{/filter-header}}
-{{#light-table table as |t|}}
-  {{t.head
-    onColumnClick=(action 'onColumnClick')
-    iconAscending='fa fa-sort-asc'
-    iconDescending='fa fa-sort-desc'}}
-  {{#t.body as |body|}}
-
-    {{#if isLoading}}
-      {{#body.loader}}
-        Loading...
-      {{/body.loader}}
-    {{/if}}
-
-    {{#if table.isEmpty}}
-      {{#body.no-data}}
-        No pull requests found.
-      {{/body.no-data}}
-    {{/if}}
-  {{/t.body}}
-
-{{/light-table}}
+<BaseTable @columns={{columns}} @sorts={{sorts}} @rows={{filteredPullRequests}} as |t| >
+  No pull requests found.
+</BaseTable>

@@ -1,36 +1,17 @@
 import Component from '@ember/component';
-import Table from 'ember-light-table';
-import { action, computed } from '@ember-decorators/object';
 
 export default class TablesDashboard extends Component {
 
-  constructor(){
-    super(...arguments);
-    this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
-  }
+  columns = [
+    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title'},
+    { name: 'Owner', valuePath: 'owner'},
+    { name: 'Repo', valuePath: 'repo.name' },
+  ]
 
-  @action
-  onColumnClick(column){
-    if(column.get('sortable')){
-      this.set('sortBy',column.get('valuePath'));
-      this.set('direction', column.get('ascending'));
-    }
-  }
-
-  @computed
-  get columns() {
-    return [{
-      label: 'Title',
-      sortable: false,
-      valuePath: 'linkInfo',
-      cellComponent:'columns/pr-title',
-    }, {
-      label: 'Owner',
+  sorts = [
+    {
       valuePath: 'owner',
-    }, {
-      label: 'Repo',
-      valuePath: 'repo.name'
-    }];
-  }
-
+      isAscending: false,
+    }
+  ]
 }

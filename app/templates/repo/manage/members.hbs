@@ -1,2 +1,14 @@
 <h2>Members</h2>
-{{tables-members-table model=repo.members repo=repo}}
+<div class="input-group">
+  <div class="input-group-addon">
+    Add Member
+  </div>
+  {{input value=newMember classNames="form-control"}}
+  <div class="input-group-btn">
+    {{power-button action="addMember" }}
+  </div>
+</div>
+
+<BaseTable @columns={{columns}} @sorts={{sorts}} @rows={{this.repo.members}} as |t| >
+  No members found
+</BaseTable>

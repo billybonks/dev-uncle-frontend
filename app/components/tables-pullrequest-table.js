@@ -1,44 +1,25 @@
 import Component from '@ember/component';
 import { computed, action } from '@ember-decorators/object';
 import { service } from '@ember-decorators/service';
-import Table from 'ember-light-table';
 import moment from 'moment';
 import _ from 'lodash';
 
 export default class PullRequestTable extends Component{
   @service store
 
-  constructor(){
-    super(...arguments);
-    this.set('table', new Table(this.get('columns')));
-    this.set('sortBy', 'updated_at');
-    this.set('direction', false);
-  }
+  columns = [
+    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title'},
+    { name: 'Owner', valuePath: 'owner'},
+    { name: 'Last Active', valuePath: 'updatedAt', cellComponent: 'days-since' },
+    { name: 'Age', valuePath: 'createdAt', cellComponent: 'days-since' },
+  ]
 
-  @computed
-  get columns() {
-    return [{
-      label: 'Title',
-      sortable: false,
-      valuePath: 'linkInfo',
-      cellComponent:'columns/pr-title',
-      width:'53%',
-    }, {
-      label: 'Owner',
+  sorts = [
+    {
       valuePath: 'owner',
-      width:'22%'
-    },{
-      label: 'Last Active',
-      valuePath: 'updatedAt',
-      width:'15%',
-      cellComponent: 'days-since',
-    }, {
-      label: 'Age',
-      valuePath: 'createdAt',
-      width:'10%',
-      cellComponent: 'days-since'
-    }];
-  }
+      isAscending: false,
+    }
+  ]
 
   @action
   selectedFilter(filter){

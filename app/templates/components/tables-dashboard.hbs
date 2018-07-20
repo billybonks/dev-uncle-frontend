@@ -1,21 +1,3 @@
-{{#light-table table as |t|}}
-  {{t.head
-    onColumnClick=(action 'onColumnClick')
-    iconAscending='fa fa-sort-asc'
-    iconDescending='fa fa-sort-desc'}}
-  {{#t.body as |body|}}
-
-    {{#if isLoading}}
-      {{#body.loader}}
-        Loading...
-      {{/body.loader}}
-    {{/if}}
-
-    {{#if table.isEmpty}}
-      {{#body.no-data}}
-        No pull requests found.
-      {{/body.no-data}}
-    {{/if}}
-  {{/t.body}}
-
-{{/light-table}}
+<BaseTable @columns={{columns}} @sorts={{sorts}} @rows={{model}} as |t| >
+  No pull requests found.
+</BaseTable>
