@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import Table from 'ember-light-table';
-import { action, computed } from 'ember-decorators/object';
+import { action, computed } from '@ember-decorators/object';
 
 export default class TablesDashboard extends Component {
 

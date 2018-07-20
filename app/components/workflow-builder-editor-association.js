@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { get } from '@ember/object';
 import { set } from '@ember/object';
-import { action } from 'ember-decorators/object';
+import { action } from '@ember-decorators/object';
 
 export default class WorkflowBuilderEditorAssociation extends Component {
   idPath = 'id'

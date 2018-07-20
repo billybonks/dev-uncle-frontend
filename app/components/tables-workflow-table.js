@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import Table from 'ember-light-table';
-import { computed, action } from 'ember-decorators/object';
+import { computed, action } from '@ember-decorators/object';
 
 export default class TablesWorkflowTable extends Component{
   constructor(){

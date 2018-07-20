@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { action } from 'ember-decorators/object';
+import { action } from '@ember-decorators/object';
 import { A } from '@ember/array';
 
 export default class StateLabelSelector extends Component {

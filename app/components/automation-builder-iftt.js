@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
-import { computed, action } from 'ember-decorators/object';
+import { computed, action } from '@ember-decorators/object';
 
 export default class AutomationBuilderIftt extends Component {
   @computed('rule.event')

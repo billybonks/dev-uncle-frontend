@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { get } from '@ember/object';
 import { set } from '@ember/object';
-import { action, computed } from 'ember-decorators/object';
+import { action, computed } from '@ember-decorators/object';
 import { next } from '@ember/runloop';
 
 export default class WorkflowBuilderIftt extends Component {

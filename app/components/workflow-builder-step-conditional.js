@@ -2,7 +2,7 @@ import SingleStepBuilder from 'client/components/workflow-builder-step-single';
 import EmberObject from '@ember/object';
 import { get } from '@ember/object';
 import { set } from '@ember/object';
-import { action } from 'ember-decorators/object';
+import { action } from '@ember-decorators/object';
 
 export default class StepConditional extends SingleStepBuilder {
   constructor(){

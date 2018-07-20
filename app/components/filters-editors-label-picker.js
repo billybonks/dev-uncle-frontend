@@ -1,15 +1,15 @@
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import EmberObject from '@ember/object';
-import { computed } from 'ember-decorators/object';
+import { computed, action } from '@ember-decorators/object';
 
-export default Component.extend({
-  init(){
-    this._super(...arguments);
+export default class FiltersEditorsLabelPicker extends Component {
+  constructor() {
+    super(...arguments);
     if(!this.get('value')){
       this.set('value', A());
     }
-  },
+  }
 
   @computed('labels.[]','value.[]')
   get _labels() {
@@ -24,19 +24,18 @@ export default Component.extend({
         });
       });
     }
-  },
-
-  actions:{
-    labelToggled(label){
-      label.set('isActive', !label.get('isActive'));
-      let labelIds = this.get('_labels').reduce( (acc, label) => {
-        if(label.get('isActive')){
-          acc.push(label.get('id'));
-        }
-        return acc;
-      }, []);
-      debugger
-      this.filterUpdated(labelIds);
-    }
   }
-});
+
+  @action
+  labelToggled(label){
+    label.set('isActive', !label.get('isActive'));
+    let labelIds = this.get('_labels').reduce( (acc, label) => {
+      if(label.get('isActive')){
+        acc.push(label.get('id'));
+      }
+      return acc;
+    }, []);
+    debugger
+    this.filterUpdated(labelIds);
+  }
+}

@@ -1,5 +1,5 @@
 import Cell from 'ember-light-table/components/cells/base';
-import { computed } from 'ember-decorators/object';
+import { computed } from '@ember-decorators/object';
 
 export default class CheckboxCell extends Cell{
   @computed

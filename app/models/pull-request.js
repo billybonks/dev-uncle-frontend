@@ -1,25 +1,26 @@
 import EmberObject from '@ember/object';
+import { attr, belongsTo, hasMany } from '@ember-decorators/data';
+import { computed } from '@ember-decorators/object';
 import DS from 'ember-data';
-import { computed } from 'ember-decorators/object';
 
-export default DS.Model.extend({
-  title:      DS.attr('string'),
-  state:      DS.attr('string'),
-  owner:      DS.attr('string'),
-  onlineId:   DS.attr('string'),
-  ownerLogin: DS.attr('string'),
-  number:     DS.attr('number'),
-  createdAt:  DS.attr('date'),
-  updatedAt:  DS.attr('date'),
-  repo:       DS.belongsTo('repo'),
-  labels:     DS.hasMany('labels'),
+export default class PullRequest extends DS.Model {
+  @attr('string') title;
+  @attr('string') state;
+  @attr('string') owner;
+  @attr('string') onlineId;
+  @attr('string') ownerLogin;
+  @attr('number') number;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @hasMany labels;
+  @belongsTo repo;
 
   @computed('number','title', 'repo.name')
-  get linkInfo(){
+  get linkInfo() {
     return EmberObject.create({
-      title:this.get('title'),
+      title: this.get('title'),
       number: this.get('number'),
       repo: this.get('repo.name')
     });
   }
-});
+}

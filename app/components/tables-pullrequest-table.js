@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import { computed, action } from 'ember-decorators/object';
-import { service } from 'ember-decorators/service';
+import { computed, action } from '@ember-decorators/object';
+import { service } from '@ember-decorators/service';
 import Table from 'ember-light-table';
 import moment from 'moment';
 import _ from 'lodash';

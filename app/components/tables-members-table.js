@@ -1,16 +1,19 @@
 import Component from '@ember/component';
 import Table from 'ember-light-table';
-import { inject as service } from '@ember/service';
-import { computed } from 'ember-decorators/object';
+import { computed, action } from '@ember-decorators/object';
+import { service } from '@ember-decorators/service';
 
-export default Component.extend({
-  store: service(),
-  sortBy:'updated_at',
-  direction: false,
-  init(){
-    this._super(...arguments);
+export default class TablesMemberTable extends Component {
+  @service store;
+
+  sortBy = 'updated_at'
+  direction = false
+
+  constructor(){
+    super(...arguments);
     this.set('table', new Table(this.get('columns'), this.get('model'), {enableSync: true}));
-  },
+  }
+
   @computed
   get columns() {
     return [{
@@ -21,21 +24,23 @@ export default Component.extend({
       valuePath: 'access',
       ortable: false
     }];
-  },
-  actions:{
-    onColumnClick(column){
-      if(column.get('sortable')){
-        this.set('sortBy',column.get('valuePath'));
-        this.set('direction', column.get('ascending'));
-      }
-    },
-    addMember(){
-      let newMember = this.get('store').createRecord('repoMember',{
-        githubUser:this.get('newMember'),
-        access:true,
-        repo:this.get('repo')
-      });
-      newMember.save();
+  }
+
+  @action
+  onColumnClick(column) {
+    if(column.get('sortable')){
+      this.set('sortBy',column.get('valuePath'));
+      this.set('direction', column.get('ascending'));
     }
   }
-});
+
+  @action
+  addMember() {
+    let newMember = this.get('store').createRecord('repoMember',{
+      githubUser:this.get('newMember'),
+      access:true,
+      repo:this.get('repo')
+    });
+    newMember.save();
+  }
+}
