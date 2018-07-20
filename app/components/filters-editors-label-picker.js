@@ -11,7 +11,7 @@ export default Component.extend({
     }
   },
 
-  @computed('labels.[]')
+  @computed('labels.[]','value.[]')
   get _labels() {
     let labels = this.get('labels');
     if(labels){
