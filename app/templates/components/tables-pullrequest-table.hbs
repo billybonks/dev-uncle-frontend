@@ -1,34 +1,26 @@
 <span style="display:none">{{sortedPullRequests.length}}</span>
-{{#filters-filter-header
-  selectedFilter=activeFilter
+{{#filter-header
   filters=filters
-  filterSelected=(action 'selectedFilter')
-  createFilter=(action 'createFilter')
-  filterUpdated=(action 'filterUpdated' activeFilter)
-  save=(action 'saveFilter' this.activeFilter)
-as |c|}}
-  {{#if this.activeFilter}}
-    {{this.selectedFilterRaw.lastObject.value}}
-    {{component c.builder
-      filterTypes=(hash
-        age=(hash
-          id="age"
-          title="Last Modified"
-          component=(component "filters-editors-age-filter")
-        )
-        labels=(hash
-          id="labels"
-          title="Active Labels"
-          component=(component "filters-editors-label-picker" labels=labels)
-        )
+  onFilterClicked=(action 'selectedFilter')
+  onFilterNewClicked=(action 'createFilter')
+  onFilterSaved=(action 'saveFilter')
+  activeFilter=this.activeFilter
+as |filterHeader|}}
+  {{component filterHeader.builder
+    filterTypes=(hash
+      age=(hash
+        id="age"
+        title="Last Modified"
+        component=(component "filters-editors-age-filter")
       )
-      selectedFilter=this.activeFilter
-      filterAdded=(action 'filterAdded' this.activeFilter)
-      deleteFilter=(action 'deleteFilter' this.activeFilter)
-      filterUpdated=(action 'filterUpdated' this.activeFilter)
-    }}
-  {{/if}}
-{{/filters-filter-header}}
+      labels=(hash
+        id="labels"
+        title="Active Labels"
+        component=(component "filters-editors-label-picker" labels=labels)
+      )
+    )
+  }}
+{{/filter-header}}
 {{#light-table table as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')

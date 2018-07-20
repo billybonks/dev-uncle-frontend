@@ -54,21 +54,8 @@ export default class PullRequestTable extends Component{
   }
 
   @action
-  deleteFilter(filter, filterTemplate){
-    debugger
-    delete filter.filters[filterTemplate.id];
-    let newFilters = Object.assign({}, this.activeFilter.filters)
-    this.activeFilter.set('filters', newFilters);
-  }
-
-  @action
   saveFilter(filter){
     return filter.save()
-  }
-
-  @action
-  filterUpdated(filter, key, newValue){
-    filter.filters[key] = newValue;
   }
 
   @action
@@ -94,12 +81,6 @@ export default class PullRequestTable extends Component{
     this.set('activeFilter.isActive', false);
     filter.set('isActive', true);
     return filter;
-  }
-
-  @action
-  filterAdded(activeFilter, filter){
-    let newFilters = Object.assign({}, this.activeFilter.filters, {[filter.id]: null})
-    this.activeFilter.set('filters', newFilters );
   }
 
   @computed('pullRequests',  'activeFilter.filters')
