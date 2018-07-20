@@ -5,7 +5,7 @@
     icon="cog"
     text="install"
   }}
-  {{#each repos as |repo|}}
+  {{#each @repos as |repo|}}
     {{sidebar-link
       route="repo.stats"
       segment=repo.id

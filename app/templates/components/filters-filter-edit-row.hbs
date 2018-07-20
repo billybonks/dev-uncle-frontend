@@ -1,9 +1,14 @@
 <div class="table-filter_filter-row">
   <div class="table-filter_filter-row--left">
-    {{fa-icon "trash" click=deleteFilter}} {{filter.title}}:
+    {{fa-icon "trash" click=@deleteFilter}} {{@filterTemplate.title}}:
   </div>
   <div class="table-filter_filter-row--right">
-    {{component filter.component model=filter.model isEditing=true
-      action=filterUpdated filter=filter value=filter.value}}
+    {{component
+      @filterTemplate.component
+      isEditing=true
+      filterUpdated=@filterUpdated
+      filter=@filter
+      value=@filter.value
+    }}
   </div>
 </div>

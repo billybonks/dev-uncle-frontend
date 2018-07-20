@@ -1,6 +1,34 @@
 <span style="display:none">{{sortedPullRequests.length}}</span>
-{{filters-filter-header filterTypes=filtersTypes selectedFilter=activeFilter filters=filters
-  filterSelected=(action 'selectedFilter') createFilter=(action 'createFilter') }}
+{{#filters-filter-header
+  selectedFilter=activeFilter
+  filters=filters
+  filterSelected=(action 'selectedFilter')
+  createFilter=(action 'createFilter')
+  filterUpdated=(action 'filterUpdated' activeFilter)
+  save=(action 'saveFilter' this.activeFilter)
+as |c|}}
+  {{#if this.activeFilter}}
+    {{this.selectedFilterRaw.lastObject.value}}
+    {{component c.builder
+      filterTypes=(hash
+        age=(hash
+          id="age"
+          title="Last Modified"
+          component=(component "filters-editors-age-filter")
+        )
+        labels=(hash
+          id="labels"
+          title="Active Labels"
+          component=(component "filters-editors-label-picker" labels=labels)
+        )
+      )
+      selectedFilter=this.activeFilter
+      filterAdded=(action 'filterAdded' this.activeFilter)
+      deleteFilter=(action 'deleteFilter' this.activeFilter)
+      filterUpdated=(action 'filterUpdated' this.activeFilter)
+    }}
+  {{/if}}
+{{/filters-filter-header}}
 {{#light-table table as |t|}}
   {{t.head
     onColumnClick=(action 'onColumnClick')

@@ -1,23 +1,27 @@
-{{#each filters as |filter|}}
+{{#each @filters as |filter|}}
   {{x-tab
     text=filter.name
     isActive=filter.isActive
-    selectFilter=(action 'selectFilter' filter)}}
+    selectFilter=(action 'selectFilter' filter)
+  }}
 {{/each}}
-{{#if showNewFilter}}
+{{#if this.showNewFilter}}
   {{x-tab
     text="New Filter"
-    isActive=filter.isActive
-    selectFilter=(action 'createFilter')}}
+    selectFilter=(action 'createFilter')
+  }}
 {{/if}}
-{{#if selectedFilter}}
-  <div class="filter-builder">
-    {{filters-filter-builder
-      isEditing=isEditing
-      selectedFilter=selectedFilter filterHash=selectedFilter.filters
-      filterTypes=filterTypes
-      save=(action 'saveFilter')
-      cancel=(action 'cancelEditingFilter')
-      edit=(action 'editFilter' selectedFilter)}}
-  </div>
-{{/if}}
+{{yield (hash
+  builder =
+    (component 'filters-filter-builder'
+      isEditing=this.isEditing
+      selectedFilter=@selectedFilter
+      filterTypes=@filterTypes
+      deleteFilter=@deleteFilter
+      filterUpdated=@filterUpdated
+      save=(action 'save')
+      cancel=(action 'cancel')
+      edit=(action 'edit')
+    )
+  )
+}}

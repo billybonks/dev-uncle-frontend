@@ -3,8 +3,13 @@
     <span>{{stepType}}: </span>
   {{/rows.first}}
   {{#rows.second}}
-    {{workflow-builder-simple-select options=options renderInPlace=true selected=_step onchange=(action "changeStep")
-    path=labelPath}}
+    {{workflow-builder-simple-select
+      options=options
+      renderInPlace=true
+      selected=_step
+      onchange=(action "changeStep")
+      path=labelPath
+    }}
   {{/rows.second}}
     {{#if editorName }}
       {{store-handlebars-object this 'editorComponent'

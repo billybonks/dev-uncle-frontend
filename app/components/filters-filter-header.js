@@ -6,8 +6,8 @@ export default Component.extend({
     selectFilter(filter){
       if(this.get('selectedFilter') == filter) return;
       if(this.get('isEditing')){
-        this.send('cancelEditingFilter');
-        this.send('editFilter', filter);
+        this.send('cancel');
+        this.send('edit', filter);
       }
       this.sendAction('filterSelected', filter);
     },
@@ -15,17 +15,10 @@ export default Component.extend({
       let newFilter = this.createFilter();
       this.send('selectFilter', newFilter);
       if(!this.get('isEditing')){
-        this.send('editFilter', newFilter);
+        this.send('edit', newFilter);
       }
     },
-    saveFilter(filterHash){
-      let editingFilter = this.get('selectedFilter');
-      editingFilter.filterHash = filterHash;
-      editingFilter.save().then( () => {
-        this.send('cancelEditingFilter');
-      });
-    },
-    cancelEditingFilter(){
+    cancel(){
       let editingFilter = this.get('selectedFilter');
       if(editingFilter){
         if(editingFilter.get('isNew')){
@@ -34,11 +27,15 @@ export default Component.extend({
         this.set('isEditing', false);
       }
     },
-    editFilter(filter){
+    async save(){
+      await this.save();
+      this.send('cancel');
+    },
+    edit(){
       this.set('isEditing', true);
-      this.set('selectedFilter', filter);
     },
   },
+
   @computed('editingFilter')
   get showNewFilter(){
     let editingFilter = this.get('selectedFilter');

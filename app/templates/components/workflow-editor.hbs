@@ -1,4 +1,4 @@
-Name: <input value={{workflow.name}} type="text" type="number" oninput={{action (mut workflow.name) value="target.value"}}>
+Name: <input value={{@workflow.name}} type="text" type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
 {{power-button action=(action "addRule") text="new rule"}}
-{{automation-builder workflows=workflow.rules labels=labels}}
+{{automation-builder workflows=@workflow.rules labels=@labels}}
 {{power-button action=(action "saveWorkflow") text="save"}}
