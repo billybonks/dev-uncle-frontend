@@ -1,37 +1,28 @@
 <h2>Slack Notifications</h2>
 <p> automatically post pull requests matching a prebuilt filter (usefull if you want to show stale pr"s to the team for example)</p>
-<form class=".form-inline">
+<RowForm>
+  <RowField @label="Filter">
+    {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
+      {{filter.name}}
+    {{/power-select}}
+  </RowField>
 
-  <div class="row">
-    <label>Filter</label>
-    <div class="col">
-      {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
-        {{filter.name}}
-      {{/power-select}}
-    </div>
+  <RowField @label="Time">
+    {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
+      {{time}}
+    {{/power-select}}
+  </RowField>
 
-    <label>Time</label>
-    <div class="col">
-      {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
-        {{time}}
-      {{/power-select}}
-    </div>
+  <RowField @label="Type">
+    {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
+      {{type}}
+    {{/power-select}}
+  </RowField>
 
-    <label>Type</label>
-    <div class="col">
-      {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
-        {{type}}
-      {{/power-select}}
-    </div>
-
-  </div>
-  <div class="row">
-    <label>Channel</label>
-    <div class="col">
-      <input value={{notification.channel}} type="text" oninput={{action (mut notification.channel) value="target.value"}}>
-    </div>
-  </div>
-</form>
+  <RowField @label="Channel">
+    <input value={{notification.channel}} type="text" oninput={{action (mut notification.channel) value="target.value"}}>
+  </RowField>
+</RowForm>
 {{!-- <div class="form-group">
   <label>Interval</label>
   {{#power-select options=intervals renderInPlace=true selected=notification.interval onchange=(action "intervalChanged") as |interval|}}
