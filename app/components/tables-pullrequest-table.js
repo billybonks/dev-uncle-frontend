@@ -2,7 +2,6 @@ import Component from '@ember/component';
 import { computed, action } from '@ember-decorators/object';
 import { service } from '@ember-decorators/service';
 import moment from 'moment';
-import _ from 'lodash';
 
 export default class PullRequestTable extends Component{
   @service store
@@ -73,7 +72,10 @@ export default class PullRequestTable extends Component{
         let labelIds = pullRequest.get('labels').map( (label) => {
           return label.get('id');
         });
-        if(_.intersection(labelIds, labelFilters).length){
+        let labelIdsSet = new Set(labelIds);
+        let labelFiltersSet = new Set(labelFilters);
+        let intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
+        if(intersection.size){
           return true;
         }
       });
