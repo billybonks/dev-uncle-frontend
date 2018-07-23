@@ -1,8 +1,6 @@
 // Tags
 $gray-light:                #818a91 !default;
 
-
-
 $tag-default-bg:            $gray-light !default;
 $tag-primary-bg:            $brand-primary !default;
 $tag-success-bg:            $brand-success !default;
@@ -20,7 +18,11 @@ $tag-pill-padding-x:        .6em !default;
 // customizing padding or font-size on labels.
 $tag-pill-border-radius:    10rem !default;
 
+
 .tag {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   display: inline-block;
   padding: $tag-padding-y $tag-padding-x;
   font-size: $tag-font-size;

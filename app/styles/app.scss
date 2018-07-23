@@ -1,7 +1,7 @@
 @import 'settings/colors';
 @import 'settings/variables';
-@import 'ember-bootstrap/variables';
-@import 'ember-bootstrap/bootstrap';
+@import 'reset';
+@import 'bootstrap/backup';
 @import 'bootstrap/mixins/tag';
 @import 'bootstrap/tags';
 @import 'bootstrap-overrides';
