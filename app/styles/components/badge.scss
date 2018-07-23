@@ -1,0 +1,23 @@
+.ember-badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 3px 5px;
+  border-radius: 2px;
+  line-height: 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.badge-is-active {
+  color: #000000;
+  background-color: #199be2;
+}
+
+.badge-in-active {
+  color: #000000;
+  background-color: #636c72;
+}

@@ -2,16 +2,13 @@
 @import 'settings/variables';
 @import 'reset';
 @import 'bootstrap/backup';
-@import 'bootstrap/mixins/tag';
-@import 'bootstrap/tags';
-@import 'bootstrap-overrides';
 @import 'structural';
 @import 'ember-power-select';
 @import 'table';
-@import 'new';
 @import 'forms';
 @import 'fixed-header';
 @import 'table-filters';
 @import 'components/side-navigation';
 @import 'components/power-button';
 @import 'components/power-select';
+@import 'components/badge'
