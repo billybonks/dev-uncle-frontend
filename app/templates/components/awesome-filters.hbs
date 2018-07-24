@@ -1,15 +1,15 @@
 {{#each @filters as |filter|}}
-  {{x-tab
-    text=filter.name
-    isActive=filter.isActive
-    selectFilter=(action 'selectFilter' filter)
-  }}
+  <Tab
+    @text={{filter.name}}
+    @isActive={{filter.isActive}}
+    @selectFilter={{action 'selectFilter' filter}}
+  />
 {{/each}}
 {{#if this.showNewFilter}}
-  {{x-tab
-    text="New Filter"
-    selectFilter=(action 'createFilter')
-  }}
+  <Tab
+    @text="New Filter"
+    @selectFilter={{action 'createFilter'}}
+  />
 {{/if}}
 {{yield (hash
   builder =
