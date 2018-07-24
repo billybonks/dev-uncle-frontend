@@ -5,7 +5,8 @@ export default class TablesDashboard extends Component {
   columns = [
     { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title'},
     { name: 'Owner', valuePath: 'owner'},
-    { name: 'Repo', valuePath: 'repo.name' },
+    { name: 'Last Active', valuePath: 'updatedAt', cellComponent: 'days-since' },
+    { name: 'Age', valuePath: 'createdAt', cellComponent: 'days-since' },
   ]
 
   sorts = [
@@ -14,4 +15,5 @@ export default class TablesDashboard extends Component {
       isAscending: false,
     }
   ]
+
 }

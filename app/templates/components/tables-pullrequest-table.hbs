@@ -20,6 +20,4 @@
     )
   }}
 {{/filter-header}}
-<BaseTable @columns={{columns}} @sorts={{sorts}} @rows={{filteredPullRequests}} as |t| >
-  No pull requests found.
-</BaseTable>
+<TablePulls @rows={{filteredPullRequests}} />
