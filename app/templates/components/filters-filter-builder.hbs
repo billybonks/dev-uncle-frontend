@@ -4,8 +4,8 @@
       Filter Name: {{input value=@selectedFilter.name}}
     </div>
     <div class="table-filters__buttons">
-      {{power-button action=save text="save changes"}}
-      {{power-button action=cancel text="cancel"}}
+      {{power-button action=@save text="save changes"}}
+      {{power-button action=@cancel text="cancel"}}
     </div>
   </div>
 
@@ -26,7 +26,7 @@
       {{#power-select
         options=this.filteredFilterTypes
         renderInPlace=true
-        selected=selected
+        selected=this.selected
         searchEnabled=false
         onchange=@filterAdded
         placeholder="Select a filter" as |filterType|
@@ -40,7 +40,7 @@
 {{else}}
   <div class="table-filters-title-bar">
     <div class="table-filters__buttons">
-      {{power-button action=edit text="Edit Filter"}}
+      {{power-button action=@edit text="Edit Filter"}}
     </div>
   </div>
   <div class="table-filter_filter-row">

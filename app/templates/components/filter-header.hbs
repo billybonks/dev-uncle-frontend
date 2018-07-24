@@ -3,7 +3,7 @@
   filters=@filters
   filterSelected=@onFilterClicked
   createFilter=@onFilterNewClicked
-  save=(action @onFilterSaved activeFilter)
+  save=(action @onFilterSaved @activeFilter)
 as |c|}}
   {{#if @activeFilter}}
     {{yield (hash

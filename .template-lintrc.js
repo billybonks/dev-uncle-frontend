@@ -6,7 +6,7 @@ module.exports = {
 
   rules: {
     'no-bare-strings': false,
-    'no-implicit-this': false,
+    'no-implicit-this': true,
     'eol-last': 'always',
     'attribute-indentation': false,
     'inline-link-to': true,

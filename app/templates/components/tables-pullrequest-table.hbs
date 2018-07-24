@@ -1,5 +1,5 @@
 {{#filter-header
-  filters=filters
+  filters=@filters
   onFilterClicked=(action 'selectedFilter')
   onFilterNewClicked=(action 'createFilter')
   onFilterSaved=(action 'saveFilter')
@@ -15,9 +15,9 @@
       labels=(hash
         id="labels"
         title="Active Labels"
-        component=(component "filters-editors-label-picker" labels=labels)
+        component=(component "filters-editors-label-picker" labels=@labels)
       )
     )
   }}
 {{/filter-header}}
-<TablePulls @rows={{filteredPullRequests}} />
+<TablePulls @rows={{this.filteredPullRequests}} />

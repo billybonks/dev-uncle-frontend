@@ -1,9 +1,9 @@
 <h2>Members</h2>
-<BaseTable @columns={{columns}} @sorts={{sorts}} @rows={{this.repo.members}} as |t| >
+<BaseTable @columns={{this.columns}} @sorts={{this.sorts}} @rows={{this.repo.members}} as |t| >
   No members found
 </BaseTable>
 
 <RowField @label="Add Member">
-  {{input value=newMember}}
+  {{input value=this.newMember}}
   {{power-button text="save" action=(action "addMember")}}
 </RowField>
