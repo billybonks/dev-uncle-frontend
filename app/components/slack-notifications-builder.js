@@ -19,18 +19,6 @@ export default Component.extend({
       this.sendAction('addedFilterNotification', this.get('notification'));
       this.resetNotification();
     },
-    filterChanged(filter){
-      this.set('notification.filter', filter);
-    },
-    intervalChanged(interval){
-      this.set('notification.interval', interval);
-    },
-    timeChanged(time){
-      this.set('notification.time', time);
-    },
-    typeChanged(target){
-      this.set('notification.type', target);
-    }
   },
   resetNotification(){
     this.set('notification', this.get('store').createRecord('slack-notification'));

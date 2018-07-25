@@ -1,17 +1,18 @@
-{{#unless model.slackOrganization}}
-  <p> You have not linked any slack organisations </p>
-  <RowForm>
-    <RowField @label=" Slack Org">
-      {{#power-select options=slackOrgs renderInPlace=true selected=slackSetting.slackOrganization onchange=(action "setSlackOrg") as |label|}}
-        {{label.name}}
-      {{/power-select}}
-    </RowField>
-    <RowField>
-      {{power-button text="can't find organisation?" action=(action "redirectSlackAuth")}}
-    </RowField>
-    <RowField @label="Channel">
-      {{input value=slackSetting.slackChannel classNames="form-control"}}
-    </RowField>
-  </RowForm>
-  {{power-button text="link slack organisation" task=saveSlack}}
-{{/unless}}
+<RowForm>
+  <RowField @label="Slack Org">
+    <PowerSelectBlockless
+      @options={{this.slackOrgs}}
+      @labelPath="name"
+      @selected={{this.slackSetting.slackOrganization}}
+      @onchange={{action "setSlackOrg"}}
+      class="ember-basic-dropdown"
+    />
+  </RowField>
+  <RowField>
+    <PowerButton @text="can't find organisation?" @action= {{action "redirectSlackAuth"}} />
+  </RowField>
+  <RowField @label="Channel">
+    {{input value=this.slackSetting.slackChannel classNames="form-control"}}
+  </RowField>
+</RowForm>
+{{power-button text="link slack organisation" task=this.saveSlack}}

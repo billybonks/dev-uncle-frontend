@@ -2,39 +2,39 @@
 <p> automatically post pull requests matching a prebuilt filter (usefull if you want to show stale pr"s to the team for example)</p>
 <RowForm>
   <RowField @label="Filter">
-    {{#power-select options=filters renderInPlace=true selected=notification.filter onchange=(action "filterChanged") as |filter|}}
-      {{filter.name}}
-    {{/power-select}}
+    <PowerSelectBlockless
+      @options={{@filters}}
+      @labelPath="name"
+      @selected={{this.notification.filter}}
+      @onchange={{action (mut this.notification.filter)}}
+      class="ember-basic-dropdown"
+    />
   </RowField>
 
   <RowField @label="Time">
-    {{#power-select options=times renderInPlace=true selected=notification.time onchange=(action "timeChanged") as |time|}}
-      {{time}}
-    {{/power-select}}
+    <PowerSelectBlockless
+      @options={{this.times}}
+      @selected={{this.notification.time}}
+      @onchange={{action (mut this.notification.time)}}
+      class="ember-basic-dropdown"
+    />
   </RowField>
 
   <RowField @label="Type">
-    {{#power-select options=types renderInPlace=true selected=notification.type onchange=(action "typeChanged") as |type|}}
-      {{type}}
-    {{/power-select}}
+    <PowerSelectBlockless
+      @options={{this.types}}
+      @selected={{this.notification.type}}
+      @onchange={{action (mut this.notification.type)}}
+      class="ember-basic-dropdown"
+    />
   </RowField>
 
   <RowField @label="Channel">
-    <input value={{notification.channel}} type="text" oninput={{action (mut notification.channel) value="target.value"}}>
+    <input
+      value={{this.notification.channel}}
+      type="text"
+      oninput={{action (mut this.notification.channel) value="target.value"}}
+    >
   </RowField>
 </RowForm>
-{{!-- <div class="form-group">
-  <label>Interval</label>
-  {{#power-select options=intervals renderInPlace=true selected=notification.interval onchange=(action "intervalChanged") as |interval|}}
-    {{interval}}
-  {{/power-select}}
-</div> --}}
-
-
-
-
-
-
-
-
-{{power-button text="Add" action=(action "addFilterNotifcation")}}
+<PowerButton @text="Add" @action={{action "addFilterNotifcation"}} />
