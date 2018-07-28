@@ -1,9 +1,11 @@
 @import 'settings/colors';
 @import 'settings/variables';
+@import 'settings/typography';
 @import 'reset';
 @import 'bootstrap/backup';
 @import 'structural';
 @import 'ember-power-select';
+@import 'ember-basic-dropdown';
 @import 'table';
 @import 'forms';
 @import 'fixed-header';
@@ -11,4 +13,5 @@
 @import 'components/side-navigation';
 @import 'components/power-button';
 @import 'components/power-select';
-@import 'components/badge'
+@import 'components/badge';
+@import 'components/automation';
