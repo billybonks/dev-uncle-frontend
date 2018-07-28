@@ -1,34 +1,67 @@
-{{#workflow-builder-if-this-then-that event=selectedEvent action=selectedAction conditions=selectedConditions
-  events=events updated=(action 'updated') as |iftt|}}
-  <div class="row">
-    <div class="col-6">
-      {{iftt.events}}
-    </div>
-  </div>
-  <div class="row" style="border-bottom:solid black 1px">
-    {{#if iftt.selectedEvent}}
-      <div class="col-6">
-        {{#iftt.actions as |step|}}
-          {{#if (eq step.step.key 'apply_label')}}
-            {{step.editorComponent options=labels key='label'}}
-          {{else}}
-            {{step.editorComponent}}
-          {{/if}}
-        {{/iftt.actions}}
-      </div>
-    {{/if}}
-    {{#if iftt.selectedAction}}
-      <div class="col-6">
-        {{#iftt.conditions as |step|}}
-          {{#step.component as |conditional|}}
-            {{#if (eq conditional.type 'labels')}}
-              {{conditional.editorComponent options=labels}}
-            {{else}}
-              {{component conditional.editorComponent}}
-            {{/if}}
-          {{/step.component}}
-        {{/iftt.conditions}}
-      </div>
-    {{/if}}
-  </div>
-{{/workflow-builder-if-this-then-that}}
+<Iftt as |IFTT|>
+  {{#if IFTT.eventPicker}}
+    <td class="automation-title-container">
+      <BasicDropdown as |Dropdown|>
+        <Dropdown.trigger>
+          <h4 class="automation-title">
+            {{@rule.event}} {{fa-icon 'caret-down'}}
+          </h4>
+        </Dropdown.trigger>
+        <Dropdown.content>
+          {{#each (object-keys @eventsHash) as |event|}}
+            <h4 class="automation-title" style="padding:5px;border-bottom:1px solid #000" {{action (mut @rule.event) event}}>
+              {{event}}
+            </h4>
+          {{/each}}
+        </Dropdown.content>
+      </BasicDropdown>
+    </td>
+  {{/if}}
+  {{#if (and IFTT.action @rule.event)}}
+    {{#let (better-get @eventsHash @rule.event) as |eventDetails|}}
+      {{#let (find-by eventDetails.actions 'key' @rule.rules.action) as |selectedAction|}}
+        <PowerSelectBlockless
+          @options={{eventDetails.actions}}
+          @selected={{selectedAction}}
+          @labelPath="label"
+          @onchange={{action 'actionSelected'}}
+          class="ember-basic-dropdown"
+        />
+        {{component selectedAction.editor labels=@labels onUpdated=(action 'onDataUpdated') data=@rule.rules.data}}
+      {{/let}}
+    {{/let}}
+  {{/if}}
+  {{#if (and @rule.event IFTT.comparator)}}
+    {{#let (hash
+      labels=(hash
+        kind='hasMany'
+        editorComponent=(
+          component "power-select-multiple-blockless"
+          options=@labels
+          labelPath="name"
+        )
+      )
+      owner=(hash
+        kind='string'
+        editorComponent=( component 'icon-text' text='asdasd' )
+      )
+    ) as |properties|}}
+      {{#each @rule.conditions as |condition|}}
+        <Comparator
+          @properties={{object-keys properties}}
+          @propertyDetails={{properties}}
+          @comparatorLayout="workflow-comparator-template"
+          @property={{condition.property}}
+          @comparator={{condition.comparator}}
+          @onPropertyChange={{action (mut condition.property)}}
+          @onComparatorChange={{action (mut condition.comparator)}}
+        as |ConditionEditor|>
+          <ConditionEditor
+            @selected={{condition.value}}
+            @onchange={{action (mut condition.value)}}
+          />
+        </Comparator>
+      {{/each}}
+    {{/let}}
+  {{/if}}
+</Iftt>

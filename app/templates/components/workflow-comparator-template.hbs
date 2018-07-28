@@ -1,0 +1,26 @@
+<table role="presentation">
+  <tr>
+    <td class="automation-title-container">
+      <h4 class="automation-title">If</h4>
+    </td>
+    <td class="comparator-part__selector">
+      {{yield (hash property=true)}}
+    </td>
+  </tr>
+  {{#if @property}}
+    <tr>
+      <td>
+      </td>
+      <td class="comparator-part__selector">
+        {{yield (hash comparator=true)}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td class="comparator-part__selector">
+        {{yield (hash editor=true)}}
+      </td>
+    </tr>
+  {{/if}}
+</table>

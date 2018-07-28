@@ -1,0 +1,23 @@
+{{#component @comparatorLayout property=this.property as |layout|}}
+  {{#if layout.property}}
+    <PowerSelectBlockless
+      @options={{@properties}}
+      @selected={{this.property}}
+      @onchange={{@onPropertyChange}}
+      class="ember-basic-dropdown"
+    />
+  {{/if}}
+  {{#let (better-get @propertyDetails this.property) as |detail|}}
+    {{#if layout.comparator}}
+      <PowerSelectBlockless
+        @options={{better-get this.comparators detail.kind}}
+        @selected={{@comparator}}
+        @onchange={{@onComparatorChange}}
+        class="ember-basic-dropdown"
+      />
+    {{/if}}
+    {{#if layout.editor}}
+      {{yield detail.editorComponent}}
+    {{/if}}
+  {{/let}}
+{{/component}}

@@ -1,4 +1,6 @@
-Name: <input value={{@workflow.name}} type="text" type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
-{{power-button action=(action "addRule") text="new rule"}}
-{{automation-builder workflows=@workflow.rules labels=@labels}}
-{{power-button action=(action "saveWorkflow") text="save"}}
+{{#with (changeset-array @workflow.rules) as |changesets|}}
+  Name: <input value={{@workflow.name}} type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
+  {{power-button action=(action "addRule") text="new rule"}}
+  {{automation-builder workflows=changesets labels=@labels}}
+  {{power-button action=(action "saveWorkflow" @workflow changesets) text="save"}}
+{{/with}}
