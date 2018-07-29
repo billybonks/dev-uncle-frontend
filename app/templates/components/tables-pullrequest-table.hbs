@@ -1,24 +1,23 @@
-<span style="display:none">{{sortedPullRequests.length}}</span>
-{{filters-filter-header filterTypes=filtersTypes selectedFilter=activeFilter filters=filters
-  filterSelected=(action 'selectedFilter') createFilter=(action 'createFilter') }}
-{{#light-table table as |t|}}
-  {{t.head
-    onColumnClick=(action 'onColumnClick')
-    iconAscending='fa fa-sort-asc'
-    iconDescending='fa fa-sort-desc'}}
-  {{#t.body as |body|}}
-
-    {{#if isLoading}}
-      {{#body.loader}}
-        Loading...
-      {{/body.loader}}
-    {{/if}}
-
-    {{#if table.isEmpty}}
-      {{#body.no-data}}
-        No pull requests found.
-      {{/body.no-data}}
-    {{/if}}
-  {{/t.body}}
-
-{{/light-table}}
+{{#filter-header
+  filters=@filters
+  onFilterClicked=(action 'selectedFilter')
+  onFilterNewClicked=(action 'createFilter')
+  onFilterSaved=(action 'saveFilter')
+  activeFilter=this.activeFilter
+  as |filterHeader|}}
+  {{component filterHeader.builder
+    filterTypes=(hash
+      age=(hash
+        id="age"
+        title="Last Modified"
+        component=(component "filters-editors-age-filter")
+      )
+      labels=(hash
+        id="labels"
+        title="Active Labels"
+        component=(component "filters-editors-label-picker" labels=@labels)
+      )
+    )
+  }}
+{{/filter-header}}
+<TablePulls @rows={{this.filteredPullRequests}} />

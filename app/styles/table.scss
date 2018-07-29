@@ -7,10 +7,6 @@
   border-bottom: 1px $table-header-background-color solid;
   background-color: $table-background-color;
 
-  .table-link {
-    color: $table-font-color;
-  }
-
   .multi-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -20,15 +16,6 @@
     user-select: none;
   }
 
-  .lt-head .lt-column {
-    border-top: 0;
-    border: 1px $table-header-border-color solid;
-    border-bottom: 0;
-    background-color: $table-header-background-color;
-    color: $table-header-font-color;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
 
   .lt-head  .lt-column,
   .lt-foot  .lt-column {
@@ -109,5 +96,58 @@ tfoot {
   form {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+
+.ember-table {
+  width: 100%;
+  border-radius: 3px;
+
+  .table-link {
+    color: black;
+    text-decoration: underline;
+  }
+
+  table {
+    box-sizing: border-box;
+  }
+
+  tbody {
+    margin: 0 auto;
+    border-collapse: collapse;
+    color: $table-font-color;
+    border-radius: 3px;
+    border: 1px $table-header-background-color solid;
+    border-top: 0;
+    background-color: $table-background-color;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  th {
+    border: 1px $table-header-border-color solid;
+    background-color: $table-header-background-color;
+    color: $table-header-font-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 200;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .et-sort-indicator::before {
+    font-family: Univers-Next,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    display: inline-block;
+    border: 0;
+    line-height: 1;
+    transform: rotate(0);
+    content: '\25be';
+  }
+
+  .is-ascending.et-sort-indicator::before {
+    transform: rotate(180deg);
   }
 }

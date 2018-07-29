@@ -1,0 +1,19 @@
+{{#awesome-filters
+  selectedFilter=@activeFilter
+  filters=@filters
+  filterSelected=@onFilterClicked
+  createFilter=@onFilterNewClicked
+  save=(action @onFilterSaved @activeFilter)
+as |c|}}
+  {{#if @activeFilter}}
+    {{yield (hash
+      builder=(
+        component c.builder
+        selectedFilter=@activeFilter
+        filterAdded=(action 'filterAdded' @activeFilter)
+        deleteFilter=(action 'deleteFilter' @activeFilter)
+        filterUpdated=(action 'filterUpdated' @activeFilter)
+      )
+    )}}
+  {{/if}}
+{{/awesome-filters}}

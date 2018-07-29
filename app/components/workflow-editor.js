@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import RSVP from 'rsvp';
-import {action} from 'ember-decorators/object';
-import { service } from 'ember-decorators/service';
+import {action} from '@ember-decorators/object';
+import { service } from '@ember-decorators/service';
 export default class ComponentWorkflowEditor extends Component {
   @service store;
 
@@ -14,15 +14,14 @@ export default class ComponentWorkflowEditor extends Component {
   }
 
   @action
-  saveWorkflow(){
-    let promises = this.get('workflow.rules').map( (rule) => {
-      if(rule.get('hasDirtyAttributes')){
-        rule.set('hasDirtyAttributes', false);
+  saveWorkflow(workflow, rules){
+    let promises = rules.map( (rule) => {
+      if(rule.get('isDirty')){
         return rule.save();
       }
     });
     RSVP.all(promises).then(() => {
-      this.get('workflow').save().then((workflow) => {
+      workflow.save().then((workflow) => {
         this.transitionAfterSave(workflow);
       });
     });

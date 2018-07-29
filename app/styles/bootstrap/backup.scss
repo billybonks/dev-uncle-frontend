@@ -1,0 +1,43 @@
+.row {
+  padding: 10px;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.float-right {
+  float: right;
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+      border-top-color: rgba(0, 0, 0, 0.15);
+      border-right-color: rgba(0, 0, 0, 0.15);
+      border-bottom-color: rgba(0, 0, 0, 0.15);
+      border-left-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+input, button, select, textarea {
+  line-height: inherit;
+}

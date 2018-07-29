@@ -1,1 +1,5 @@
-{{value}}
+<span class="ember-badge {{if @isActive 'badge-is-active' 'badge-in-active'}}"
+  onclick={{@click}}
+>
+  {{@value}}
+</span>

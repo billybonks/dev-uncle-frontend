@@ -3,6 +3,13 @@ $side-navigation-font-color: $deep-blue;
 $side-navigation-background: #f8f8f8;
 $side-navigation-border: 1px #273d66 solid;
 
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
 html, body {
   margin: 0;
   height: 100%;
@@ -10,7 +17,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 0px;
+  margin: 0;
 }
 
 main {
@@ -34,16 +41,16 @@ a {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto 1fr;
   grid-template-areas:
-  "logo    app-header"
-  "sidebar route-header"
-  "sidebar route-outlet";
+  'logo    app-header'
+  'sidebar route-header'
+  'sidebar route-outlet';
   height: 100%;
   overflow: hidden;
   width: 100%;
 }
 
 .sidebar-wrapper {
-  display:contents;
+  display: contents;
 }
 
 .main-header {
@@ -63,13 +70,13 @@ a {
 
 .logo-container {
   padding: 17px;
-  line-height: 0px;
+  line-height: 0;
   background-color: $side-navigation-logo-background;
   grid-area: logo;
 }
 
 .sidebar-container {
-  width:300px
+  width: 300px;
 }
 
 .logo {

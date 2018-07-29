@@ -1,0 +1,18 @@
+<div class="automation-wrapper">
+  <div class="automation-card">
+    <table role="presentation">
+      <tr>
+        <td class="automation-title-container">
+          <h4 class="automation-title">On</h4>
+        </td>
+        <td>
+          {{yield (hash eventPicker=true)}}
+        </td>
+      </tr>
+    </table>
+    {{yield (hash comparator=true)}}
+  </div>
+  <div class="automation-card">
+    {{yield (hash action=true)}}
+  </div>
+</div>

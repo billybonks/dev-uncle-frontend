@@ -1,44 +1,24 @@
 import Component from '@ember/component';
-import { computed, action } from 'ember-decorators/object';
-import { service } from 'ember-decorators/service';
-import Table from 'ember-light-table';
+import { computed, action } from '@ember-decorators/object';
+import { service } from '@ember-decorators/service';
 import moment from 'moment';
-import _ from 'lodash';
 
 export default class PullRequestTable extends Component{
   @service store
 
-  constructor(){
-    super(...arguments);
-    this.set('table', new Table(this.get('columns')));
-    this.set('sortBy', 'updated_at');
-    this.set('direction', false);
-  }
+  columns = [
+    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title'},
+    { name: 'Owner', valuePath: 'owner'},
+    { name: 'Last Active', valuePath: 'updatedAt', cellComponent: 'days-since' },
+    { name: 'Age', valuePath: 'createdAt', cellComponent: 'days-since' },
+  ]
 
-  @computed
-  get columns() {
-    return [{
-      label: 'Title',
-      sortable: false,
-      valuePath: 'linkInfo',
-      cellComponent:'columns/pr-title',
-      width:'53%',
-    }, {
-      label: 'Owner',
+  sorts = [
+    {
       valuePath: 'owner',
-      width:'22%'
-    },{
-      label: 'Last Active',
-      valuePath: 'updatedAt',
-      width:'15%',
-      cellComponent: 'days-since',
-    }, {
-      label: 'Age',
-      valuePath: 'createdAt',
-      width:'10%',
-      cellComponent: 'days-since'
-    }];
-  }
+      isAscending: false,
+    }
+  ]
 
   @action
   selectedFilter(filter){
@@ -54,26 +34,16 @@ export default class PullRequestTable extends Component{
   }
 
   @action
+  saveFilter(filter){
+    return filter.save();
+  }
+
+  @action
   onColumnClick(column){
     if(column.get('sortable')){
       this.set('sortBy',column.get('valuePath'));
       this.set('direction', column.get('ascending'));
     }
-  }
-
-  @computed('labels')
-  get filtersTypes(){
-    return [{
-        id: 'age',
-        title: 'Last Modified',
-        component: 'filters-editors-age-filter'
-      },
-      {
-        id: 'labels',
-        title: 'Active Labels',
-        component: 'filters-editors-label-picker',
-        model: this.get('labels')
-    }];
   }
 
   @computed
@@ -102,7 +72,10 @@ export default class PullRequestTable extends Component{
         let labelIds = pullRequest.get('labels').map( (label) => {
           return label.get('id');
         });
-        if(_.intersection(labelIds, labelFilters).length){
+        let labelIdsSet = new Set(labelIds);
+        let labelFiltersSet = new Set(labelFilters);
+        let intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
+        if(intersection.size){
           return true;
         }
       });

@@ -1,7 +1,8 @@
-<div>
-    {{filter.title}}
-</div>
-<div>
-  {{component filter.component model=filter.model isEditing=false
-    action=filterUpdated filter=filter value=filter.value}}
+<div style="flex:0 0 33.33333%">
+  <div>
+    {{@filterTemplate.title}}
+  </div>
+  <div>
+    {{component @filterTemplate.component isEditing=false value=@filter.value}}
+  </div>
 </div>

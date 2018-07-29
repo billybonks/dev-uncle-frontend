@@ -1,17 +1,8 @@
 <nav class="side-navigation">
   <div class="sidebar-container">
-  {{sidebar-link
-    route="install"
-    icon="cog"
-    text="install"
-  }}
-  {{#each repos as |repo|}}
-    {{sidebar-link
-      route="repo.stats"
-      segment=repo.id
-      icon="file-code-o"
-      text=repo.name
-    }}
-  {{/each}}
+    <SidebarLink @route="install" @icon="cog" @text="install" />
+    {{#each @repos as |repo|}}
+      <SidebarLink @route="repo.stats" @segment={{repo.id}} @icon="file-code-o" @text={{repo.name}} />
+    {{/each}}
   </div>
 </nav>

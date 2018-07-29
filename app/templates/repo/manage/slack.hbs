@@ -1,2 +1,2 @@
-{{slack-notifications-builder filters=filters addedFilterNotification=(action "addFilterNotifcation")}}
-{{tables-slack-notifications-table model=slackNotifications filters=filters}}
+{{slack-notifications-builder filters=this.filters addedFilterNotification=(action "addFilterNotifcation")}}
+{{tables-slack-notifications-table model=this.slackNotifications filters=this.filters}}

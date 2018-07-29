@@ -1,0 +1,53 @@
+.automation-card {
+  box-shadow: 0 0 .308rem #3bc6eb;
+  border: 1px solid $side-navigation-logo-background;
+  border-radius: 3px;
+  padding: 10px;
+  flex-grow: 1;
+  width: 100%;
+  margin: 10px;
+
+  table {
+    width: 100%;
+  }
+
+  .ember-basic-dropdown-content {
+    border: 1px solid #000;
+  }
+
+  .automation-title-container {
+    vertical-align: middle;
+    width: 1%;
+    white-space: nowrap;
+  }
+}
+
+.automation-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.comparator-part__selector {
+  padding: .615rem 0;
+  border-bottom: .077rem solid #c4ced1;
+}
+
+.automation-wrapper {
+  display: flex;
+}
+
+.action-details-card {
+  background-color: #f4f4f5;
+  margin-top: 10px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.iftt-card {
+  display: flex;
+
+  .automation-card:first-child {
+    margin-right: 10px;
+  }
+}

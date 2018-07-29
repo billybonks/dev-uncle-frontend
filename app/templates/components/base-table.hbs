@@ -1,0 +1,26 @@
+<EmberTable as |t|>
+  <t.head
+    @columns={{@columns}}
+    @widthConstraint="eq-container"
+    @sorts={{@sorts}}
+    @onUpdateSorts={{action (mut @sorts)}}
+  />
+
+  {{#if @rows.length}}
+    <t.body @rows={{@rows}} @enableTree={{false}} as |b|>
+      <b.row as |r|>
+        <r.cell as |cell column|>
+          {{#if column.cellComponent}}
+            {{component column.cellComponent value=cell row=r}}
+          {{else}}
+            {{cell}}
+          {{/if}}
+        </r.cell>
+      </b.row>
+    </t.body>
+  {{else}}
+    <tbody>
+      {{yield}}
+    </tbody>
+  {{/if}}
+</EmberTable>

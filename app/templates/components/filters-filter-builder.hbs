@@ -1,34 +1,34 @@
-{{#if isEditing}}
+{{#if this.isEditing}}
   <div class="table-filters-title-bar">
     <div class="table-filters__message">
-      Filter Name: {{input value=selectedFilter.name}}
+      Filter Name: {{input value=@selectedFilter.name}}
     </div>
     <div class="table-filters__buttons">
-      {{power-button action=save text="save changes"}}
-      {{power-button action=cancel text="cancel"}}
+      {{power-button action=@save text="save changes"}}
+      {{power-button action=@cancel text="cancel"}}
     </div>
   </div>
 
   <p class="table-filters__message">
     select one or more filters
   </p>
-
-  {{#each filters as |filter|}}
+  {{#each-in @selectedFilter.filters as |id value|}}
     {{filters-filter-edit-row
-      filter=filter
-      deleteFilter=(action 'deleteFilter' filter)
-      filterUpdated=(action 'filterUpdated')
+      filter=(hash id=id value=value)
+      filterTemplate=(better-get @filterTypes id)
+      deleteFilter=(action @deleteFilter (hash id=id value=value))
+      filterUpdated=(action @filterUpdated id)
     }}
-  {{/each}}
+  {{/each-in}}
 
   <div class="table-filter_filter-row">
-    {{#if filteredFilterTypes.length}}
+    {{#if this.filteredFilterTypes.length}}
       {{#power-select
-        options=filteredFilterTypes
+        options=this.filteredFilterTypes
         renderInPlace=true
-        selected=selected
+        selected=this.selected
         searchEnabled=false
-        onchange=(action "filterSelected")
+        onchange=@filterAdded
         placeholder="Select a filter" as |filterType|
       }}
         {{filterType.title}}
@@ -40,12 +40,12 @@
 {{else}}
   <div class="table-filters-title-bar">
     <div class="table-filters__buttons">
-      {{power-button action=edit text="Edit Filter"}}
+      {{power-button action=@edit text="Edit Filter"}}
     </div>
   </div>
   <div class="table-filter_filter-row">
-    {{#each filters as |filter|}}
-      {{filters-filter-display-row filter=filter}}
-    {{/each}}
+    {{#each-in @selectedFilter.filters as |id value|}}
+      {{filters-filter-display-row filter=(hash id=id value=value) filterTemplate=(better-get @filterTypes id)}}
+    {{/each-in}}
   </div>
 {{/if}}
