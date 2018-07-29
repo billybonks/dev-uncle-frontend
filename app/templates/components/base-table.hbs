@@ -7,7 +7,7 @@
   />
 
   {{#if @rows.length}}
-    <t.body @rows={{@rows}} as |b|>
+    <t.body @rows={{@rows}} @enableTree={{false}} as |b|>
       <b.row as |r|>
         <r.cell as |cell column|>
           {{#if column.cellComponent}}
