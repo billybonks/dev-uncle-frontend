@@ -13,7 +13,6 @@ Router.map(function() {
     this.route('stats');
     this.route('manage', function(){
       this.route('slack');
-      this.route('members');
       this.route('workflows');
     });
 
