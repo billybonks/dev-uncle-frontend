@@ -4,8 +4,10 @@
   onFilterNewClicked=(action "createFilter")
   onFilterSaved=(action "saveFilter")
   activeFilter=this.activeFilter
-  as |filterHeader|}}
-  {{component filterHeader.builder
+as |filterHeader|
+}}
+  {{component
+    filterHeader.builder
     filterTypes=(hash
       age=(hash
         id="age"
