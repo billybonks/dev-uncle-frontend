@@ -2,26 +2,26 @@
   <Tab
     @text={{filter.name}}
     @isActive={{filter.isActive}}
-    @selectFilter={{action 'selectFilter' filter}}
+    @selectFilter={{action "selectFilter" filter}}
   />
 {{/each}}
 {{#if this.showNewFilter}}
   <Tab
     @text="New Filter"
-    @selectFilter={{action 'createFilter'}}
+    @selectFilter={{action "createFilter"}}
   />
 {{/if}}
 {{yield (hash
   builder =
-    (component 'filters-filter-builder'
+    (component "filters-filter-builder"
       isEditing=this.isEditing
       selectedFilter=@selectedFilter
       filterTypes=@filterTypes
       deleteFilter=@deleteFilter
       filterUpdated=@filterUpdated
-      save=(action 'save')
-      cancel=(action 'cancel')
-      edit=(action 'edit')
+      save=(action "save")
+      cancel=(action "cancel")
+      edit=(action "edit")
     )
   )
 }}

@@ -1,9 +1,9 @@
 {{#let
   (component
-    'columns-destroy-action-cell'
-    delete=(action 'deleteRow')
-    deactivate=(action 'deactivateRow')
-    activate=(action 'activateRow')
+    "columns-destroy-action-cell"
+    delete=(action "deleteRow")
+    deactivate=(action "deactivateRow")
+    activate=(action "activateRow")
   )
   as |destroyCell|}}
   <BaseTable
@@ -22,7 +22,8 @@
       )
     }}
     @sorts={{this.sorts}}
-    @rows={{@rows}} as |t| >
+    @rows={{@rows}}
+  >
     No workflows found.
   </BaseTable>
 {{/let}}

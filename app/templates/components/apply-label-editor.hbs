@@ -5,8 +5,7 @@
   <PowerSelectBlockless
     @options={{@labels}}
     @labelPath="name"
-    @selected={{find-by @labels 'id' @data.label}}
-    @onchange={{action 'labelSelected'}}
+    @selected={{find-by @labels "id" @data.label}}
+    @onchange={{action "labelSelected"}}
   />
-  <span style="display:none;">{{find-by @labels 'id' @data.label}}</span>
 </ActionCard>

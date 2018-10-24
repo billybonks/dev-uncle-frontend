@@ -10,7 +10,5 @@ module.exports = {
     'eol-last': 'always',
     'attribute-indentation': false,
     'inline-link-to': true,
-    'no-inline-styles' :true,
-    'no-duplicate-attributes': true
   }
 };

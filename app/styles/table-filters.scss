@@ -46,6 +46,9 @@
 .table-filter_filter-row {
   display: flex;
   margin-top: 10px;
+  & > div {
+    margin-right: 20px
+  }
 }
 
 .table-filter_filter-row--left {

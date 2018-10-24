@@ -1,8 +1,8 @@
 {{#filter-header
   filters=@filters
-  onFilterClicked=(action 'selectedFilter')
-  onFilterNewClicked=(action 'createFilter')
-  onFilterSaved=(action 'saveFilter')
+  onFilterClicked=(action "selectedFilter")
+  onFilterNewClicked=(action "createFilter")
+  onFilterSaved=(action "saveFilter")
   activeFilter=this.activeFilter
   as |filterHeader|}}
   {{component filterHeader.builder
