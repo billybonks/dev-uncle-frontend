@@ -34,20 +34,26 @@
     {{/let}}
   {{/if}}
   {{#if (and @rule.event IFTT.comparator)}}
-    {{#let (hash
-      labels=(hash
-        kind="hasMany"
-        editorComponent=(
-          component "power-select-multiple-blockless"
-          options=@labels
-          labelPath="name"
+    {{#let
+      (hash
+        labels=
+        (hash
+          kind="hasMany"
+          editorComponent=
+            (component
+              "power-select-multiple-blockless"
+              options=@labels
+              labelPath="name"
+            )
         )
+        owner=
+          (hash
+            kind="string"
+            editorComponent=( component "icon-text" text="asdasd" )
+          )
       )
-      owner=(hash
-        kind="string"
-        editorComponent=( component "icon-text" text="asdasd" )
-      )
-    ) as |properties|}}
+    as |properties|
+    }}
       {{#each @rule.conditions as |condition|}}
         <Comparator
           @properties={{object-keys properties}}

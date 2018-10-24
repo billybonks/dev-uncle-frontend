@@ -11,9 +11,10 @@
     @selectFilter={{action "createFilter"}}
   />
 {{/if}}
-{{yield (hash
-  builder =
-    (component "filters-filter-builder"
+{{yield
+  (hash
+    builder=(
+      component "filters-filter-builder"
       isEditing=this.isEditing
       selectedFilter=@selectedFilter
       filterTypes=@filterTypes
