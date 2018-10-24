@@ -10,7 +10,7 @@
         <Dropdown.content>
           {{#each (object-keys @eventsHash) as |event|}}
             <div class="automation-text-select">
-              <h4 class="automation-title" {{action (mut @rule.event) event}}>
+              <h4 class="automation-title" role="button" {{action (mut @rule.event) event}}>
                 {{event}}
               </h4>
             </div>
@@ -36,24 +36,20 @@
   {{#if (and @rule.event IFTT.comparator)}}
     {{#let
       (hash
-        labels=
-        (hash
-          kind="hasMany"
-          editorComponent=
-            (component
-              "power-select-multiple-blockless"
-              options=@labels
-              labelPath="name"
-            )
-        )
-        owner=
-          (hash
-            kind="string"
-            editorComponent=( component "icon-text" text="asdasd" )
+        labels=(hash
+        kind="hasMany"
+        editorComponent=(component
+            "power-select-multiple-blockless"
+            options=@labels
+            labelPath="name"
           )
+        )
+        owner=(hash
+          kind="string"
+          editorComponent=( component "icon-text" text="asdasd" )
+        )
       )
-    as |properties|
-    }}
+    as |properties|}}
       {{#each @rule.conditions as |condition|}}
         <Comparator
           @properties={{object-keys properties}}
