@@ -9,9 +9,11 @@
         </Dropdown.trigger>
         <Dropdown.content>
           {{#each (object-keys @eventsHash) as |event|}}
-            <h4 class="automation-title" style="padding:5px;border-bottom:1px solid #000" {{action (mut @rule.event) event}}>
-              {{event}}
-            </h4>
+            <div class="automation-text-select">
+              <h4 class="automation-title" {{action (mut @rule.event) event}}>
+                {{event}}
+              </h4>
+            </div>
           {{/each}}
         </Dropdown.content>
       </BasicDropdown>
