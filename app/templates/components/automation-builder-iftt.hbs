@@ -4,7 +4,7 @@
       <BasicDropdown as |Dropdown|>
         <Dropdown.trigger>
           <h4 class="automation-title">
-            {{@rule.event}} {{fa-icon 'caret-down'}}
+            {{@rule.event}} {{fa-icon "caret-down"}}
           </h4>
         </Dropdown.trigger>
         <Dropdown.content>
@@ -19,22 +19,22 @@
   {{/if}}
   {{#if (and IFTT.action @rule.event)}}
     {{#let (better-get @eventsHash @rule.event) as |eventDetails|}}
-      {{#let (find-by eventDetails.actions 'key' @rule.rules.action) as |selectedAction|}}
+      {{#let (find-by eventDetails.actions "key" @rule.rules.action) as |selectedAction|}}
         <PowerSelectBlockless
           @options={{eventDetails.actions}}
           @selected={{selectedAction}}
           @labelPath="label"
-          @onchange={{action 'actionSelected'}}
+          @onchange={{action "actionSelected"}}
           class="ember-basic-dropdown"
         />
-        {{component selectedAction.editor labels=@labels onUpdated=(action 'onDataUpdated') data=@rule.rules.data}}
+        {{component selectedAction.editor labels=@labels onUpdated=(action "onDataUpdated") data=@rule.rules.data}}
       {{/let}}
     {{/let}}
   {{/if}}
   {{#if (and @rule.event IFTT.comparator)}}
     {{#let (hash
       labels=(hash
-        kind='hasMany'
+        kind="hasMany"
         editorComponent=(
           component "power-select-multiple-blockless"
           options=@labels
@@ -42,8 +42,8 @@
         )
       )
       owner=(hash
-        kind='string'
-        editorComponent=( component 'icon-text' text='asdasd' )
+        kind="string"
+        editorComponent=( component "icon-text" text="asdasd" )
       )
     ) as |properties|}}
       {{#each @rule.conditions as |condition|}}
