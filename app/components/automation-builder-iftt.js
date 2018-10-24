@@ -4,7 +4,7 @@ import { action } from '@ember-decorators/object';
 export default class AutomationBuilderIftt extends Component {
   @action
   onDataUpdated(label) {
-    this.set('rule.rules.data.label', label.id);
+    this.set('rule.rules.data', {label:label.id});
   }
 
   @action
