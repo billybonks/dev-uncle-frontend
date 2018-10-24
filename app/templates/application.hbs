@@ -1,4 +1,4 @@
-{{#unless unAuthenticated}}
+{{#if (not this.unAuthenticated)}}
   <div class="managerbot">
     <aside class="sidebar-wrapper">
       <AppLogo />
@@ -6,17 +6,17 @@
     </aside>
     <AppHeader />
     <main>
-      <RouteHeader @fixedHeader={{fixedHeader}} />
+      <RouteHeader @fixedHeader={{this.fixedHeader}} />
       <article class="route-outlet">
         {{outlet}}
       </article>
     </main>
   </div>
-  {{else}}
+{{else}}
   <div class="authentication-outlet">
     <div class="authentication-container">
       <AppLogo />
       {{outlet}}
     </div>
   </div>
-{{/unless}}
+{{/if}}
