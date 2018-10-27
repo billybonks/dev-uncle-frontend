@@ -1,5 +1,5 @@
-{{workflow-editor
-  workflow=this.workflow
-  labels=this.repo.labels
-  transitionAfterSave=(action "transitionAfterSave")
-}}
+<Workflow-editor
+  @workflow={{this.workflow}}
+  @labels={{this.repo.labels}}
+  @transitionAfterSave={{action "transitionAfterSave"}}
+/>

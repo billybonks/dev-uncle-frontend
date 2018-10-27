@@ -1,11 +1,11 @@
-{{#filter-header
-  filters=@filters
-  onFilterClicked=(action "selectedFilter")
-  onFilterNewClicked=(action "createFilter")
-  onFilterSaved=(action "saveFilter")
-  activeFilter=this.activeFilter
+<Filter-header
+  @filters={{@filters}}
+  @onFilterClicked={{action "selectedFilter"}}
+  @onFilterNewClicked={{action "createFilter"}}
+  @onFilterSaved={{action "saveFilter"}}
+  @activeFilter={{this.activeFilter}}
 as |filterHeader|
-}}
+>
   {{component
     filterHeader.builder
     filterTypes=(hash
@@ -21,5 +21,5 @@ as |filterHeader|
       )
     )
   }}
-{{/filter-header}}
+</Filter-header>
 <TablePulls @rows={{this.filteredPullRequests}} />
