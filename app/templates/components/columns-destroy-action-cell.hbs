@@ -1,6 +1,6 @@
-{{power-button text="delete" action=(action @delete @row.rowMeta._rowValue)}}
+<Power-button @text="delete" @action={{action @delete @row.rowMeta._rowValue}} />
 {{#if @value}}
-  {{power-button text="deactivate" action=(action @deactivate @row.rowMeta._rowValue)}}
+  <Power-button @text="deactivate" @action={{action @deactivate @row.rowMeta._rowValue}} />
 {{else}}
-  {{power-button text="active" action=(action @activate @row.rowMeta._rowValue)}}
+  <Power-button @text="active" @action={{action @activate @row.rowMeta._rowValue}} />
 {{/if}}

@@ -1,11 +1,11 @@
 {{#if this.repo.labels.length}}
-  {{tables-pullrequest-table
-    filters=this.repo.filters
-    repo=this.repo
-    labels=this.repo.labels
-    state=this.state
-    pullRequests=this.model
-  }}
+  <Tables-pullrequest-table
+    @filters={{this.repo.filters}}
+    @repo={{this.repo}}
+    @labels={{this.repo.labels}}
+    @state={{this.state}}
+    @pullRequests={{this.model}}
+  />
 {{else}}
   Labels loading
 {{/if}}
