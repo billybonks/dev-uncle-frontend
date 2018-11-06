@@ -11,8 +11,5 @@
   <RowField>
     <PowerButton @text="can't find organisation?" @action= {{action "redirectSlackAuth"}} />
   </RowField>
-  <RowField @label="Channel">
-    {{input value=this.slackSetting.slackChannel classNames="form-control"}}
-  </RowField>
 </RowForm>
-<Power-button @text="link slack organisation" task={{this.saveSlack}} />
+<Power-button @text="link slack organisation" @task={{this.saveSlack}} />
