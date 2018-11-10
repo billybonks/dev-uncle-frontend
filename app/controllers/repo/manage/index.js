@@ -4,7 +4,6 @@ import { alias } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
 
 export default Controller.extend({
-  states: service(),
   ajax: service(),
   repo: alias('model'),
 
@@ -41,7 +40,7 @@ export default Controller.extend({
   saveLabels: task(function * (stateMappings){
     yield stateMappings.map(this.saveLabel);
   }),
-  
+
   saveLabel: function(mapping){
      let oldLabel = this.get('repo.labels').filterBy('state_id', mapping.state.id)[0];
      let newLabel = this.get('repo.labels').filterBy('id', mapping.label.id)[0];

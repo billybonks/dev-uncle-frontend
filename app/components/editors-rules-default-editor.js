@@ -4,7 +4,6 @@ import { action } from '@ember-decorators/object';
 
 export default class EditorsRulesDefaultEditor extends Component {
   selected = false
-  @service states;
 
   constructor() {
     super(...arguments);
