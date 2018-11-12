@@ -29,7 +29,7 @@
           @onchange={{action "actionSelected"}}
           class="ember-basic-dropdown"
         />
-        {{component selectedAction.editor labels=@labels onUpdated=(action "onDataUpdated") data=@rule.rules.data}}
+        {{component selectedAction.editor target=@target onUpdated=(action "onDataUpdated") data=@rule.rules.data}}
       {{/let}}
     {{/let}}
   {{/if}}
