@@ -34,38 +34,28 @@
     {{/let}}
   {{/if}}
   {{#if (and @rule.event IFTT.comparator)}}
-    {{#let
-      (hash
-        labels=(hash
-        kind="hasMany"
-        editorComponent=(component
-            "power-select-multiple-blockless"
-            options=@labels
-            labelPath="name"
-          )
-        )
-        owner=(hash
-          kind="string"
-          editorComponent=( component "icon-text" text="asdasd" )
-        )
-      )
-    as |properties|}}
-      {{#each @rule.conditions as |condition|}}
-        <Comparator
-          @properties={{object-keys properties}}
-          @propertyDetails={{properties}}
-          @comparatorLayout="workflow-comparator-template"
-          @property={{condition.property}}
-          @comparator={{condition.comparator}}
-          @onPropertyChange={{action (mut condition.property)}}
-          @onComparatorChange={{action (mut condition.comparator)}}
-        as |ConditionEditor|>
-          <ConditionEditor
-            @selected={{condition.value}}
-            @onchange={{action (mut condition.value)}}
-          />
-        </Comparator>
-      {{/each}}
-    {{/let}}
+    {{#each @rule.conditions as |condition|}}
+      <Comparator
+        @properties={{object-keys @properties}}
+        @propertyDetails={{@properties}}
+        @comparatorLayout="workflow-comparator-template"
+        @property={{condition.property}}
+        @comparator={{condition.comparator}}
+        @onPropertyChange={{action (mut condition.property)}}
+        @onComparatorChange={{action (mut condition.comparator)}}
+      as |comparator|>
+        {{condition.value}}
+        {{#if (eq condition.comparator.component 'text') }}
+          <input value={{condition.value}} onchange={{action (mut condition.value) value="target.value"}}>
+        {{/if}}
+        {{#if (eq condition.comparator.component 'association') }}
+          association
+        {{/if}}
+        {{!-- <ConditionEditor
+          @selected={{condition.value}}
+          @onchange=
+        /> --}}
+      </Comparator>
+    {{/each}}
   {{/if}}
 </Iftt>

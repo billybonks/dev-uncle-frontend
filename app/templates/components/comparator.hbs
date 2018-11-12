@@ -7,17 +7,19 @@
       class="ember-basic-dropdown"
     />
   {{/if}}
-  {{#let (better-get @propertyDetails this.property) as |detail|}}
+  {{#let (better-get @propertyDetails this.property) as |property|}}
     {{#if layout.comparator}}
+      {{log (better-get this.comparators property.type)}}
       <PowerSelectBlockless
-        @options={{better-get this.comparators detail.kind}}
+        @options={{better-get this.comparators property.type}}
         @selected={{@comparator}}
+        @labelPath="key"
         @onchange={{@onComparatorChange}}
         class="ember-basic-dropdown"
       />
     {{/if}}
     {{#if layout.editor}}
-      {{yield detail.editorComponent}}
+      {{yield @comparator}}
     {{/if}}
   {{/let}}
 {{/component}}

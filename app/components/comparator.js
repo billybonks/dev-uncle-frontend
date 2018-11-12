@@ -3,14 +3,47 @@ import { action } from '@ember-decorators/object';
 
 export default class FiltersFilterBuilder extends Component {
   comparators = {
-    hasMany: ['==', '!=','in?','not_in?'],
-    string:['==', '!=', 'contains', 'does-not-contain'],
-    }
-
-    @action
-    onPropertyChange() {
-
-    }
+    string: [
+      {
+        key: "==",
+        component: "text",
+      },
+      {
+        key: "!=",
+        component: "text",
+      },
+      {
+        key: "in?",
+        component: "tags",
+      },
+      {
+        key: "not_in?",
+        component: "tags",
+      }
+    ],
+    association: [
+      {
+        key: "contains",
+        component: "text",
+      },
+      {
+        key: "==",
+        component: "association",
+      },
+      {
+        key: "!=",
+        component: "association",
+      },
+      {
+        key: "in?",
+        component: "association",
+      },
+      {
+        key: "not_in?",
+        component: "association",
+      }
+    ]
+  }
 }
 //
 // let comparators = {
@@ -44,12 +77,5 @@ export default class FiltersFilterBuilder extends Component {
 //    "include?":"text",
 //    "exclude?":"text"
 //   },
-//   string:{
-//      "==":"text",
-//      "!=":"text",
-//      "in?":"tags",
-//      "not_in?":"tags",
-//      "blank?":"boolean",
-//      "present?":"boolean"
-//   },
+
 // };

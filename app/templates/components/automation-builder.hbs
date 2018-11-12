@@ -1,6 +1,7 @@
 {{#each @workflows as |rule|}}
   <Automation-builder-iftt
     @eventsHash={{this.eventsHash}}
+    @properties={{this.properties}}
     @rule={{rule}}
     @target={{@target}}
   />

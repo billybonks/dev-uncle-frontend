@@ -66,5 +66,16 @@ export default class AutomationBuilder extends Component {
   constructor(){
     super(...arguments);
     this.set('eventsHash', eventsHash);
+    this.set('properties', {
+      labels: {
+        type:'association',
+      },
+      owner: {
+        type:'association'
+      },
+      title: {
+        type:'string'
+      }
+    });
   }
 }
