@@ -4,7 +4,7 @@ import { action } from '@ember-decorators/object';
 export default class FiltersFilterBuilder extends Component {
   comparators = {
     hasMany: ['==', '!=','in?','not_in?'],
-    string:['==', '!=', 'in?', 'not_in?', 'blank?', 'present?'],
+    string:['==', '!=', 'contains', 'does-not-contain'],
     }
 
     @action
