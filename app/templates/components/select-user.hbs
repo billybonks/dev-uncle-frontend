@@ -1,0 +1,13 @@
+{{#unless isLoading}}
+  <PowerSelectMultiple
+    @options={{this.users}}
+    @selected={{@selection}}
+    @palceholder="Select users"
+    @onchange={{@onchange}}
+    as |user|
+  >
+    {{user.githubUser}}
+  </PowerSelectMultiple>
+{{else}}
+  loading
+{{/unless}}
