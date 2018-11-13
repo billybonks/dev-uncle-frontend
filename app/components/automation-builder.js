@@ -7,7 +7,7 @@ const messageLastCommitter = {
 const applyLabel =  {
   label: 'Apply Label',
   key: 'apply_label',
-  editor: 'apply-label-editor'
+  editor: 'action-apply-label'
 };
 
 const addReviewer =  {

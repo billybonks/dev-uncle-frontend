@@ -10,15 +10,15 @@ module('Integration | Component | apply-label-editor', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{apply-label-editor}}`);
+    await render(hbs`{{action-apply-label}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#apply-label-editor}}
+      {{#action-apply-label}}
         template block text
-      {{/apply-label-editor}}
+      {{/action-apply-label}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

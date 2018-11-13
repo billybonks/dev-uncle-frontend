@@ -1,0 +1,13 @@
+<ActionCard
+ @title="Apply label to pull request"
+ @description="Applies a label to a pull request and gives option to replace other labels"
+ >
+  {{#if @target.labels.length}}
+    <PowerSelectBlockless
+      @options={{@target.labels}}
+      @labelPath="name"
+      @selected={{find-by @target.labels "id" @data.label}}
+      @onchange={{action "labelSelected"}}
+    />
+  {{/if}}
+</ActionCard>
