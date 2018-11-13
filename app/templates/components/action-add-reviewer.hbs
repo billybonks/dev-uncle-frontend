@@ -1,0 +1,6 @@
+<ActionCard
+ @title="Apply label to pull request"
+ @description="Applies a label to a pull request and gives option to replace other labels"
+ >
+  <SelectUser @selection={{this.hydratedUsers}} @target={{@target}} @onchange={{action "onchange"}}/>
+</ActionCard>
