@@ -5,6 +5,6 @@ export default class ActionApplyLabel extends Component {
   @action
   labelSelected(label){
     this.set('selectedLabel', label);
-    this.onUpdated(label);
+    this.onUpdated({label:label.id});
   }
 }
