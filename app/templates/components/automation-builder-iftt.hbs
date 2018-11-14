@@ -29,32 +29,31 @@
           @onchange={{action "actionSelected"}}
           class="ember-basic-dropdown"
         />
-        {{component selectedAction.editor target=@target onUpdated=(action "onDataUpdated") data=@rule.rules.data}}
+        {{component
+          selectedAction.editor
+          target=@target
+          onUpdated=(action "onDataUpdated")
+          data=@rule.rules.data
+        }}
       {{/let}}
     {{/let}}
   {{/if}}
   {{#if (and @rule.event IFTT.comparator)}}
     {{#each @rule.conditions as |condition|}}
       <Comparator
-        @properties={{object-keys @properties}}
         @propertyDetails={{@properties}}
         @comparatorLayout="workflow-comparator-template"
         @property={{condition.property}}
         @comparator={{condition.comparator}}
         @onPropertyChange={{action (mut condition.property)}}
-        @onComparatorChange={{action (mut condition.comparator)}}
+        @onComparatorChange={{action (mut condition.comparator) value="key"}}
       as |comparator|>
-        {{condition.value}}
-        {{#if (eq condition.comparator.component 'text') }}
+        {{#if (eq comparator.component 'text') }}
           <input value={{condition.value}} onchange={{action (mut condition.value) value="target.value"}}>
         {{/if}}
-        {{#if (eq condition.comparator.component 'association') }}
+        {{#if (eq comparator.component 'association') }}
           association
         {{/if}}
-        {{!-- <ConditionEditor
-          @selected={{condition.value}}
-          @onchange=
-        /> --}}
       </Comparator>
     {{/each}}
   {{/if}}

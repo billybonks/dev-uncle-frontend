@@ -1,9 +1,13 @@
 import Component from '@ember/component';
-import { action } from '@ember-decorators/object';
+import { action, computed } from '@ember-decorators/object';
 
 export default class FiltersFilterBuilder extends Component {
   comparators = {
     string: [
+      {
+        key: "contains",
+        component: "text",
+      },
       {
         key: "==",
         component: "text",
@@ -43,6 +47,25 @@ export default class FiltersFilterBuilder extends Component {
         component: "association",
       }
     ]
+  }
+
+  @computed('comparator','comparatorOptions.[]')
+  get selectedComparator() {
+    if(this.comparator) {
+      return this.comparatorOptions.findBy('key',this.comparator);
+    }
+  }
+
+
+
+  @computed('selectedProperty')
+  get comparatorOptions() {
+    return this.comparators[this.selectedProperty.type];
+  }
+
+  @computed('property')
+  get selectedProperty() {
+    return this.propertyDetails[this.property];
   }
 }
 //

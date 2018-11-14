@@ -1,25 +1,24 @@
-{{#component @comparatorLayout property=this.property as |layout|}}
-  {{#if layout.property}}
-    <PowerSelectBlockless
-      @options={{@properties}}
-      @selected={{this.property}}
-      @onchange={{@onPropertyChange}}
-      class="ember-basic-dropdown"
-    />
-  {{/if}}
-  {{#let (better-get @propertyDetails this.property) as |property|}}
-    {{#if layout.comparator}}
-      {{log (better-get this.comparators property.type)}}
+{{#let (object-keys @propertyDetails) as |properties|}}
+  {{#component @comparatorLayout property=this.property as |layout|}}
+    {{#if layout.property}}
       <PowerSelectBlockless
-        @options={{better-get this.comparators property.type}}
-        @selected={{@comparator}}
+        @options={{properties}}
+        @selected={{this.property}}
+        @onchange={{@onPropertyChange}}
+        class="ember-basic-dropdown"
+      />
+    {{/if}}
+    {{#if layout.comparator}}
+      <PowerSelectBlockless
+        @options={{this.comparatorOptions}}
+        @selected={{this.selectedComparator}}
         @labelPath="key"
         @onchange={{@onComparatorChange}}
         class="ember-basic-dropdown"
       />
     {{/if}}
     {{#if layout.editor}}
-      {{yield @comparator}}
+      {{yield this.selectedComparator}}
     {{/if}}
-  {{/let}}
-{{/component}}
+  {{/component}}
+{{/let}}
