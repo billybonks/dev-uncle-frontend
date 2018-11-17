@@ -7,18 +7,19 @@ export default class ActionAddReviewer extends Component {
 
   constructor(){
     super(...arguments);
-    let usersRaw = (this.data.users || []);
+
+    let usersRaw = this.data? (this.data.users || []) : [];
     let userPromises = usersRaw.map((userId) => {
       return this.store.find('user', userId);
-    })
+    });
     Promise.all(userPromises).then( (users) => {
-      this.set('hydratedUsers', users)
+      this.set('hydratedUsers', users);
     });
   }
+
   @action
   onchange(value) {
     this.set('hydratedUsers', value);
-    debugger
     let userIds = this.hydratedUsers.map((user) => {
       return user.get('id');
     });
