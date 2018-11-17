@@ -1,4 +1,6 @@
-{{#unless isLoading}}
+{{#if this.isLoading}}
+  loading
+{{else}}
   <PowerSelectMultiple
     @options={{this.users}}
     @selected={{@selection}}
@@ -8,6 +10,4 @@
   >
     {{user.githubUser}}
   </PowerSelectMultiple>
-{{else}}
-  loading
-{{/unless}}
+{{/if}}
