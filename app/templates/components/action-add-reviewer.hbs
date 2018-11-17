@@ -1,0 +1,6 @@
+<ActionCard
+ @title="Add Reviewer to pull request"
+ @description="Adds selected users as reviewers to a pull request"
+ >
+  <SelectUser @selection={{this.hydratedUsers}} @target={{@target}} @onchange={{action "onchange"}}/>
+</ActionCard>

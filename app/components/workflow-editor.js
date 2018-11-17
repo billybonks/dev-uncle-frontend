@@ -16,9 +16,7 @@ export default class ComponentWorkflowEditor extends Component {
   @action
   saveWorkflow(workflow){
     let promises = workflow.rules.map( (rule) => {
-      if(rule.get('isDirty')){
-        return rule.save();
-      }
+      return rule.save();
     });
     RSVP.all(promises).then(() => {
       workflow.save().then((workflow) => {
