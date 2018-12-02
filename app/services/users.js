@@ -1,6 +1,4 @@
 import Service from '@ember/service';
-import Repo from 'client/models/repo';
-import Organisation from 'client/models/organisation';
 import { inject } from '@ember/service';
 
 export default Service.extend({
