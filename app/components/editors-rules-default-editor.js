@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { service } from '@ember-decorators/service';
 import { action } from '@ember-decorators/object';
 
 export default class EditorsRulesDefaultEditor extends Component {
