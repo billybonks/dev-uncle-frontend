@@ -5,6 +5,7 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date'),
   name:      DS.attr('string'),
   active:    DS.attr('boolean', {defaultValue: true}),
-  repo:      DS.belongsTo('repo'),
+  repo:      DS.belongsTo('repo', {inverse:  null}),
+  repos:     DS.hasMany('repo'),
   rules:     DS.hasMany('rule', { defaultValue: () => { return []; } }),
 });
