@@ -5,7 +5,7 @@ export default AbstractRoute.extend({
     let repo = await this.store.findRecord('repo', this.paramsFor('repo').repo_id);
     return {
       workflows: await this.store.query('workflow',{repo_id:this.paramsFor('repo').repo_id}),
-      repo:repo
+      repo,
     };
   },
 });
