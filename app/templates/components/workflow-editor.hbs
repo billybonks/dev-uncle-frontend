@@ -1,8 +1,22 @@
-Name: <input value={{@workflow.name}} type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
-<Power-button @action={{action "addRule"}} @text="new rule"/>
+<div>
+  Name: <input value={{@workflow.name}} type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
+  <PowerButton @action={{action "addRule"}} @text="new rule"/>
+</div>
+<div>
+  Selected Repos:
+  <PowerSelectMultiple
+    @selected={{@workflow.repos}}
+    @options={{@organisation.repos}}
+    @onchange={{action (mut @workflow.repos)}}
+    @palceholder="Select repos"
+    as |repo|
+  >
+    {{repo.name}}
+  </PowerSelectMultiple>
+</div>
 {{#if @target}}
   {{#with @workflow.rules as |rule|}}
     <Automation-builder @workflows={{rule}} @target={{@target}}/>
-    <Power-button @action={{action "saveWorkflow" @workflow}} @text="save" />
+    <PowerButton @action={{action "saveWorkflow" @workflow}} @text="save" />
   {{/with}}
 {{/if}}
