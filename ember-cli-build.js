@@ -7,8 +7,8 @@ module.exports = function() {
     sassOptions: {implementation: require('node-sass')},
     babel: {
       plugins: [
-        'transform-decorators-legacy',
-        'transform-class-properties'
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-proposal-class-properties", { "loose" : true }]
       ]
     }
   });
