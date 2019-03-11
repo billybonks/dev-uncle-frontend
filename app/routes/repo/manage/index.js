@@ -1,8 +1,6 @@
-import { inject as service } from '@ember/service';
 import AbstractRoute from "client/routes/repo/manage/abstract-route";
 
 export default AbstractRoute.extend({
-  ajax: service(),
   model(/*params*/){
     return this.store.findRecord('repo', this.paramsFor('repo').repo_id);
   },
