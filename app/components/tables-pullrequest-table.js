@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { computed, action } from '@ember-decorators/object';
 import { service } from '@ember-decorators/service';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default class PullRequestTable extends Component{
   @service store
@@ -63,11 +63,11 @@ export default class PullRequestTable extends Component{
     return filter;
   }
 
-  @computed('pullRequests',  'activeFilter.filters')
+  @computed('pullRequests.[]',  'activeFilter.filters')
   get filteredPullRequests(){
     let labelFilters = this.get('activeFilter.filters.labels');
     let pullRequests = this.get('pullRequests');
-    if(labelFilters){
+    if(labelFilters && labelFilters.length) {
       pullRequests = this.get('pullRequests').filter( (pullRequest) => {
         let labelIds = pullRequest.get('labels').map( (label) => {
           return label.get('id');
@@ -83,7 +83,7 @@ export default class PullRequestTable extends Component{
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
     if(ageFilter){
       return pullRequests.filter( (pullRequest) => {
-        return moment().diff(pullRequest.get('updatedAt'),'days') > ageFilter;
+        return dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter;
       });
     } else {
       return pullRequests;
