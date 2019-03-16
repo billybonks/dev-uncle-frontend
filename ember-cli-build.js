@@ -12,6 +12,7 @@ module.exports = function() {
       ]
     }
   });
+  app.import('node_modules/dayjs/plugin/relativeTime.js');
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css.map', {destDir: 'assets'})
   // Use `app.import` to add additional libraries to the generated
