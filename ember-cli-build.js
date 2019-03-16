@@ -10,6 +10,9 @@ module.exports = function() {
         ["@babel/plugin-proposal-decorators", { "legacy": true }],
         ["@babel/plugin-proposal-class-properties", { "loose" : true }]
       ]
+    },
+    'ember-fetch': {
+      preferNative: true
     }
   });
   app.import('node_modules/dayjs/plugin/relativeTime.js');

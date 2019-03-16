@@ -1,6 +1,6 @@
 import { inject as service } from '@ember/service';
 import AbstractRoute from "client/routes/abstract-route";
-import { get } from 'client/utils/ajax';
+import fetch from 'fetch';
 
 export default AbstractRoute.extend({
   session: service(),
@@ -16,7 +16,8 @@ export default AbstractRoute.extend({
   setupController(controller, model) {
     controller.set('model', model);
     controller.set('unAuthenticated', this.get('unAuthenticated'));
-    get('api/me').then( (results) => {
+    fetch('api/me').then( (resultsRaw) => {
+      let results = resultsRaw.json();
       this.set('session.user', results);
       controller.set('user', results);
     });
