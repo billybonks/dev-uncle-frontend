@@ -1,8 +1,10 @@
+{{#let @row.rowMeta._rowValue.linkInfo as |linkInfo|}}
 <a
   class="table-link"
-  href="https://github.com/{{@row.rowMeta._rowValue.repo.name}}/pull/{{@row.rowMeta._rowValue.number}}"
+  href="https://github.com/{{linkInfo.repo}}/pull/{{linkInfo.number}}"
   rel="noopener"
   target="_blank"
 >
-  {{@value.title}}
+  {{linkInfo.title}}
 </a>
+{{/let}}
