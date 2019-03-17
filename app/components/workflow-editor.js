@@ -7,9 +7,9 @@ export default class ComponentWorkflowEditor extends Component {
 
   @action
   addRule(){
+    debugger
     let rule = this.get('store').createRecord('rule');
     rule.set('rules', {});
-    rule.set('repo', this.get('workflow.repo') );
     this.get('workflow.rules').pushObject(rule);
   }
 
