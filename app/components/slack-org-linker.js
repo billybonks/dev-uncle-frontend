@@ -4,21 +4,17 @@ import { task } from 'ember-concurrency';
 
 export default Component.extend({
   store: service(),
-  init() {
-    this._super(...arguments);
-    const repoId = this.get('repo.id');
-    const store = this.get('store');
-    store.findAll('slackOrganization').then((orgs) => {
-      this.set('slackOrgs', orgs);
-    });
-
-    store.queryRecord('slackSetting', { repoId }).then((record) => {
-      if (!record) {
-        record = this.get('store').createRecord('slackSetting');
-        record.set('repo', this.get('repo'));
-      }
-      this.set('slackSetting', record);
-    });
+  async init(...args) {
+    this._super(args);
+    const organisationId = this.organisation.get('id');
+    const orgs = await this.store.findAll('slackOrganization');
+    this.set('slackOrgs', orgs);
+    let record = await this.store.queryRecord('slackSetting', { organisationId });
+    if (!record) {
+      record = this.store.createRecord('slackSetting');
+      record.set('organisation', this.organisation);
+    }
+    this.set('slackSetting', record);
   },
   actions: {
     redirectSlackAuth() {
@@ -28,7 +24,7 @@ export default Component.extend({
       this.set('slackSetting.slackOrganization', org);
     },
   },
-  saveSlack: task(function* () {
-    yield this.get('slackSetting').save();
+  saveSlack: task(function* saveSlack() {
+    yield this.slackSetting.save();
   }),
 });
