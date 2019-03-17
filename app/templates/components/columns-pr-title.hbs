@@ -1,10 +1,10 @@
 {{#let @row.rowMeta._rowValue.linkInfo as |linkInfo|}}
-<a
-  class="table-link"
-  href="https://github.com/{{linkInfo.repo}}/pull/{{linkInfo.number}}"
-  rel="noopener"
-  target="_blank"
->
-  {{linkInfo.title}}
-</a>
+  <a
+    class="table-link"
+    href="https://github.com/{{linkInfo.repo}}/pull/{{linkInfo.number}}"
+    rel="noopener"
+    target="_blank"
+  >
+    {{linkInfo.title}}
+  </a>
 {{/let}}

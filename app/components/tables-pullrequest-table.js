@@ -47,12 +47,14 @@ export default class PullRequestTable extends Component{
   }
 
   @computed
-  get activeFilter(){
+  get activeFilter() {
     if(this.get('filters.firstObject')){
       this.set('filters.firstObject.isActive', true);
       return this.get('filters.firstObject');
     }
+    return null;
   }
+
   set activeFilter(filter){
     if(this.get('activeFilter.id') == filter.get('id')){
       return filter;

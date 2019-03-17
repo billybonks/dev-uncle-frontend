@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { action, computed } from '@ember-decorators/object';
+import { computed } from '@ember-decorators/object';
 
 export default class FiltersFilterBuilder extends Component {
   comparators = {
@@ -54,6 +54,7 @@ export default class FiltersFilterBuilder extends Component {
     if(this.comparator) {
       return this.comparatorOptions.findBy('key',this.comparator);
     }
+    return null;
   }
 
 

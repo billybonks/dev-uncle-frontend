@@ -48,5 +48,6 @@ export default class AwesomeFilters extends Component {
     let editingFilter = this.get('selectedFilter');
     if(!editingFilter) return true;
     if(!editingFilter.get('isNew')) return true;
+    return false;
   }
 }
