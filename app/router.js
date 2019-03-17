@@ -9,6 +9,16 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('login');
   this.route('install');
+  this.route('organisation', {path:'organisation/:id'}, function() {
+    this.route('settings', function(){
+      this.route('apps');
+      this.route('actions');
+      this.route('workflows', function(){
+        this.route('new');
+        this.route('edit', {path:'workflows/:workflow_id'});
+      });
+    });
+  });
   this.route('repo', {path:'repo/:repo_id'}, function(){
     this.route('stats');
     this.route('manage', function(){
