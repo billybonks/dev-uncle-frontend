@@ -4,21 +4,19 @@ import { task } from 'ember-concurrency';
 
 export default Component.extend({
   store: service(),
-  init(){
+  async init(){
     this._super(...arguments);
-    let repoId = this.get('repo.id');
-    let store = this.get('store');
-    store.findAll('slackOrganization').then( (orgs) => {
-      this.set('slackOrgs',orgs);
-    });
+    let organisationId = this.organisation.get('id');
+    let store = this.store;
+    let orgs = await store.findAll('slackOrganization');
+    this.set('slackOrgs', orgs);
 
-    store.queryRecord('slackSetting', {repoId}).then( (record) => {
-      if(!record){
-        record = this.get('store').createRecord('slackSetting');
-        record.set('repo', this.get('repo'));
-      }
-      this.set('slackSetting', record);
-    });
+    let record = store.queryRecord('slackSetting', {organisationId});
+    if(!record){
+      record = this.store.createRecord('slackSetting');
+      record.set('repo', this.get('repo'));
+    }
+    this.set('slackSetting', record);
   },
   actions:{
     redirectSlackAuth(){
