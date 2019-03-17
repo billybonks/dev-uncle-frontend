@@ -6,10 +6,10 @@ export default Component.extend({
   attributeBindings:["disabled"],
   text: 'save',
   click(){
-    if(this.get('action')){
-      this.sendAction('action');
+    if(this.action){
+      this.action();
     } else {
-      this.get('task').perform();
+      this.task.perform();
     }
   }
 });
