@@ -24,6 +24,7 @@ export default class FiltersEditorsLabelPicker extends Component {
         });
       });
     }
+    return [];
   }
 
   @action
