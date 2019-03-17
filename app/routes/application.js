@@ -5,12 +5,16 @@ import fetch from 'fetch';
 export default AbstractRoute.extend({
   session: service(),
   unAuthenticated: false,
-
-  model(){
-    return this.get('store').findAll('repo').catch( () => {
+  async model(){
+    try {
+      let orgs = await this.get('store').findAll('organisation');
+      debugger
+      await this.get('store').findAll('repo');
+      return orgs.firstObject;
+    } catch(e) {
       this.transitionTo('login');
       this.set('unAuthenticated', true);
-    });
+    }
   },
 
   setupController(controller, model) {

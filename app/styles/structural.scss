@@ -37,13 +37,6 @@ a {
 }
 
 .managerbot {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto 1fr;
-  grid-template-areas:
-  'logo    app-header'
-  'sidebar route-header'
-  'sidebar route-outlet';
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -53,18 +46,57 @@ a {
   display: contents;
 }
 
+.dropdown {
+  padding: 4px;
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(27,31,35,.15);
+  border-radius: 4px;
+  box-shadow: 0 3px 12px rgba(27,31,35,.15);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    bottom: 100%;
+    border-bottom-color: #FFFFFF;
+  }
+}
+
 .main-header {
-  grid-area: app-header;
+  > div, nav {
+    a {
+      color: inherit;
+    }
+    display: flex;
+    align-items: center
+  }
+
+  .center-navigation {
+    flex-grow: 2;
+
+    > ul {
+      display: flex;
+
+      > li {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  padding: 0 10px;
+  height: 50px;
   color: $white;
-  padding: 13px;
-  background: linear-gradient(to right ,#1c9ee3  ,#3bc6eb);
-  z-index: 10;
+  //padding: 13px;
+  //background: linear-gradient(to right ,#1c9ee3  ,#3bc6eb);
+  background-color: $side-navigation-logo-background;
   display: flex;
-  justify-content: space-between;
 }
 
 .route-header {
-  grid-area: route-header;
   padding: 16px;
   border-bottom: 1px solid;
   margin-bottom: 5px;
@@ -96,6 +128,7 @@ a {
   overflow-y: auto;
   grid-area: route-outlet;
   padding: 0 40px;
+  margin-top: 10px;
 }
 
 .authentication-outlet {

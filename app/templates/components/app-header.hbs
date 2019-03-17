@@ -1,6 +1,51 @@
 <header class="main-header">
-  <span>
-    <IconText @icon="address-card" @text={{concat "Guten Morgen: " @user.github_user}} />
-  </span>
-  <span>logout</span>
+  <img class="logo" src="manager-bot-logo.svg" alt="managerbot">
+  <nav class="center-navigation">
+    <ul>
+      <li>
+        {{#link-to "index"}}
+          Dashboard
+        {{/link-to}}
+      </li>
+      <li>
+        <BasicDropdown as |DropDown|>
+          <DropDown.trigger
+            @onMouseDown={{action "prevent"}}
+            @onMouseEnter={{action "open"}}
+            @onMouseLeave={{action "closeLater"}}
+          >
+            Repos
+          </DropDown.trigger>
+
+          <DropDown.content
+            @onMouseEnter={{action "open"}}
+            @onMouseLeave={{action "closeLater"}}
+            @class="dropdown"
+          >
+            {{#each @organisation.repos as |repo|}}
+              {{#link-to "repo.stats" repo.id}}
+                {{repo.name}}
+              {{/link-to}}
+            {{/each}}
+          </DropDown.content>
+        </BasicDropdown>
+      </li>
+      <li>
+        {{#link-to "organisation.settings.actions" @organisation}}
+          Actions
+        {{/link-to}}
+      </li>
+      <li>
+        {{#link-to "organisation.settings.workflows" @organisation}}
+          Workflows
+        {{/link-to}}
+      </li>
+      <li>Apps</li>
+    </ul>
+  </nav>
+  <div class="end-navigation">
+    <img src={{@organisation.avatar}} height=20px width=20px>
+  </div>
 </header>
+
+{{!-- <IconText @icon="address-card" @text={{concat "Guten Morgen: " @user.github_user}} /> --}}
