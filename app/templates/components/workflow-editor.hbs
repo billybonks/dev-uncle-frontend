@@ -14,9 +14,7 @@
     {{repo.name}}
   </PowerSelectMultiple>
 </div>
-{{#if @target}}
-  {{#with @workflow.rules as |rule|}}
-    <Automation-builder @workflows={{rule}} @target={{@target}}/>
-    <PowerButton @action={{action "saveWorkflow" @workflow}} @text="save" />
-  {{/with}}
-{{/if}}
+{{#with @workflow.rules as |rule|}}
+  <AutomationBuilder @workflows={{rule}} @target={{@target}}/>
+  <PowerButton @action={{action "saveWorkflow" @workflow}} @text="save" />
+{{/with}}
