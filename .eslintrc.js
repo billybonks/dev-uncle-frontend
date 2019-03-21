@@ -8,7 +8,7 @@ module.exports = {
     'ember'
   ],
   extends: [
-    'eslint:recommended',
+    'airbnb',
     'plugin:ember/recommended'
   ],
   env: {
@@ -16,6 +16,14 @@ module.exports = {
   },
   parser: 'babel-eslint',
   rules: {
+    'class-methods-use-this': 'off',
+    'import/order': 'off',
+    'lines-between-class-members': 'off', // decorators
+    'prefer-arrow-callback': 'off', // tests
+    'no-underscore-dangle': 'off', // this._super()
+    'react/sort-comp': 'off', // irelevent
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
     'ember/order-in-components': 0,
     'ember/named-functions-in-promises': 0,
     'ember/closure-actions': 0,
