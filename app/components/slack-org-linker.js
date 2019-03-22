@@ -28,7 +28,7 @@ export default Component.extend({
       this.set('slackSetting.slackOrganization', org);
     },
   },
-  saveSlack: task(function *(){
+  saveSlack: task(function* (){
     yield this.get('slackSetting').save();
   }),
 });
