@@ -19,7 +19,7 @@ export default Service.extend({
     return Array.from(new Set([...repoUsers, ...orgUsers]));
   },
   async findRepoMembers(repoId){
-    if(this.repoUsers.has(repoId)){
+    if (this.repoUsers.has(repoId)){
        return this.repoUsers.get(repoId);
     }
     let users = await this.query({
@@ -28,7 +28,7 @@ export default Service.extend({
     return users.toArray();
   },
   async findOrganisationMembers(organisationId){
-    if(this.orgUsers.has(organisationId)){
+    if (this.orgUsers.has(organisationId)){
        return this.orgUsers.get(organisationId);
     }
     let users = await this.query({

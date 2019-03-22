@@ -6,7 +6,7 @@ export default Component.extend({
   attributeBindings:["disabled"],
   text: 'save',
   click(){
-    if(this.action){
+    if (this.action){
       this.action();
     } else {
       this.task.perform();

@@ -13,7 +13,7 @@ export default Component.extend({
     });
 
     store.queryRecord('slackSetting', {repoId}).then( (record) => {
-      if(!record){
+      if (!record){
         record = this.get('store').createRecord('slackSetting');
         record.set('repo', this.get('repo'));
       }

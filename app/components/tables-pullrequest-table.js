@@ -40,7 +40,7 @@ export default class PullRequestTable extends Component{
 
   @action
   onColumnClick(column){
-    if(column.get('sortable')){
+    if (column.get('sortable')){
       this.set('sortBy', column.get('valuePath'));
       this.set('direction', column.get('ascending'));
     }
@@ -48,7 +48,7 @@ export default class PullRequestTable extends Component{
 
   @computed
   get activeFilter() {
-    if(this.get('filters.firstObject')){
+    if (this.get('filters.firstObject')){
       this.set('filters.firstObject.isActive', true);
       return this.get('filters.firstObject');
     }
@@ -56,7 +56,7 @@ export default class PullRequestTable extends Component{
   }
 
   set activeFilter(filter){
-    if(this.get('activeFilter.id') == filter.get('id')){
+    if (this.get('activeFilter.id') == filter.get('id')){
       return filter;
     }
     this.set('activeFilter.isEditing', false);
@@ -69,7 +69,7 @@ export default class PullRequestTable extends Component{
   get filteredPullRequests(){
     let labelFilters = this.get('activeFilter.filters.labels');
     let pullRequests = this.get('pullRequests');
-    if(labelFilters && labelFilters.length) {
+    if (labelFilters && labelFilters.length) {
       pullRequests = this.get('pullRequests').filter( (pullRequest) => {
         let labelIds = pullRequest.get('labels').map( (label) => {
           return label.get('id');
@@ -77,13 +77,13 @@ export default class PullRequestTable extends Component{
         let labelIdsSet = new Set(labelIds);
         let labelFiltersSet = new Set(labelFilters);
         let intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
-        if(intersection.size){
+        if (intersection.size){
           return true;
         }
       });
     }
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
-    if(ageFilter){
+    if (ageFilter){
       return pullRequests.filter( (pullRequest) => {
         return dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter;
       });
@@ -95,7 +95,7 @@ export default class PullRequestTable extends Component{
   @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')
   get sortedPullRequests() {
     let prs = this.get('filteredPullRequests').sortBy(this.get('sortBy'));
-    if(this.get('direction')){
+    if (this.get('direction')){
       prs = prs.reverse();
     }
     this.get('table').setRows(prs);

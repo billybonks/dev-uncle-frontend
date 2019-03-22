@@ -4,7 +4,7 @@ export default AbstractRoute.extend({
   model(){
     let repoId = this.paramsFor('repo').repo_id;
     return this.store.queryRecord('slackSetting', {repoId}).then( (record) => {
-      if(!record){
+      if (!record){
         return this.store.createRecord('slackSetting');
       }
       return record;
