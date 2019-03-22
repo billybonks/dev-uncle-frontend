@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import RSVP from 'rsvp';
 import { action } from '@ember-decorators/object';
 import { service } from '@ember-decorators/service';
+
 export default class ComponentWorkflowEditor extends Component {
   @service store;
 
