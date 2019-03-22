@@ -2,7 +2,7 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function() {
+module.exports = function () {
   var app = new EmberApp({
     sassOptions: { implementation: require('node-sass') },
     babel: {

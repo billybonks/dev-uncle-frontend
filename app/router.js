@@ -6,17 +6,17 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('login');
   this.route('install');
-  this.route('repo', { path: 'repo/:repo_id' }, function() {
+  this.route('repo', { path: 'repo/:repo_id' }, function () {
     this.route('stats');
-    this.route('manage', function() {
+    this.route('manage', function () {
       this.route('slack');
       this.route('workflows');
     });
 
-    this.route('workflows', function() {
+    this.route('workflows', function () {
       this.route('new');
       this.route('edit', { path: 'workflows/:workflow_id' });
     });
