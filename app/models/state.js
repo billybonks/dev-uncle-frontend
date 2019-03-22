@@ -6,7 +6,3 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date'),
   repo: DS.belongsTo('repo'),
 });
-
-
-
-//Food4gab1701

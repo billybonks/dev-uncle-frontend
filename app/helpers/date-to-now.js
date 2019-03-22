@@ -1,7 +1,7 @@
 import { helper } from '@ember/component/helper';
 import dayjs from 'dayjs';
 
-export function dateToNow(params/*, hash*/) {
+export function dateToNow(params) {
   return `${dayjs(params[0]).fromNow()}`;
 }
 

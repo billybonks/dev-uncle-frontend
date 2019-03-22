@@ -3,7 +3,7 @@ import AbstractRoute from 'client/routes/abstract-route';
 export default AbstractRoute.extend({
   title: 'Pull Requests',
   controlsPath: 'fixed-controls/stats',
-  model(/*params*/) {
+  model() {
     return this.store.query('pullRequest', { repo_id: this.paramsFor('repo').repo_id });
   },
 

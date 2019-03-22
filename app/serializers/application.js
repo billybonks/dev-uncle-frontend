@@ -2,10 +2,10 @@ import { underscore } from '@ember/string';
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  keyForAttribute: function(attr/*, method*/) {
+  keyForAttribute: function(attr) {
     return underscore(attr);
   },
-  keyForRelationship: function(attr/*, method*/) {
+  keyForRelationship: function(attr) {
     if (attr == 'labels') {
       return 'label_ids';
     }

@@ -1,6 +1,6 @@
 import { helper } from '@ember/component/helper';
 
-export function betterGet(params/*, hash*/) {
+export function betterGet(params) {
   return params[0][params[1]];
 }
 
