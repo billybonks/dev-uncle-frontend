@@ -1538,7 +1538,7 @@ axobject-query@^2.0.2:
   dependencies:
     ast-types-flow "0.0.7"
 
-babel-code-frame@^6.26.0:
+babel-code-frame@6.26.0, babel-code-frame@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
   integrity sha1-Y/1D99weO7fONZR9uP42mj9Yx0s=
@@ -5124,6 +5124,24 @@ eslint-config-airbnb@^17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
+eslint-filtered-fix@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-filtered-fix/-/eslint-filtered-fix-0.1.1.tgz#07e08a8c7cde059c6db00c3b2b001fa4756cb74e"
+  integrity sha1-B+CKjHzeBZxtsAw7KwAfpHVst04=
+  dependencies:
+    optionator "^0.8.2"
+
+eslint-formatter-friendly@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-formatter-friendly/-/eslint-formatter-friendly-6.0.0.tgz#8363888f7b50f992dfaed72a849a604fc97d598f"
+  integrity sha512-fOBwGn2r8BPQ1KSKyVzjXP8VFxJ2tWKxxn2lIF+k1ezN/pFB44HDlrn5kBm1vxbyyRa/LC+1vHJwc7WETUAZ2Q==
+  dependencies:
+    babel-code-frame "6.26.0"
+    chalk "^2.0.1"
+    extend "^3.0.0"
+    strip-ansi "^4.0.0"
+    text-table "^0.2.0"
+
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
@@ -5139,6 +5157,19 @@ eslint-module-utils@^2.3.0:
   dependencies:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
+
+eslint-nibble@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-nibble/-/eslint-nibble-5.1.0.tgz#f279b6ae0d60a61636c7f95142bdd43f913f68e2"
+  integrity sha512-wgmhwlMaNBbaDHrxg8/Os0LCOOatfzy6IaU07HFk6/UirfsTCqD9XoH0+9UNk2V16uPZXgLSiUIwGBtxliXnHw==
+  dependencies:
+    chalk "^2.4.1"
+    eslint-filtered-fix "^0.1.1"
+    eslint-formatter-friendly "^6.0.0"
+    eslint-stats ianvs/eslint-stats#cb1ff8251b50c7f0cb431a2b395431ebfdeb10c8
+    eslint-summary "^1.0.0"
+    inquirer "^6.2.0"
+    optionator "^0.8.2"
 
 eslint-plugin-ember@^6.2.0:
   version "6.2.0"
@@ -5212,6 +5243,21 @@ eslint-scope@^4.0.0, eslint-scope@^4.0.3:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
+"eslint-stats@github:ianvs/eslint-stats#cb1ff8251b50c7f0cb431a2b395431ebfdeb10c8":
+  version "1.0.0"
+  resolved "https://codeload.github.com/ianvs/eslint-stats/tar.gz/cb1ff8251b50c7f0cb431a2b395431ebfdeb10c8"
+  dependencies:
+    chalk "^2.4.1"
+    lodash "^4.17.4"
+
+eslint-summary@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-summary/-/eslint-summary-1.0.0.tgz#b811f00437016b20c0f6f5234479bd6395b57886"
+  integrity sha1-uBHwBDcBayDA9vUjRHm9Y5W1eIY=
+  dependencies:
+    chalk "^1.0.0"
+    text-table "^0.2.0"
+
 eslint-utils@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/eslint-utils/-/eslint-utils-1.3.1.tgz#9a851ba89ee7c460346f97cf8939c7298827e512"
@@ -5222,7 +5268,49 @@ eslint-visitor-keys@^1.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
   integrity sha512-qzm/XxIbxm/FHyH341ZrbnMUpe+5Bocte9xkmFMzPMjRaZMcXww+MpBptFvtU+79L362nqiLhekCxCxDPaUMBQ==
 
-eslint@^5.3.0, eslint@^5.6.0:
+eslint@^5.15.3:
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.15.3.tgz#c79c3909dc8a7fa3714fb340c11e30fd2526b8b5"
+  integrity sha512-vMGi0PjCHSokZxE0NLp2VneGw5sio7SSiDNgIUn2tC0XkWJRNOIoHIg3CliLVfXnJsiHxGAYrkw0PieAu8+KYQ==
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    ajv "^6.9.1"
+    chalk "^2.1.0"
+    cross-spawn "^6.0.5"
+    debug "^4.0.1"
+    doctrine "^3.0.0"
+    eslint-scope "^4.0.3"
+    eslint-utils "^1.3.1"
+    eslint-visitor-keys "^1.0.0"
+    espree "^5.0.1"
+    esquery "^1.0.1"
+    esutils "^2.0.2"
+    file-entry-cache "^5.0.1"
+    functional-red-black-tree "^1.0.1"
+    glob "^7.1.2"
+    globals "^11.7.0"
+    ignore "^4.0.6"
+    import-fresh "^3.0.0"
+    imurmurhash "^0.1.4"
+    inquirer "^6.2.2"
+    js-yaml "^3.12.0"
+    json-stable-stringify-without-jsonify "^1.0.1"
+    levn "^0.3.0"
+    lodash "^4.17.11"
+    minimatch "^3.0.4"
+    mkdirp "^0.5.1"
+    natural-compare "^1.4.0"
+    optionator "^0.8.2"
+    path-is-inside "^1.0.2"
+    progress "^2.0.0"
+    regexpp "^2.0.1"
+    semver "^5.5.1"
+    strip-ansi "^4.0.0"
+    strip-json-comments "^2.0.1"
+    table "^5.2.3"
+    text-table "^0.2.0"
+
+eslint@^5.6.0:
   version "5.15.2"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.15.2.tgz#0237bbb2362f89f4effef2f191eb0fea5279c0a5"
   integrity sha512-I8VM4SILpMwUvsRt83bQVwIRQAJ2iPMXun1FVZ/lV1OHklH2tJaXqoDnNzdiFc6bnCtGKXvQIQNP3kj1eMskSw==
@@ -6606,7 +6694,7 @@ inquirer@^3.3.0:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-inquirer@^6, inquirer@^6.2.2:
+inquirer@^6, inquirer@^6.2.0, inquirer@^6.2.2:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.2.2.tgz#46941176f65c9eb20804627149b743a218f25406"
   integrity sha512-Z2rREiXA6cHRR9KBOarR3WuLlFzlIfAEIiB45ll5SSadMg7WqOh1MKEjjndfuH5ewXdixWCxqnVfGOQzPeiztA==
