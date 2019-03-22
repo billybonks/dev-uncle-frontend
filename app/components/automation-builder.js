@@ -35,27 +35,27 @@ const messageChannel= {
 const actions = [applyLabel, addReviewer, messageReviewers, messageOwner, messageChannel];
 
 let eventsHash = {
-  pull_request_synchronize:{
+  pull_request_synchronize: {
     displayName: 'PR Code Updated',
     actions: actions,
   },
   branch_built: {
-    name:'',
+    name: '',
     displayName: 'Branch CI has run',
     actions: [messageChannel, messageLastCommitter],
   },
-  pull_request_rejected:{
-    name:'',
+  pull_request_rejected: {
+    name: '',
     displayName: 'Reviewer Requested Changes',
     actions: actions,
   },
-  pull_request_approved:{
-    name:'',
+  pull_request_approved: {
+    name: '',
     displayName: 'Reviewer Approved Changes',
     actions: actions,
   },
   pull_request_opened: {
-    name:'',
+    name: '',
     displayName: 'PR Opened',
     actions: actions,
   },
@@ -68,13 +68,13 @@ export default class AutomationBuilder extends Component {
     this.set('eventsHash', eventsHash);
     this.set('properties', {
       labels: {
-        type:'association',
+        type: 'association',
       },
       owner: {
-        type:'association',
+        type: 'association',
       },
       title: {
-        type:'string',
+        type: 'string',
       },
     });
   }

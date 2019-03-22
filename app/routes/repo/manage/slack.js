@@ -23,7 +23,7 @@ export default AbstractRoute.extend({
 
     controller.set('filters', this.store.peekAll('filter'));
 
-    this.store.query('slackNotification', {repo_id:repoId}).then( results => {
+    this.store.query('slackNotification', {repo_id: repoId}).then( results => {
       controller.set('slackNotifications', results);
     });
 

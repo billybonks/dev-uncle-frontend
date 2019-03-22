@@ -20,7 +20,7 @@ export default Component.extend({
       this.set('slackSetting', record);
     });
   },
-  actions:{
+  actions: {
     redirectSlackAuth(){
       window.location = '/api/auth/slack';
     },
