@@ -5,7 +5,7 @@ module('Unit | Route | workflow/edit', function (hooks) {
   setupTest(hooks);
 
   test('it exists', function (assert) {
-    let route = this.owner.lookup('route:workflow/edit');
+    const route = this.owner.lookup('route:workflow/edit');
     assert.ok(route);
   });
 });

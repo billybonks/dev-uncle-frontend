@@ -8,8 +8,8 @@ export default class ActionAddReviewer extends Component {
   constructor() {
     super(...arguments);
 
-    let usersRaw = this.data? (this.data.users || []) : [];
-    let userPromises = usersRaw.map((userId) => {
+    const usersRaw = this.data? (this.data.users || []) : [];
+    const userPromises = usersRaw.map((userId) => {
       return this.store.find('user', userId);
     });
     Promise.all(userPromises).then((users) => {
@@ -20,7 +20,7 @@ export default class ActionAddReviewer extends Component {
   @action
   onchange(value) {
     this.set('hydratedUsers', value);
-    let userIds = this.hydratedUsers.map((user) => {
+    const userIds = this.hydratedUsers.map((user) => {
       return user.get('id');
     });
     this.onUpdated({ users: userIds });

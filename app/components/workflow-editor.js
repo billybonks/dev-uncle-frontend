@@ -8,7 +8,7 @@ export default class ComponentWorkflowEditor extends Component {
 
   @action
   addRule() {
-    let rule = this.get('store').createRecord('rule');
+    const rule = this.get('store').createRecord('rule');
     rule.set('rules', {});
     rule.set('repo', this.get('workflow.repo'));
     this.get('workflow.rules').pushObject(rule);
@@ -16,7 +16,7 @@ export default class ComponentWorkflowEditor extends Component {
 
   @action
   saveWorkflow(workflow) {
-    let promises = workflow.rules.map((rule) => {
+    const promises = workflow.rules.map((rule) => {
       return rule.save();
     });
     RSVP.all(promises).then(() => {

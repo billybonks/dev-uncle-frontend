@@ -6,7 +6,7 @@ module('Unit | Controller | repo/workflows/edit', function (hooks) {
 
   // Replace this with your real tests.
   test('it exists', function (assert) {
-    let controller = this.owner.lookup('controller:repo/workflows/edit');
+    const controller = this.owner.lookup('controller:repo/workflows/edit');
     assert.ok(controller);
   });
 });

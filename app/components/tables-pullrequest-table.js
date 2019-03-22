@@ -27,7 +27,7 @@ export default class PullRequestTable extends Component {
 
   @action
   createFilter() {
-    let filter = this.get('store').createRecord('filter');
+    const filter = this.get('store').createRecord('filter');
     filter.set('name', 'Filter');
     filter.set('repo', this.get('repo'));
     return filter;
@@ -67,22 +67,22 @@ export default class PullRequestTable extends Component {
 
   @computed('pullRequests.[]', 'activeFilter.filters')
   get filteredPullRequests() {
-    let labelFilters = this.get('activeFilter.filters.labels');
+    const labelFilters = this.get('activeFilter.filters.labels');
     let pullRequests = this.get('pullRequests');
     if (labelFilters && labelFilters.length) {
       pullRequests = this.get('pullRequests').filter((pullRequest) => {
-        let labelIds = pullRequest.get('labels').map((label) => {
+        const labelIds = pullRequest.get('labels').map((label) => {
           return label.get('id');
         });
-        let labelIdsSet = new Set(labelIds);
-        let labelFiltersSet = new Set(labelFilters);
-        let intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
+        const labelIdsSet = new Set(labelIds);
+        const labelFiltersSet = new Set(labelFilters);
+        const intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
         if (intersection.size) {
           return true;
         }
       });
     }
-    let ageFilter = parseInt(this.get('activeFilter.filters.age'));
+    const ageFilter = parseInt(this.get('activeFilter.filters.age'));
     if (ageFilter) {
       return pullRequests.filter((pullRequest) => {
         return dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter;

@@ -7,7 +7,7 @@ module('Unit | Model | workflow', function (hooks) {
   setupTest(hooks);
 
   test('it exists', function (assert) {
-    let model = run(() => this.owner.lookup('service:store').createRecord('workflow'));
+    const model = run(() => this.owner.lookup('service:store').createRecord('workflow'));
     // let store = this.store();
     assert.ok(!!model);
   });

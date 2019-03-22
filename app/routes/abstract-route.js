@@ -13,7 +13,7 @@ export default Route.extend({
     },
   },
   ensureRecord(parentModel, childModelName, target) {
-    let pluralizedype = pluralize(childModelName);
+    const pluralizedype = pluralize(childModelName);
     if (!parentModel.get(`${pluralizedype}.length`)) {
       return this.store.query(childModelName, { repo_id: parentModel.get('id') }).then((results) => {
         if (target) {

@@ -6,8 +6,8 @@ export default Component.extend({
   store: service(),
   init() {
     this._super(...arguments);
-    let repoId = this.get('repo.id');
-    let store = this.get('store');
+    const repoId = this.get('repo.id');
+    const store = this.get('store');
     store.findAll('slackOrganization').then((orgs) => {
       this.set('slackOrgs', orgs);
     });

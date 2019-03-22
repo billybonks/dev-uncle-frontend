@@ -34,7 +34,7 @@ const messageChannel= {
 
 const actions = [applyLabel, addReviewer, messageReviewers, messageOwner, messageChannel];
 
-let eventsHash = {
+const eventsHash = {
   pull_request_synchronize: {
     displayName: 'PR Code Updated',
     actions: actions,

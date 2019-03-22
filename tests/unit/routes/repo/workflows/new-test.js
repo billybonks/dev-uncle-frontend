@@ -5,7 +5,7 @@ module('Unit | Route | repo/workflows/new', function (hooks) {
   setupTest(hooks);
 
   test('it exists', function (assert) {
-    let route = this.owner.lookup('route:repo/workflows/new');
+    const route = this.owner.lookup('route:repo/workflows/new');
     assert.ok(route);
   });
 });

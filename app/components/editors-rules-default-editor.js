@@ -6,7 +6,7 @@ export default class EditorsRulesDefaultEditor extends Component {
 
   constructor() {
     super(...arguments);
-    let label = this.get('labels').filterBy('id', this.get('rule.rules.apply_label.label'));
+    const label = this.get('labels').filterBy('id', this.get('rule.rules.apply_label.label'));
     this.set('selected', label[0]);
   }
 

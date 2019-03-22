@@ -14,7 +14,7 @@ export default class AwesomeFilters extends Component {
 
   @action
   createFilter() {
-    let newFilter = this.createFilter();
+    const newFilter = this.createFilter();
     this.send('selectFilter', newFilter);
     if (!this.get('isEditing')) {
       this.send('edit', newFilter);
@@ -23,7 +23,7 @@ export default class AwesomeFilters extends Component {
 
   @action
   cancel() {
-    let editingFilter = this.get('selectedFilter');
+    const editingFilter = this.get('selectedFilter');
     if (editingFilter) {
       if (editingFilter.get('isNew')) {
         editingFilter.deleteRecord();
@@ -45,7 +45,7 @@ export default class AwesomeFilters extends Component {
 
   @computed('editingFilter')
   get showNewFilter() {
-    let editingFilter = this.get('selectedFilter');
+    const editingFilter = this.get('selectedFilter');
     if (!editingFilter) return true;
     if (!editingFilter.get('isNew')) return true;
     return false;

@@ -13,7 +13,7 @@ export default class FiltersEditorsLabelPicker extends Component {
 
   @computed('labels.[]', 'value.[]')
   get _labels() {
-    let labels = this.get('labels');
+    const labels = this.get('labels');
     if (labels) {
       return labels.map((label) => {
         return new EmberObject({
@@ -30,7 +30,7 @@ export default class FiltersEditorsLabelPicker extends Component {
   @action
   labelToggled(label) {
     label.set('isActive', !label.get('isActive'));
-    let labelIds = this.get('_labels').reduce((acc, label) => {
+    const labelIds = this.get('_labels').reduce((acc, label) => {
       if (label.get('isActive')) {
         acc.push(label.get('id'));
       }

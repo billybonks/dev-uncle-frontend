@@ -12,17 +12,17 @@ export default Service.extend({
     return this.store.query('user', params);
   },
   async findUsers(repo) {
-    let repoId = repo.get('id');
-    let organisationId = repo.get('organisation.id');
-    let repoUsers = await this.findRepoMembers(repoId);
-    let orgUsers = await this.findOrganisationMembers(organisationId);
+    const repoId = repo.get('id');
+    const organisationId = repo.get('organisation.id');
+    const repoUsers = await this.findRepoMembers(repoId);
+    const orgUsers = await this.findOrganisationMembers(organisationId);
     return Array.from(new Set([...repoUsers, ...orgUsers]));
   },
   async findRepoMembers(repoId) {
     if (this.repoUsers.has(repoId)) {
        return this.repoUsers.get(repoId);
     }
-    let users = await this.query({
+    const users = await this.query({
       repoId: repoId,
     });
     return users.toArray();
@@ -31,7 +31,7 @@ export default Service.extend({
     if (this.orgUsers.has(organisationId)) {
        return this.orgUsers.get(organisationId);
     }
-    let users = await this.query({
+    const users = await this.query({
       organisationId: organisationId,
     });
     return users.toArray();

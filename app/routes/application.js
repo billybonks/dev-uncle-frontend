@@ -17,7 +17,7 @@ export default AbstractRoute.extend({
     controller.set('model', model);
     controller.set('unAuthenticated', this.get('unAuthenticated'));
     fetch('api/me').then((resultsRaw) => {
-      let results = resultsRaw.json();
+      const results = resultsRaw.json();
       this.set('session.user', results);
       controller.set('user', results);
     });

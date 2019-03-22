@@ -6,7 +6,7 @@ export default Controller.extend({
 
   actions: {
     addRule() {
-      let rule = this.get('store').createRecord('rule');
+      const rule = this.get('store').createRecord('rule');
       this.get('repo.rules').pushObject(rule);
     },
     saveRules() {
