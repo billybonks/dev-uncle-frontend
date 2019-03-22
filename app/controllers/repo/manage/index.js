@@ -10,7 +10,7 @@ export default Controller.extend({
       this.get('repo.rules').pushObject(rule);
     },
     saveRules() {
-      this.get('repo.rules').forEach( (rule) => {
+      this.get('repo.rules').forEach((rule) => {
         if (rule.get('hasDirtyAttributes')) {
           rule.save();
           rule.set('hasDirtyAttributes', false);

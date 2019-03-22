@@ -12,7 +12,7 @@ export default class ActionAddReviewer extends Component {
     let userPromises = usersRaw.map((userId) => {
       return this.store.find('user', userId);
     });
-    Promise.all(userPromises).then( (users) => {
+    Promise.all(userPromises).then((users) => {
       this.set('hydratedUsers', users);
     });
   }

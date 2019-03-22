@@ -11,7 +11,7 @@ export default Controller.extend({
     },
     addFilterNotifcation(notification) {
       notification.set('repo', this.get('repo'));
-      notification.save().then( (notification) => {
+      notification.save().then((notification) => {
         this.get('slackNotifications').pushObject(notification);
       });
     },

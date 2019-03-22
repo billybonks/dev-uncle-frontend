@@ -8,11 +8,11 @@ export default Component.extend({
     this._super(...arguments);
     let repoId = this.get('repo.id');
     let store = this.get('store');
-    store.findAll('slackOrganization').then( (orgs) => {
+    store.findAll('slackOrganization').then((orgs) => {
       this.set('slackOrgs', orgs);
     });
 
-    store.queryRecord('slackSetting', { repoId }).then( (record) => {
+    store.queryRecord('slackSetting', { repoId }).then((record) => {
       if (!record) {
         record = this.get('store').createRecord('slackSetting');
         record.set('repo', this.get('repo'));

@@ -70,8 +70,8 @@ export default class PullRequestTable extends Component {
     let labelFilters = this.get('activeFilter.filters.labels');
     let pullRequests = this.get('pullRequests');
     if (labelFilters && labelFilters.length) {
-      pullRequests = this.get('pullRequests').filter( (pullRequest) => {
-        let labelIds = pullRequest.get('labels').map( (label) => {
+      pullRequests = this.get('pullRequests').filter((pullRequest) => {
+        let labelIds = pullRequest.get('labels').map((label) => {
           return label.get('id');
         });
         let labelIdsSet = new Set(labelIds);
@@ -84,7 +84,7 @@ export default class PullRequestTable extends Component {
     }
     let ageFilter = parseInt(this.get('activeFilter.filters.age'));
     if (ageFilter) {
-      return pullRequests.filter( (pullRequest) => {
+      return pullRequests.filter((pullRequest) => {
         return dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter;
       });
     } else {
