@@ -1,4 +1,4 @@
-import AbstractRoute from "client/routes/repo/manage/abstract-route";
+import AbstractRoute from 'client/routes/repo/manage/abstract-route';
 
 export default AbstractRoute.extend({
   model(/*params*/){
