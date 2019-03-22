@@ -1,16 +1,16 @@
 import AbstractRoute from 'client/routes/repo/manage/abstract-route';
 
 export default AbstractRoute.extend({
-  model(){
+  model() {
     let repoId = this.paramsFor('repo').repo_id;
     return this.store.queryRecord('slackSetting', { repoId }).then( (record) => {
-      if (!record){
+      if (!record) {
         return this.store.createRecord('slackSetting');
       }
       return record;
     });
   },
-  setupController(controller, model){
+  setupController(controller, model) {
     let repoId =  this.paramsFor('repo').repo_id;
     this._super();
     this.store.findAll('slackOrganization').then( (orgs) => {

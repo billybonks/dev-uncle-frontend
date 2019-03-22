@@ -5,7 +5,7 @@ import { service } from '@ember-decorators/service';
 export default class ActionAddReviewer extends Component {
   @service store;
 
-  constructor(){
+  constructor() {
     super(...arguments);
 
     let usersRaw = this.data? (this.data.users || []) : [];

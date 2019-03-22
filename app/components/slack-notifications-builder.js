@@ -10,17 +10,17 @@ export default Component.extend({
   intervals: INTERVAL,
   times: TIME,
   types: TYPE,
-  init(){
+  init() {
     this._super(...arguments);
     this.resetNotification();
   },
   actions: {
-    addFilterNotifcation(){
+    addFilterNotifcation() {
       this.sendAction('addedFilterNotification', this.get('notification'));
       this.resetNotification();
     },
   },
-  resetNotification(){
+  resetNotification() {
     this.set('notification', this.get('store').createRecord('slack-notification'));
   },
 });

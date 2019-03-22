@@ -3,9 +3,9 @@ import { computed, action } from '@ember-decorators/object';
 
 export default class AwesomeFilters extends Component {
   @action
-  selectFilter(filter){
+  selectFilter(filter) {
     if (this.get('selectedFilter') == filter) return;
-    if (this.get('isEditing')){
+    if (this.get('isEditing')) {
       this.send('cancel');
       this.send('edit', filter);
     }
@@ -13,19 +13,19 @@ export default class AwesomeFilters extends Component {
   }
 
   @action
-  createFilter(){
+  createFilter() {
     let newFilter = this.createFilter();
     this.send('selectFilter', newFilter);
-    if (!this.get('isEditing')){
+    if (!this.get('isEditing')) {
       this.send('edit', newFilter);
     }
   }
 
   @action
-  cancel(){
+  cancel() {
     let editingFilter = this.get('selectedFilter');
-    if (editingFilter){
-      if (editingFilter.get('isNew')){
+    if (editingFilter) {
+      if (editingFilter.get('isNew')) {
         editingFilter.deleteRecord();
       }
       this.set('isEditing', false);
@@ -33,18 +33,18 @@ export default class AwesomeFilters extends Component {
   }
 
   @action
-  async save(){
+  async save() {
     await this.save();
     this.send('cancel');
   }
 
   @action
-  edit(){
+  edit() {
     this.set('isEditing', true);
   }
 
   @computed('editingFilter')
-  get showNewFilter(){
+  get showNewFilter() {
     let editingFilter = this.get('selectedFilter');
     if (!editingFilter) return true;
     if (!editingFilter.get('isNew')) return true;

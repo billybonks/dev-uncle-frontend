@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
-export default class TablesWorkflowTable extends Component{
+export default class TablesWorkflowTable extends Component {
 
 
   columns = [
@@ -18,18 +18,18 @@ export default class TablesWorkflowTable extends Component{
 
 
   @action
-  deleteRow(row){
+  deleteRow(row) {
     return row.destroyRecord();
   }
 
   @action
-  deactivateRow(row){
+  deactivateRow(row) {
     row.set('active', false);
     return row.save();
   }
 
   @action
-  activateRow(row){
+  activateRow(row) {
     row.set('active', true);
     row.save();
   }

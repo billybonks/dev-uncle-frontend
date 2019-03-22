@@ -6,7 +6,7 @@ import { computed, action } from '@ember-decorators/object';
 export default class FiltersEditorsLabelPicker extends Component {
   constructor() {
     super(...arguments);
-    if (!this.get('value')){
+    if (!this.get('value')) {
       this.set('value', A());
     }
   }
@@ -14,7 +14,7 @@ export default class FiltersEditorsLabelPicker extends Component {
   @computed('labels.[]', 'value.[]')
   get _labels() {
     let labels = this.get('labels');
-    if (labels){
+    if (labels) {
       return labels.map((label) => {
         return new EmberObject({
           id: label.get('id'),
@@ -28,10 +28,10 @@ export default class FiltersEditorsLabelPicker extends Component {
   }
 
   @action
-  labelToggled(label){
+  labelToggled(label) {
     label.set('isActive', !label.get('isActive'));
     let labelIds = this.get('_labels').reduce( (acc, label) => {
-      if (label.get('isActive')){
+      if (label.get('isActive')) {
         acc.push(label.get('id'));
       }
       return acc;

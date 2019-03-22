@@ -63,7 +63,7 @@ let eventsHash = {
 
 export default class AutomationBuilder extends Component {
 
-  constructor(){
+  constructor() {
     super(...arguments);
     this.set('eventsHash', eventsHash);
     this.set('properties', {

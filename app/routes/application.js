@@ -6,7 +6,7 @@ export default AbstractRoute.extend({
   session: service(),
   unAuthenticated: false,
 
-  model(){
+  model() {
     return this.get('store').findAll('repo').catch( () => {
       this.transitionTo('login');
       this.set('unAuthenticated', true);

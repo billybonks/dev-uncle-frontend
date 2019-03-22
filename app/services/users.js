@@ -3,23 +3,23 @@ import { inject } from '@ember/service';
 
 export default Service.extend({
   store: inject(),
-  init(){
+  init() {
     this._super(...arguments);
     this.repoUsers = new Map();
     this.orgUsers = new Map();
   },
-  query(params){
+  query(params) {
     return this.store.query('user', params);
   },
-  async findUsers(repo){
+  async findUsers(repo) {
     let repoId = repo.get('id');
     let organisationId = repo.get('organisation.id');
     let repoUsers = await this.findRepoMembers(repoId);
     let orgUsers = await this.findOrganisationMembers(organisationId);
     return Array.from(new Set([...repoUsers, ...orgUsers]));
   },
-  async findRepoMembers(repoId){
-    if (this.repoUsers.has(repoId)){
+  async findRepoMembers(repoId) {
+    if (this.repoUsers.has(repoId)) {
        return this.repoUsers.get(repoId);
     }
     let users = await this.query({
@@ -27,8 +27,8 @@ export default Service.extend({
     });
     return users.toArray();
   },
-  async findOrganisationMembers(organisationId){
-    if (this.orgUsers.has(organisationId)){
+  async findOrganisationMembers(organisationId) {
+    if (this.orgUsers.has(organisationId)) {
        return this.orgUsers.get(organisationId);
     }
     let users = await this.query({

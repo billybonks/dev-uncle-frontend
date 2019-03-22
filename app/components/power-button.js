@@ -5,8 +5,8 @@ export default Component.extend({
   classNames: ['power-button'],
   attributeBindings: ['disabled'],
   text: 'save',
-  click(){
-    if (this.action){
+  click() {
+    if (this.action) {
       this.action();
     } else {
       this.task.perform();
