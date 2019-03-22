@@ -9,7 +9,7 @@ export default Component.extend({
     let repoId = this.get('repo.id');
     let store = this.get('store');
     store.findAll('slackOrganization').then( (orgs) => {
-      this.set('slackOrgs',orgs);
+      this.set('slackOrgs', orgs);
     });
 
     store.queryRecord('slackSetting', {repoId}).then( (record) => {

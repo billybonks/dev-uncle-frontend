@@ -15,7 +15,7 @@ export default class PullRequest extends DS.Model {
   @hasMany labels;
   @belongsTo repo;
 
-  @computed('number','title', 'repo.name')
+  @computed('number', 'title', 'repo.name')
   get linkInfo() {
     return EmberObject.create({
       title: this.get('title'),

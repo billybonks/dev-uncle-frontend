@@ -32,7 +32,7 @@ const messageChannel= {
   editor: 'text',
 };
 
-const actions = [applyLabel,addReviewer,messageReviewers,messageOwner,messageChannel];
+const actions = [applyLabel, addReviewer, messageReviewers, messageOwner, messageChannel];
 
 let eventsHash = {
   pull_request_synchronize:{

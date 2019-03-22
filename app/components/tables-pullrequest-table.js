@@ -41,7 +41,7 @@ export default class PullRequestTable extends Component{
   @action
   onColumnClick(column){
     if(column.get('sortable')){
-      this.set('sortBy',column.get('valuePath'));
+      this.set('sortBy', column.get('valuePath'));
       this.set('direction', column.get('ascending'));
     }
   }

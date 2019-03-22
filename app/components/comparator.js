@@ -49,10 +49,10 @@ export default class FiltersFilterBuilder extends Component {
     ],
   }
 
-  @computed('comparator','comparatorOptions.[]')
+  @computed('comparator', 'comparatorOptions.[]')
   get selectedComparator() {
     if(this.comparator) {
-      return this.comparatorOptions.findBy('key',this.comparator);
+      return this.comparatorOptions.findBy('key', this.comparator);
     }
     return null;
   }

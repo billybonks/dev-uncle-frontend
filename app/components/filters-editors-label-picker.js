@@ -11,7 +11,7 @@ export default class FiltersEditorsLabelPicker extends Component {
     }
   }
 
-  @computed('labels.[]','value.[]')
+  @computed('labels.[]', 'value.[]')
   get _labels() {
     let labels = this.get('labels');
     if(labels){

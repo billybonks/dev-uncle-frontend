@@ -4,7 +4,7 @@ export default AbstractRoute.extend({
   title: 'Pull Requests',
   controlsPath: 'fixed-controls/stats',
   model(/*params*/){
-    return this.store.query('pullRequest',{repo_id:this.paramsFor('repo').repo_id});
+    return this.store.query('pullRequest', {repo_id:this.paramsFor('repo').repo_id});
   },
 
   setupController(controller, model){
