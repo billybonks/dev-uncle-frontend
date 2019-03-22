@@ -6,7 +6,7 @@ export default class RouteWorkflowNew extends AbstractRoute {
     let workflow = this.store.createRecord('workflow');
     workflow.set('repo', repo);
     return {
-      repo, workflow
+      repo, workflow,
     };
   }
 }

@@ -23,7 +23,7 @@ export default class FiltersFilterBuilder extends Component {
       {
         key: "not_in?",
         component: "tags",
-      }
+      },
     ],
     association: [
       {
@@ -45,8 +45,8 @@ export default class FiltersFilterBuilder extends Component {
       {
         key: "not_in?",
         component: "association",
-      }
-    ]
+      },
+    ],
   }
 
   @computed('comparator','comparatorOptions.[]')

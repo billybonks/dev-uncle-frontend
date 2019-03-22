@@ -13,5 +13,5 @@ export default DS.RESTSerializer.extend({
       return 'rules_id';
     }
     return `${underscore(attr)}_id`;
-  }
+  },
 });

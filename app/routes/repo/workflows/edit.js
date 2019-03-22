@@ -7,5 +7,5 @@ export default Route.extend({
     let organisation = await this.store.findRecord('organisation', repo.get('organisation.id'));
     controller.set('repo', repo);
     controller.set('organisation', organisation);
-  }
+  },
 });

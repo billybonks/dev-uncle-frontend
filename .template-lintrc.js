@@ -12,5 +12,5 @@ module.exports = {
       'open-invocation-max-len': 110,
     },
     'inline-link-to': true,
-  }
+  },
 };

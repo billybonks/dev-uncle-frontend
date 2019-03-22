@@ -8,12 +8,12 @@ module.exports = function() {
     babel: {
       plugins: [
         ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        ["@babel/plugin-proposal-class-properties", { "loose" : true }]
-      ]
+        ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+      ],
     },
     'ember-fetch': {
-      preferNative: true
-    }
+      preferNative: true,
+    },
   });
   app.import('node_modules/dayjs/plugin/relativeTime.js');
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')

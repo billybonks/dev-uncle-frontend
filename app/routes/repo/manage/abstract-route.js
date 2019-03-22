@@ -6,5 +6,5 @@ export default AbstractRoute.extend({
   setupController(/*controller, model*/) {
     this._super(...arguments);
     this.set('controlsParams', this.paramsFor('repo').repo_id);
-  }
+  },
 });

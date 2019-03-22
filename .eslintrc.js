@@ -2,17 +2,17 @@ module.exports = {
   root: true,
   parserOptions: {
     ecmaVersion: 2017,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
-    'ember'
+    'ember',
   ],
   extends: [
     'airbnb',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
   ],
   env: {
-    browser: true
+    browser: true,
   },
   parser: 'babel-eslint',
   rules: {
@@ -28,7 +28,7 @@ module.exports = {
     'ember/named-functions-in-promises': 0,
     'ember/closure-actions': 0,
     'ember/use-ember-get-and-set': 0,
-    semi: 2
+    semi: 2,
   },
   overrides: [
     // node files
@@ -41,16 +41,16 @@ module.exports = {
         'blueprints/*/index.js',
         'config/**/*.js',
         'lib/*/index.js',
-        'server/**/*.js'
+        'server/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2015,
       },
       env: {
         browser: false,
-        node: true
-      }
-    }
-  ]
+        node: true,
+      },
+    },
+  ],
 };

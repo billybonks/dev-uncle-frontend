@@ -13,7 +13,7 @@ export default class TablesDashboard extends Component {
     {
       valuePath: 'owner',
       isAscending: false,
-    }
+    },
   ]
 
 }

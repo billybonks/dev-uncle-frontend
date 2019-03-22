@@ -17,7 +17,7 @@ export default class PullRequestTable extends Component{
     {
       valuePath: 'owner',
       isAscending: false,
-    }
+    },
   ]
 
   @action

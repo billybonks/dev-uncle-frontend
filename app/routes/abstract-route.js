@@ -10,7 +10,7 @@ export default Route.extend({
       this.set('fixedHeader.controlsPath', this.get('controlsPath'));
       this.set('fixedHeader.controlsParams', this.get('controlsParams'));
       return false;
-    }
+    },
   },
   ensureRecord(parentModel,childModelName, target){
     let pluralizedype = pluralize(childModelName);

@@ -13,7 +13,7 @@ export default class TablesWorkflowTable extends Component{
     {
       valuePath: 'name',
       isAscending: false,
-    }
+    },
   ]
 
 

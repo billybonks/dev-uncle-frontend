@@ -11,5 +11,5 @@ export default AbstractRoute.extend({
     controller.set('model', model);
     this.set('controlsParams', this.paramsFor('repo').repo_id);
     controller.set('repo', this.store.findRecord('repo', this.paramsFor('repo').repo_id));
-  }
+  },
 });

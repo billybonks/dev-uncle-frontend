@@ -28,5 +28,5 @@ export default AbstractRoute.extend({
     });
 
     controller.set('model', model);
-  }
+  },
 });

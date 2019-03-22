@@ -20,7 +20,7 @@ export default class PullRequest extends DS.Model {
     return EmberObject.create({
       title: this.get('title'),
       number: this.get('number'),
-      repo: this.get('repo.name')
+      repo: this.get('repo.name'),
     });
   }
 }

@@ -5,6 +5,6 @@ export default Component.extend({
     updateFilter(value) {
       this.set('value', value);
       this.sendAction('action',this.get('filter'), value);
-    }
-  }
+    },
+  },
 });

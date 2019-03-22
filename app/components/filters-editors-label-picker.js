@@ -20,7 +20,7 @@ export default class FiltersEditorsLabelPicker extends Component {
           id: label.get('id'),
           name: label.get('name'),
           color: label.get('color'),
-          isActive: this.get('value').includes(`${label.get('id')}`)
+          isActive: this.get('value').includes(`${label.get('id')}`),
         });
       });
     }

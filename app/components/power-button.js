@@ -11,5 +11,5 @@ export default Component.extend({
     } else {
       this.task.perform();
     }
-  }
+  },
 });

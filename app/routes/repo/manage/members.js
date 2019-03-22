@@ -8,5 +8,5 @@ export default AbstractRoute.extend({
     this._super();
     controller.set('model', model);
     controller.set('repo', model);
-  }
+  },
 });

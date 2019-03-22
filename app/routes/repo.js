@@ -8,5 +8,5 @@ export default AbstractRoute.extend({
     this.ensureRecord(repo, 'rule');
     this.ensureRecord(repo, 'filter');
     this.ensureRecord(repo, 'label');
-  }
+  },
 });

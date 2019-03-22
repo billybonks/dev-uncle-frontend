@@ -14,6 +14,6 @@ export default Controller.extend({
       notification.save().then( (notification) => {
         this.get('slackNotifications').pushObject(notification);
       });
-    }
-  }
+    },
+  },
 });

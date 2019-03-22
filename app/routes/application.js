@@ -21,6 +21,6 @@ export default AbstractRoute.extend({
       this.set('session.user', results);
       controller.set('user', results);
     });
-  }
+  },
 
 });
