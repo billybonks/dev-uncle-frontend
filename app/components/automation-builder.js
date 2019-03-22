@@ -4,13 +4,13 @@ const messageLastCommitter = {
   label: 'Message Last Committer',
   key: 'message_last_commit',
 };
-const applyLabel =  {
+const applyLabel = {
   label: 'Apply Label',
   key: 'apply_label',
   editor: 'action-apply-label',
 };
 
-const addReviewer =  {
+const addReviewer = {
   label: 'Add Reviewer',
   key: 'add_reviwer',
   editor: 'action-add-reviewer',

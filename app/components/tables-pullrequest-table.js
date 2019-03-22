@@ -7,7 +7,7 @@ export default class PullRequestTable extends Component {
   @service store
 
   columns = [
-    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title' },
+    { name: 'Title', valuePath: 'linkInfo', cellComponent: 'columns-pr-title' },
     { name: 'Owner', valuePath: 'owner' },
     { name: 'Last Active', valuePath: 'updatedAt', cellComponent: 'days-since' },
     { name: 'Age', valuePath: 'createdAt', cellComponent: 'days-since' },
@@ -65,7 +65,7 @@ export default class PullRequestTable extends Component {
     return filter;
   }
 
-  @computed('pullRequests.[]',  'activeFilter.filters')
+  @computed('pullRequests.[]', 'activeFilter.filters')
   get filteredPullRequests() {
     let labelFilters = this.get('activeFilter.filters.labels');
     let pullRequests = this.get('pullRequests');

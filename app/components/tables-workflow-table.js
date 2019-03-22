@@ -5,7 +5,7 @@ export default class TablesWorkflowTable extends Component {
 
 
   columns = [
-    { name: 'Name', valuePath: 'name',  cellComponent: 'columns-workflow-link' },
+    { name: 'Name', valuePath: 'name', cellComponent: 'columns-workflow-link' },
     { name: 'Actions', sortable: false, cellComponent: 'columns-destroy-action-cell' },
   ]
 
