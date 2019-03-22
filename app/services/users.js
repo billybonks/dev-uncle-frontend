@@ -23,7 +23,7 @@ export default Service.extend({
        return this.repoUsers.get(repoId);
     }
     const users = await this.query({
-      repoId: repoId,
+      repoId,
     });
     return users.toArray();
   },
@@ -32,7 +32,7 @@ export default Service.extend({
        return this.orgUsers.get(organisationId);
     }
     const users = await this.query({
-      organisationId: organisationId,
+      organisationId,
     });
     return users.toArray();
   },

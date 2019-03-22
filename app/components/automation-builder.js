@@ -37,7 +37,7 @@ const actions = [applyLabel, addReviewer, messageReviewers, messageOwner, messag
 const eventsHash = {
   pull_request_synchronize: {
     displayName: 'PR Code Updated',
-    actions: actions,
+    actions,
   },
   branch_built: {
     name: '',
@@ -47,17 +47,17 @@ const eventsHash = {
   pull_request_rejected: {
     name: '',
     displayName: 'Reviewer Requested Changes',
-    actions: actions,
+    actions,
   },
   pull_request_approved: {
     name: '',
     displayName: 'Reviewer Approved Changes',
-    actions: actions,
+    actions,
   },
   pull_request_opened: {
     name: '',
     displayName: 'PR Opened',
-    actions: actions,
+    actions,
   },
 };
 

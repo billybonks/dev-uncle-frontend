@@ -5,7 +5,7 @@ import { pluralize } from 'ember-inflector';
 export default Route.extend({
   fixedHeader: service(),
   actions: {
-    didTransition: function () {
+    didTransition () {
       // this.set('fixedHeader.title', this.get('title'));
       this.set('fixedHeader.controlsPath', this.get('controlsPath'));
       this.set('fixedHeader.controlsParams', this.get('controlsParams'));
