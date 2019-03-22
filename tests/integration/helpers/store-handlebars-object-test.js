@@ -16,4 +16,3 @@ module('helper:store-handlebars-object', function(hooks) {
     assert.equal(this.$().text().trim(), '1234');
   });
 });
-

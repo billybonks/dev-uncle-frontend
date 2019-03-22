@@ -58,7 +58,6 @@ export default class FiltersFilterBuilder extends Component {
   }
 
 
-
   @computed('selectedProperty')
   get comparatorOptions() {
     return this.comparators[this.selectedProperty.type];
