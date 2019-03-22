@@ -6,9 +6,9 @@ import Component from '@ember/component';
 export default class TablesSlackNotificationTable extends Component {
 
   columns = [
-    { name: 'Filter', valuePath: 'filter.name'},
-    { name: 'Notification Time', valuePath: 'time'},
-    { name: 'Channel', valuePath: 'channel'},
+    { name: 'Filter', valuePath: 'filter.name' },
+    { name: 'Notification Time', valuePath: 'time' },
+    { name: 'Channel', valuePath: 'channel' },
   ]
 
   sorts = [

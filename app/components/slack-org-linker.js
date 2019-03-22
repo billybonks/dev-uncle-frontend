@@ -12,7 +12,7 @@ export default Component.extend({
       this.set('slackOrgs', orgs);
     });
 
-    store.queryRecord('slackSetting', {repoId}).then( (record) => {
+    store.queryRecord('slackSetting', { repoId }).then( (record) => {
       if (!record){
         record = this.get('store').createRecord('slackSetting');
         record.set('repo', this.get('repo'));

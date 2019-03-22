@@ -7,8 +7,8 @@ export default class PullRequestTable extends Component{
   @service store
 
   columns = [
-    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title'},
-    { name: 'Owner', valuePath: 'owner'},
+    { name: 'Title', valuePath: 'linkInfo',  cellComponent: 'columns-pr-title' },
+    { name: 'Owner', valuePath: 'owner' },
     { name: 'Last Active', valuePath: 'updatedAt', cellComponent: 'days-since' },
     { name: 'Age', valuePath: 'createdAt', cellComponent: 'days-since' },
   ]

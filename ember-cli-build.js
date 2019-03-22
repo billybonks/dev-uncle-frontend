@@ -4,7 +4,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function() {
   var app = new EmberApp({
-    sassOptions: {implementation: require('node-sass')},
+    sassOptions: { implementation: require('node-sass') },
     babel: {
       plugins: [
         ["@babel/plugin-proposal-decorators", { "legacy": true }],

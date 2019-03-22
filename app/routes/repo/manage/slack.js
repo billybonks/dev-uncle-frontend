@@ -3,7 +3,7 @@ import AbstractRoute from "client/routes/repo/manage/abstract-route";
 export default AbstractRoute.extend({
   model(){
     let repoId = this.paramsFor('repo').repo_id;
-    return this.store.queryRecord('slackSetting', {repoId}).then( (record) => {
+    return this.store.queryRecord('slackSetting', { repoId }).then( (record) => {
       if (!record){
         return this.store.createRecord('slackSetting');
       }
@@ -23,7 +23,7 @@ export default AbstractRoute.extend({
 
     controller.set('filters', this.store.peekAll('filter'));
 
-    this.store.query('slackNotification', {repo_id: repoId}).then( results => {
+    this.store.query('slackNotification', { repo_id: repoId }).then( results => {
       controller.set('slackNotifications', results);
     });
 

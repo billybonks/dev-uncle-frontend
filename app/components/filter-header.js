@@ -16,7 +16,7 @@ export default class FilterHeader extends Component {
 
     @action
     filterAdded(activeFilter, filter){
-      let newFilters = Object.assign({}, this.activeFilter.filters, {[filter.id]: null});
+      let newFilters = Object.assign({}, this.activeFilter.filters, { [filter.id]: null });
       this.activeFilter.set('filters', newFilters );
     }
 }

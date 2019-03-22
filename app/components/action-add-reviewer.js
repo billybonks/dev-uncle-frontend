@@ -23,6 +23,6 @@ export default class ActionAddReviewer extends Component {
     let userIds = this.hydratedUsers.map((user) => {
       return user.get('id');
     });
-    this.onUpdated({users: userIds});
+    this.onUpdated({ users: userIds });
   }
 }

@@ -6,7 +6,7 @@ export default AbstractRoute.extend({
   model(/*params*/){
     return fetch('api/me').then( (resultsRaw) => {
       let results = resultsRaw.json();
-      return this.store.query('pullRequest', {reviewer: results.id});
+      return this.store.query('pullRequest', { reviewer: results.id });
    });
 
   },
