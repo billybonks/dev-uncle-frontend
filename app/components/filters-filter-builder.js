@@ -13,9 +13,7 @@ export default class FiltersFilterBuilder extends Component {
       return [];
     }
     const difference = new Set([...filterTypes].filter(x => !filters.has(x)));
-    return [...difference].map((key) => {
-      return this.get('filterTypes')[key];
-    });
+    return [...difference].map((key) => this.get('filterTypes')[key]);
   }
 
 }

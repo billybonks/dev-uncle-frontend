@@ -15,14 +15,12 @@ export default class FiltersEditorsLabelPicker extends Component {
   get _labels() {
     const labels = this.get('labels');
     if (labels) {
-      return labels.map((label) => {
-        return new EmberObject({
+      return labels.map((label) => new EmberObject({
           id: label.get('id'),
           name: label.get('name'),
           color: label.get('color'),
           isActive: this.get('value').includes(`${label.get('id')}`),
-        });
-      });
+        }));
     }
     return [];
   }

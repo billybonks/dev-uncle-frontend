@@ -71,9 +71,7 @@ export default class PullRequestTable extends Component {
     let pullRequests = this.get('pullRequests');
     if (labelFilters && labelFilters.length) {
       pullRequests = this.get('pullRequests').filter((pullRequest) => {
-        const labelIds = pullRequest.get('labels').map((label) => {
-          return label.get('id');
-        });
+        const labelIds = pullRequest.get('labels').map((label) => label.get('id'));
         const labelIdsSet = new Set(labelIds);
         const labelFiltersSet = new Set(labelFilters);
         const intersection = new Set([...labelIdsSet].filter(x => labelFiltersSet.has(x)));
@@ -84,9 +82,7 @@ export default class PullRequestTable extends Component {
     }
     const ageFilter = parseInt(this.get('activeFilter.filters.age'));
     if (ageFilter) {
-      return pullRequests.filter((pullRequest) => {
-        return dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter;
-      });
+      return pullRequests.filter((pullRequest) => dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter);
     } else {
       return pullRequests;
     }

@@ -7,5 +7,5 @@ export default DS.Model.extend({
   active: DS.attr('boolean', { defaultValue: true }),
   repo: DS.belongsTo('repo', { inverse: null }),
   repos: DS.hasMany('repo'),
-  rules: DS.hasMany('rule', { defaultValue: () => { return []; } }),
+  rules: DS.hasMany('rule', { defaultValue: () => [] }),
 });

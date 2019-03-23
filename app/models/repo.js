@@ -9,5 +9,5 @@ export default DS.Model.extend({
   labels: DS.hasMany('labels'),
   workflows: DS.hasMany('workflows'),
   organisation: DS.belongsTo('organisation'),
-  rules: DS.hasMany('rules', { defaultValue: () => { return []; } }),
+  rules: DS.hasMany('rules', { defaultValue: () => [] }),
 });
