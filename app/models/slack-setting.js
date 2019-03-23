@@ -4,5 +4,5 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   slackOrganization: DS.belongsTo('slackOrganization'),
-  repo: DS.belongsTo('repo'),
+  organisation: DS.belongsTo('organisation'),
 });
