@@ -78,6 +78,7 @@ export default class PullRequestTable extends Component {
         if (intersection.size) {
           return true;
         }
+        return false;
       });
     }
     const ageFilter = parseInt(this.get('activeFilter.filters.age'));
