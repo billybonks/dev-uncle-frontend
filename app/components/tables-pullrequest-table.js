@@ -56,7 +56,7 @@ export default class PullRequestTable extends Component {
   }
 
   set activeFilter(filter) {
-    if (this.get('activeFilter.id') == filter.get('id')) {
+    if (this.get('activeFilter.id') === filter.get('id')) {
       return filter;
     }
     this.set('activeFilter.isEditing', false);
