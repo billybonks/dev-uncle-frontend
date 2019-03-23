@@ -26,7 +26,7 @@ const messageOwner = {
   key: 'message_owner',
 };
 
-const messageChannel= {
+const messageChannel = {
   label: 'Message Channel',
   key: 'message_channel',
   editor: 'text',
