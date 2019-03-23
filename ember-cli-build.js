@@ -1,9 +1,8 @@
-'use strict';
-
+/* eslint global-require:off */
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function () {
-  var app = new EmberApp({
+module.exports = function setupEmber() {
+  const app = new EmberApp({
     sassOptions: { implementation: require('node-sass') },
     babel: {
       plugins: [
