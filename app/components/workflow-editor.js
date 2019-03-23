@@ -16,7 +16,7 @@ export default class ComponentWorkflowEditor extends Component {
 
   @action
   saveWorkflow(workflow) {
-    const promises = workflow.rules.map((rule) => rule.save());
+    const promises = workflow.rules.map(rule => rule.save());
     RSVP.all(promises).then(() => {
       workflow.save().then((workflow) => {
         this.transitionAfterSave(workflow);
