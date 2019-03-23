@@ -11,14 +11,14 @@
   float: right;
 }
 
-
+$extra-color: #464a4c;
 .form-control {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;
-  color: #464a4c;
+  color: $extra-color;
   background-color: #fff;
   background-image: none;
   background-clip: padding-box;
