@@ -1,3 +1,4 @@
+/* eslint no-param-reassign: "off" */
 import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
