@@ -2,8 +2,6 @@ import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
 export default class TablesWorkflowTable extends Component {
-
-
   columns = [
     { name: 'Name', valuePath: 'name', cellComponent: 'columns-workflow-link' },
     { name: 'Actions', sortable: false, cellComponent: 'columns-destroy-action-cell' },

@@ -62,7 +62,6 @@ const eventsHash = {
 };
 
 export default class AutomationBuilder extends Component {
-
   constructor() {
     super(...arguments);
     this.set('eventsHash', eventsHash);

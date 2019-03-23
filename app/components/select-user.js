@@ -12,7 +12,5 @@ export default class UserSelect extends Component {
       this.set('isLoading', false);
       this.set('users', res);
     });
-
   }
-
 }

@@ -8,6 +8,5 @@ export default AbstractRoute.extend({
       const results = resultsRaw.json();
       return this.store.query('pullRequest', { reviewer: results.id });
     });
-
   },
 });
