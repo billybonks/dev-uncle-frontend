@@ -1,3 +1,4 @@
+/* eslint array-callback-return: "off", func-names: "off" */
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
