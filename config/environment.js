@@ -1,3 +1,5 @@
+/* eslint strict: "off", func-names: "off", no-empty: "off" */
+
 'use strict';
 
 module.exports = function (environment) {
