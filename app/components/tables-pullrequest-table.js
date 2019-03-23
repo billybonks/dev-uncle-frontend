@@ -83,10 +83,9 @@ export default class PullRequestTable extends Component {
     }
     const ageFilter = parseInt(this.get('activeFilter.filters.age'), 10);
     if (ageFilter) {
-      return pullRequests.filter(pullRequest => dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter);
-    } else {
-      return pullRequests;
+      return pullRequests.filter(pullRequest => dayjs().diff(pullRequest.get('updatedAt'), 'day') > ageFilter);
     }
+    return pullRequests;
   }
 
   @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')
