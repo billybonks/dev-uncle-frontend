@@ -7,7 +7,7 @@ export default AbstractRoute.extend({
     return fetch('api/me').then((resultsRaw) => {
       const results = resultsRaw.json();
       return this.store.query('pullRequest', { reviewer: results.id });
-   });
+    });
 
   },
 });

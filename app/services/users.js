@@ -20,7 +20,7 @@ export default Service.extend({
   },
   async findRepoMembers(repoId) {
     if (this.repoUsers.has(repoId)) {
-       return this.repoUsers.get(repoId);
+      return this.repoUsers.get(repoId);
     }
     const users = await this.query({
       repoId,
@@ -29,7 +29,7 @@ export default Service.extend({
   },
   async findOrganisationMembers(organisationId) {
     if (this.orgUsers.has(organisationId)) {
-       return this.orgUsers.get(organisationId);
+      return this.orgUsers.get(organisationId);
     }
     const users = await this.query({
       organisationId,

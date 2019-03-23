@@ -19,7 +19,7 @@ const addReviewer = {
 const messageReviewers = {
   label: 'Message Reviewers',
   key: 'message_reviewers',
-  };
+};
 
 const messageOwner = {
   label: 'Message Owner',
