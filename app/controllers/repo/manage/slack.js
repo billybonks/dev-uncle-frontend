@@ -6,14 +6,14 @@ export default Controller.extend({
   session: service(),
   slackSettings: alias('model'),
   actions: {
-    setSlackOrg(org){
+    setSlackOrg(org) {
       this.set('model.slackOrganization', org);
     },
-    addFilterNotifcation(notification){
+    addFilterNotifcation(notification) {
       notification.set('repo', this.get('repo'));
-      notification.save().then( (notification) => {
+      notification.save().then((notification) => {
         this.get('slackNotifications').pushObject(notification);
       });
-    }
-  }
+    },
+  },
 });

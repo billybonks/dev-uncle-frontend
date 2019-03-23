@@ -5,5 +5,5 @@ export default DS.Model.extend({
   access: DS.attr('boolean'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
-  repo:   DS.belongsTo('repo'),
+  repo: DS.belongsTo('repo'),
 });

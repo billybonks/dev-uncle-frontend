@@ -3,11 +3,11 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Helper | object-keys', function(hooks) {
+module('Integration | Helper | object-keys', function (hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     this.set('inputValue', '1234');
 
     await render(hbs`{{object-keys inputValue}}`);

@@ -5,13 +5,13 @@ export default Controller.extend({
   repo: alias('model'),
 
   actions: {
-    addRule(){
-      let rule = this.get('store').createRecord('rule');
+    addRule() {
+      const rule = this.get('store').createRecord('rule');
       this.get('repo.rules').pushObject(rule);
     },
-    saveRules(){
-      this.get('repo.rules').forEach( (rule) => {
-        if(rule.get('hasDirtyAttributes')){
+    saveRules() {
+      this.get('repo.rules').forEach((rule) => {
+        if (rule.get('hasDirtyAttributes')) {
           rule.save();
           rule.set('hasDirtyAttributes', false);
         }

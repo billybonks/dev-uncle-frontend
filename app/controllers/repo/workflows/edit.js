@@ -6,7 +6,7 @@ export default class ControllerWorkflowsEdit extends Controller {
   workflow = alias('model')
 
   @action
-  transitionAfterSave(){
+  transitionAfterSave() {
     this.transitionToRoute('repo.manage.workflows', this.get('workflow.repo'));
   }
 }

@@ -1,13 +1,13 @@
 import { inject as service } from '@ember/service';
-import AbstractRoute from "client/routes/abstract-route";
+import AbstractRoute from 'client/routes/abstract-route';
 import fetch from 'fetch';
 
 export default AbstractRoute.extend({
   session: service(),
   unAuthenticated: false,
 
-  model(){
-    return this.get('store').findAll('repo').catch( () => {
+  model() {
+    return this.get('store').findAll('repo').catch(() => {
       this.transitionTo('login');
       this.set('unAuthenticated', true);
     });
@@ -16,11 +16,11 @@ export default AbstractRoute.extend({
   setupController(controller, model) {
     controller.set('model', model);
     controller.set('unAuthenticated', this.get('unAuthenticated'));
-    fetch('api/me').then( (resultsRaw) => {
-      let results = resultsRaw.json();
+    fetch('api/me').then((resultsRaw) => {
+      const results = resultsRaw.json();
       this.set('session.user', results);
       controller.set('user', results);
     });
-  }
+  },
 
 });

@@ -1,35 +1,33 @@
 import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
-export default class TablesWorkflowTable extends Component{
-
-
+export default class TablesWorkflowTable extends Component {
   columns = [
-    { name: 'Name', valuePath: 'name',  cellComponent: 'columns-workflow-link'},
-    { name: 'Actions', sortable: false, cellComponent: 'columns-destroy-action-cell'},
+    { name: 'Name', valuePath: 'name', cellComponent: 'columns-workflow-link' },
+    { name: 'Actions', sortable: false, cellComponent: 'columns-destroy-action-cell' },
   ]
 
   sorts = [
     {
       valuePath: 'name',
       isAscending: false,
-    }
+    },
   ]
 
 
   @action
-  deleteRow(row){
+  deleteRow(row) {
     return row.destroyRecord();
   }
 
   @action
-  deactivateRow(row){
+  deactivateRow(row) {
     row.set('active', false);
     return row.save();
   }
 
   @action
-  activateRow(row){
+  activateRow(row) {
     row.set('active', true);
     row.save();
   }

@@ -2,18 +2,18 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function() {
+module.exports = function () {
   var app = new EmberApp({
-    sassOptions: {implementation: require('node-sass')},
+    sassOptions: { implementation: require('node-sass') },
     babel: {
       plugins: [
-        ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        ["@babel/plugin-proposal-class-properties", { "loose" : true }]
-      ]
+        ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }],
+      ],
     },
     'ember-fetch': {
-      preferNative: true
-    }
+      preferNative: true,
+    },
   });
   app.import('node_modules/dayjs/plugin/relativeTime.js');
   // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css')

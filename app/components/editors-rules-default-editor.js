@@ -6,7 +6,7 @@ export default class EditorsRulesDefaultEditor extends Component {
 
   constructor() {
     super(...arguments);
-    let label = this.get('labels').filterBy('id', this.get('rule.rules.apply_label.label'));
+    const label = this.get('labels').filterBy('id', this.get('rule.rules.apply_label.label'));
     this.set('selected', label[0]);
   }
 
@@ -14,6 +14,6 @@ export default class EditorsRulesDefaultEditor extends Component {
   setChangeLabel(label) {
     this.set('selected', label);
     this.set('rule.hasDirtyAttributes', true);
-    this.set('rule.rules.apply_label', {label: label.get('id')});
+    this.set('rule.rules.apply_label', { label: label.get('id') });
   }
 }

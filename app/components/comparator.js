@@ -5,58 +5,57 @@ export default class FiltersFilterBuilder extends Component {
   comparators = {
     string: [
       {
-        key: "contains",
-        component: "text",
+        key: 'contains',
+        component: 'text',
       },
       {
-        key: "==",
-        component: "text",
+        key: '==',
+        component: 'text',
       },
       {
-        key: "!=",
-        component: "text",
+        key: '!=',
+        component: 'text',
       },
       {
-        key: "in?",
-        component: "tags",
+        key: 'in?',
+        component: 'tags',
       },
       {
-        key: "not_in?",
-        component: "tags",
-      }
+        key: 'not_in?',
+        component: 'tags',
+      },
     ],
     association: [
       {
-        key: "contains",
-        component: "text",
+        key: 'contains',
+        component: 'text',
       },
       {
-        key: "==",
-        component: "association",
+        key: '==',
+        component: 'association',
       },
       {
-        key: "!=",
-        component: "association",
+        key: '!=',
+        component: 'association',
       },
       {
-        key: "in?",
-        component: "association",
+        key: 'in?',
+        component: 'association',
       },
       {
-        key: "not_in?",
-        component: "association",
-      }
-    ]
+        key: 'not_in?',
+        component: 'association',
+      },
+    ],
   }
 
-  @computed('comparator','comparatorOptions.[]')
+  @computed('comparator', 'comparatorOptions.[]')
   get selectedComparator() {
-    if(this.comparator) {
-      return this.comparatorOptions.findBy('key',this.comparator);
+    if (this.comparator) {
+      return this.comparatorOptions.findBy('key', this.comparator);
     }
     return null;
   }
-
 
 
   @computed('selectedProperty')
