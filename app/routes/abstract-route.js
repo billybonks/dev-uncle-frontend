@@ -21,5 +21,6 @@ export default Route.extend({
         }
       });
     }
+    return [];
   },
 });
