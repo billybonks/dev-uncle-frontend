@@ -4,7 +4,7 @@ import { computed, action } from '@ember-decorators/object';
 export default class AwesomeFilters extends Component {
   @action
   selectFilter(filter) {
-    if (this.get('selectedFilter') == filter) return;
+    if (this.get('selectedFilter') === filter) return;
     if (this.get('isEditing')) {
       this.send('cancel');
       this.send('edit', filter);

@@ -56,7 +56,7 @@ export default class PullRequestTable extends Component {
   }
 
   set activeFilter(filter) {
-    if (this.get('activeFilter.id') == filter.get('id')) {
+    if (this.get('activeFilter.id') === filter.get('id')) {
       return filter;
     }
     this.set('activeFilter.isEditing', false);
@@ -78,14 +78,14 @@ export default class PullRequestTable extends Component {
         if (intersection.size) {
           return true;
         }
+        return false;
       });
     }
-    const ageFilter = parseInt(this.get('activeFilter.filters.age'));
+    const ageFilter = parseInt(this.get('activeFilter.filters.age'), 10);
     if (ageFilter) {
-      return pullRequests.filter(pullRequest => dayjs().diff(pullRequest.get('updatedAt'), 'day')> ageFilter);
-    } else {
-      return pullRequests;
+      return pullRequests.filter(pullRequest => dayjs().diff(pullRequest.get('updatedAt'), 'day') > ageFilter);
     }
+    return pullRequests;
   }
 
   @computed('filteredPullRequests.@each.id', 'sortBy', 'direction')

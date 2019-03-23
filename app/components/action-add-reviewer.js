@@ -8,7 +8,7 @@ export default class ActionAddReviewer extends Component {
   constructor() {
     super(...arguments);
 
-    const usersRaw = this.data? (this.data.users || []) : [];
+    const usersRaw = this.data ? (this.data.users || []) : [];
     const userPromises = usersRaw.map(userId => this.store.find('user', userId));
     Promise.all(userPromises).then((users) => {
       this.set('hydratedUsers', users);

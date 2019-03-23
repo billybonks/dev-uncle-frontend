@@ -7,7 +7,7 @@ export default class FiltersFilterBuilder extends Component {
 
   @computed('selectedFilter.filters')
   get filteredFilterTypes() {
-    const filters =new Set(Object.keys(this.get('selectedFilter.filters')));
+    const filters = new Set(Object.keys(this.get('selectedFilter.filters')));
     const filterTypes = new Set(Object.keys(this.get('filterTypes')));
     if (filters.size === filterTypes.size) {
       return [];
