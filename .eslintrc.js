@@ -18,8 +18,8 @@ module.exports = {
   rules: {
     'class-methods-use-this': 'off',
     'import/order': 'off',
+    'prefer-rest-params': 'off',
     'lines-between-class-members': 'off', // decorators
-    'prefer-arrow-callback': 'off', // tests
     'no-underscore-dangle': 'off', // this._super()
     'react/sort-comp': 'off', // irelevent
     'import/no-extraneous-dependencies': 'off',
