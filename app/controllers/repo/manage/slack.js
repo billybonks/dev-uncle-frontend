@@ -9,11 +9,10 @@ export default Controller.extend({
     setSlackOrg(org) {
       this.set('model.slackOrganization', org);
     },
-    addFilterNotifcation(notification) {
+    async addFilterNotifcation(notification) {
       notification.set('repo', this.get('repo'));
-      notification.save().then((notification) => {
-        this.get('slackNotifications').pushObject(notification);
-      });
+      await notification.save();
+      this.get('slackNotifications').pushObject(notification);
     },
   },
 });

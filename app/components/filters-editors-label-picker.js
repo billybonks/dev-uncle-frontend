@@ -28,9 +28,9 @@ export default class FiltersEditorsLabelPicker extends Component {
   @action
   labelToggled(label) {
     label.set('isActive', !label.get('isActive'));
-    const labelIds = this.get('_labels').reduce((acc, label) => {
-      if (label.get('isActive')) {
-        acc.push(label.get('id'));
+    const labelIds = this.get('_labels').reduce((acc, currentLabel) => {
+      if (currentLabel.get('isActive')) {
+        acc.push(currentLabel.get('id'));
       }
       return acc;
     }, []);
