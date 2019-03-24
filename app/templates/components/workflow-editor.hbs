@@ -1,6 +1,6 @@
 <div>
   Name: <input value={{@workflow.name}} type="text" oninput={{action (mut @workflow.name) value="target.value"}}>
-  <PowerButton @action={{action "addRule"}} @text="new rule"/>
+  <Button @action={{action "addRule"}} @text="new rule"/>
 </div>
 <div>
   Selected Repos:
@@ -18,5 +18,5 @@
   {{#each @workflow.rules as |rule|}}
     <AutomationBuilder @action={{rule}} @target={{@target}}/>
   {{/each}}
-  <PowerButton @action={{action "saveWorkflow" @workflow}} @text="save" />
+  <Button @action={{action "saveWorkflow" @workflow}} @text="save" />
 {{/if}}
