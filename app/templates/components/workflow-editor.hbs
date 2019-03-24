@@ -16,7 +16,12 @@
 </div>
 {{#if @target}}
   {{#each @workflow.rules as |rule|}}
-    <AutomationBuilder @action={{rule}} @target={{@target}}/>
+    <AutomationBuilderIftt
+      @eventsHash={{this.automation.eventHash}}
+      @properties={{this.automation.properties}}
+      @rule={{rule}}
+      @target={{@target}}
+    />
   {{/each}}
   <PowerButton @action={{action "saveWorkflow" @workflow}} @text="save" />
 {{/if}}

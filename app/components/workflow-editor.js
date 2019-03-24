@@ -5,6 +5,7 @@ import { service } from '@ember-decorators/service';
 
 export default class ComponentWorkflowEditor extends Component {
   @service store;
+  @service automation;
 
   @action
   addRule() {
