@@ -1,6 +1,6 @@
 <WorkflowEditor
-  @workflow={{this.workflow}}
-  @organisation={{this.organisation}}
+  @workflow={{this.model}}
+  @organisation={{this.repo.organisation}}
   @labels={{this.repo.labels}}
   @transitionAfterSave={{action "transitionAfterSave"}}
   @target={{this.repo}}
