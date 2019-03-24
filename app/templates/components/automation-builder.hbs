@@ -1,8 +1,6 @@
-{{#each @workflows as |rule|}}
-  <AutomationBuilderIftt
-    @eventsHash={{this.eventsHash}}
-    @properties={{this.properties}}
-    @rule={{rule}}
-    @target={{@target}}
-  />
-{{/each}}
+<AutomationBuilderIftt
+  @eventsHash={{this.eventsHash}}
+  @properties={{this.properties}}
+  @rule={{@action}}
+  @target={{@target}}
+/>
