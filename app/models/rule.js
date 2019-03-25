@@ -1,10 +1,13 @@
 import DS from 'ember-data';
+import { attr, belongsTo } from '@ember-decorators/data';
 
-export default DS.Model.extend({
-  rules: DS.attr(),
-  conditions: DS.attr({ defaultValue() { return [{}]; } }),
-  event: DS.attr('string'),
-  createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date'),
-  repo: DS.belongsTo('repo'),
-});
+const { Model } = DS;
+
+export default class Rule extends Model {
+  @attr('string') event;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @attr() rules;
+  @attr('number', { defaultValue() { return [{}]; } }) conditions;
+  @belongsTo('repo') repo;
+}
