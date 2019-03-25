@@ -3,7 +3,7 @@ import { action } from '@ember-decorators/object';
 
 export default class AutomationBuilderIftt extends Component {
   @action
-  onDataUpdated(data) {
+  actionDataUpdated(data) {
     this.set('rule.rules.data', data);
   }
 

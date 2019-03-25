@@ -9,21 +9,20 @@
     </td>
   {{/if}}
   {{#if (and IFTT.action @rule.event)}}
-    {{#let (better-get @eventsHash @rule.event) as |eventDetails|}}
-      {{#let (find-by eventDetails.actions "key" @rule.rules.action) as |selectedAction|}}
-        <PowerSelectBlockless
-          @options={{eventDetails.actions}}
-          @selected={{selectedAction}}
-          @labelPath="label"
-          @onchange={{action "actionSelected"}}
-          class="ember-basic-dropdown"
-        />
-        {{component
-          selectedAction.editor
-          target=@target
-          onUpdated=(action "onDataUpdated")
-          data=@rule.rules.data
-        }}
+    {{#let (better-get @eventsHash @rule.event) as |selectedEventObject|}}
+      {{#let (find-by selectedEventObject.actions "key" @rule.rules.action) as |selectedAction|}}
+        <ActionPicker
+          @selectedAction={{selectedAction}}
+          @availableActions={{selectedEventObject.actions}}
+          @onActionSelected={{action "actionSelected"}}
+          @eventsHash={{@eventsHash}}
+        as |ActionEditor| >
+          <ActionEditor
+            @onActionDataUpdated={{action "actionDataUpdated"}}
+            @data={{@rule.rules.data}}
+            @target={{@target}}
+          />
+        </ActionPicker>
       {{/let}}
     {{/let}}
   {{/if}}
