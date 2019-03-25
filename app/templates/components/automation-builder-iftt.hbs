@@ -2,9 +2,9 @@
   {{#if IFTT.eventPicker}}
     <td class="automation-title-container">
       <EventPicker
-      @selectedEvent={{@rule.event}}
-      @onEventSelected={{mut @rule.event}}
-      @eventsHash={{@eventsHash}}
+        @selectedEvent={{@rule.event}}
+        @onEventSelected={{mut @rule.event}}
+        @eventsHash={{@eventsHash}}
       />
     </td>
   {{/if}}
