@@ -3977,10 +3977,10 @@ date-time@^2.1.0:
   dependencies:
     time-zone "^1.0.0"
 
-dayjs@^1.8.10:
-  version "1.8.10"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.10.tgz#fc35a976ccac2a9c44b50485a06c4a5ecf5d1b37"
-  integrity sha512-U+7kBBkJzPWww0vNeMkaBeJwnkivTACoajm+bTfwparjFcPI6/5JSQN40WVnX6yCsm20oGf1SkMkIIp4m/boAw==
+dayjs@^1.8.11:
+  version "1.8.11"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.11.tgz#1e0e681c9f1b6668d92dfe71289500ae0990529d"
+  integrity sha512-eBvWmKn52ax/TBYg7f+tzzqARPl0D0/NUmf5QrZ0Pp+/vFoTP3Q7y4t6p438+5NPN+t8y8Sps3Ed34OV8sNFBQ==
 
 debug@2.6.9, debug@^2.1.0, debug@^2.1.1, debug@^2.1.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -4335,12 +4335,12 @@ ember-basic-dropdown@^1.1.0, ember-basic-dropdown@^1.1.2:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-changeset@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-1.6.0.tgz#5a8352fbedcd34c0e4a7f7938338f47254f4946c"
-  integrity sha512-sZFd+uNNiGPNkDa+xGEYVaVafus86kVuvsMXKlL3etpk3Y/sCySUzurUk3SefElTjZaGmRTJdf7KJK9KkT/8aw==
+ember-changeset@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-2.0.0.tgz#66f5b9d6cec630f2490998affd40550087287459"
+  integrity sha512-hjcyZRjfqqxT5Jz845ia8ZUZhqFCQ5zVl2TsDAjcDVSIsgd27p79k6STHx0H62IJog1M8kvux25P9/kd+84MMg==
   dependencies:
-    ember-cli-babel "^6.8.2"
+    ember-cli-babel "^6.16.0"
     ember-deep-set "^0.2.0"
 
 ember-cli-app-version@^3.2.0:
