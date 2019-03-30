@@ -21,6 +21,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
+    "@glimmer/component": "^0.13.0",
     "ember-font-awesome": "^4.0.0-rc.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
