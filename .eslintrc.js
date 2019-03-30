@@ -28,6 +28,8 @@ module.exports = {
     'ember/named-functions-in-promises': 0,
     'ember/closure-actions': 0,
     'ember/use-ember-get-and-set': 0,
+    'template-curly-spacing': 0,
+    indent: 0,
     semi: 2,
   },
   overrides: [
