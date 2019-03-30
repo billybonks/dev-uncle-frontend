@@ -1,0 +1,8 @@
+<PowerSelectBlockless
+  @options={{@availableActions}}
+  @selected={{@selectedAction}}
+  @labelPath="label"
+  @onchange={{@onActionSelected}}
+  class="ember-basic-dropdown"
+/>
+{{yield (component @selectedAction.editor)}}

@@ -1,42 +1,25 @@
 <Iftt as |IFTT|>
   {{#if IFTT.eventPicker}}
     <td class="automation-title-container">
-      <BasicDropdown as |Dropdown|>
-        <Dropdown.trigger>
-          <h4 class="automation-title">
-            {{@rule.event}} {{fa-icon "caret-down"}}
-          </h4>
-        </Dropdown.trigger>
-        <Dropdown.content>
-          {{#each (object-keys @eventsHash) as |event|}}
-            <div class="automation-text-select">
-              <h4 class="automation-title" role="button" {{action (mut @rule.event) event}}>
-                {{event}}
-              </h4>
-            </div>
-          {{/each}}
-        </Dropdown.content>
-      </BasicDropdown>
+      <EventPicker
+        @selectedEvent={{@rule.event}}
+        @onEventSelected={{mut @rule.event}}
+        @eventsHash={{@eventsHash}}
+      />
     </td>
   {{/if}}
   {{#if (and IFTT.action @rule.event)}}
-    {{#let (better-get @eventsHash @rule.event) as |eventDetails|}}
-      {{#let (find-by eventDetails.actions "key" @rule.rules.action) as |selectedAction|}}
-        <PowerSelectBlockless
-          @options={{eventDetails.actions}}
-          @selected={{selectedAction}}
-          @labelPath="label"
-          @onchange={{action "actionSelected"}}
-          class="ember-basic-dropdown"
-        />
-        {{component
-          selectedAction.editor
-          target=@target
-          onUpdated=(action "onDataUpdated")
-          data=@rule.rules.data
-        }}
-      {{/let}}
-    {{/let}}
+    <ActionPicker
+      @selectedAction={{@rule.actionSchema}}
+      @availableActions={{@rule.eventSchema.actions}}
+      @onActionSelected={{action "actionSelected"}}
+    as |ActionEditor| >
+      <ActionEditor
+        @onUpdated={{action "actionDataUpdated"}}
+        @data={{@rule.rules.data}}
+        @target={{@target}}
+      />
+    </ActionPicker>
   {{/if}}
   {{#if (and @rule.event IFTT.comparator)}}
     {{#each @rule.conditions as |condition|}}
