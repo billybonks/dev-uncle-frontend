@@ -1,5 +1,8 @@
-{{#if @task.isRunning}}
-  loading
-{{else}}
-  {{@text}}
-{{/if}}
+
+<button ...attributes class="power-button">
+  {{#if @task.isRunning}}
+    loading
+  {{else}}
+    {{@text}}
+  {{/if}}
+</button>

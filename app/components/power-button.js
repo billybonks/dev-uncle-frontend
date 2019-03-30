@@ -1,15 +1,11 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  tagName: 'button',
-  classNames: ['power-button'],
-  attributeBindings: ['disabled'],
-  text: 'save',
+export default class Button extends Component {
   click() {
     if (this.action) {
       this.action();
     } else {
       this.task.perform();
     }
-  },
-});
+  }
+}
