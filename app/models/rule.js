@@ -11,8 +11,9 @@ export default class Rule extends Model {
   @attr('date') createdAt;
   @attr('date') updatedAt;
   @attr() rules;
-  @attr('number', { defaultValue() { return [{}]; } }) conditions;
+  @attr({ defaultValue() { return [{}]; } }) conditions;
   @belongsTo('repo') repo;
+  @belongsTo('organisation') organisation;
 
   @computed('event')
   get eventSchema() {

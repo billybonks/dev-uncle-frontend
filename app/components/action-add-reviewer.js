@@ -5,9 +5,8 @@ import { service } from '@ember-decorators/service';
 export default class ActionAddReviewer extends Component {
   @service store;
 
-  constructor() {
-    super(...arguments);
-
+  init() {
+    super.init(...arguments);
     const usersRaw = this.data ? (this.data.users || []) : [];
     const userPromises = usersRaw.map(userId => this.store.find('user', userId));
     Promise.all(userPromises).then((users) => {

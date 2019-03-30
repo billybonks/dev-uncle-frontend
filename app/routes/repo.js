@@ -5,8 +5,10 @@ export default AbstractRoute.extend({
     return this.get('store').find('repo', params.repo_id);
   },
   afterModel(repo) {
-    this.ensureRecord(repo, 'rule');
-    this.ensureRecord(repo, 'filter');
-    this.ensureRecord(repo, 'label');
+    if (repo) {
+      this.ensureRecord(repo, 'rule');
+      this.ensureRecord(repo, 'filter');
+      this.ensureRecord(repo, 'label');
+    }
   },
 });
