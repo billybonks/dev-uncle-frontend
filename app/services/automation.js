@@ -41,6 +41,12 @@ export default class AutomationService extends Service {
     editor: 'action-add-reviewer',
     eventGroup: 'pullRequest',
   },
+  {
+    label: 'Send Message',
+    key: 'send_message',
+    editor: 'action-send-message',
+    eventGroup: 'pullRequest',
+  },
   ]
 
   properties = {
