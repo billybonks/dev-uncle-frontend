@@ -1,0 +1,17 @@
+<ActionCard
+ @title="Send message to channel or user"
+ @description="Can send a message to user or channel"
+>
+   <PowerSelectBlockless
+     @options={{this.targets}}
+     @labelPath="name"
+     @selected={{this._target}}
+     @onchange={{action "targetChanged"}}
+   />
+  {{#if (eq this.config.target "channel")}}
+    <input value={{this.config.channel}} onchange={{action "channelUpdated"}} / >
+  {{/if}}
+  <p>You can use mustache templates to compose the message</p>
+  <p></p>
+  <textarea rows="4" cols="50" value={{this.config.message}} onchange={{action "messageUpdated"}}/>
+</ActionCard>
