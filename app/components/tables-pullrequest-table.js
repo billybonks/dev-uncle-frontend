@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import { computed, action } from '@ember-decorators/object';
-import { service } from '@ember-decorators/service';
+import { computed, action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import dayjs from 'dayjs';
 
 export default class PullRequestTable extends Component {
