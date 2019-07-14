@@ -7,7 +7,7 @@
   <PowerSelectMultiple
     @selected={{@workflow.repos}}
     @options={{@organisation.repos}}
-    @onchange={{action (mut @workflow.repos)}}
+    @onChange={{action (mut @workflow.repos)}}
     @palceholder="Select repos"
     as |repo|
   >
