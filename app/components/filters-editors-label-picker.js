@@ -1,7 +1,7 @@
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import EmberObject from '@ember/object';
-import { computed, action } from '@ember-decorators/object';
+import { computed, action } from '@ember/object';
 
 export default class FiltersEditorsLabelPicker extends Component {
   constructor() {

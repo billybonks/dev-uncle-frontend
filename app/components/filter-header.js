@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: "off" */
 import Component from '@ember/component';
-import { action } from '@ember-decorators/object';
+import { action } from '@ember/object';
 
 export default class FilterHeader extends Component {
     @action

@@ -1,10 +1,10 @@
 <BasicDropdown as |Dropdown|>
-  <Dropdown.trigger>
+  <Dropdown.Trigger>
     <h4 class="automation-title">
       {{@selectedEvent}} {{fa-icon "caret-down"}}
     </h4>
-  </Dropdown.trigger>
-  <Dropdown.content>
+  </Dropdown.Trigger>
+  <Dropdown.Content>
     {{#each (object-keys @eventsHash) as |event|}}
       <div class="automation-text-select">
         <h4 class="automation-title" role="button" {{action @onEventSelected event}}>
@@ -12,5 +12,5 @@
         </h4>
       </div>
     {{/each}}
-  </Dropdown.content>
+  </Dropdown.Content>
 </BasicDropdown>

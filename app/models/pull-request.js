@@ -1,9 +1,11 @@
-import EmberObject from '@ember/object';
-import { attr, belongsTo, hasMany } from '@ember-decorators/data';
-import { computed } from '@ember-decorators/object';
 import DS from 'ember-data';
+import EmberObject, { computed } from '@ember/object';
 
-export default class PullRequest extends DS.Model {
+const {
+ Model, attr, hasMany, belongsTo,
+} = DS;
+
+export default class PullRequest extends Model {
   @attr('string') title;
   @attr('string') state;
   @attr('string') owner;

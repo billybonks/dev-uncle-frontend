@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { computed } from '@ember-decorators/object';
+import { computed } from '@ember/object';
 
 export default class AutomationService extends Service {
   events = [{
@@ -55,7 +55,7 @@ export default class AutomationService extends Service {
     },
   }
 
-  @computed
+  @computed('asd')
   get eventHash() {
     return this.events.reduce((acc, event) => {
       const actions = this.actions.filter(action => action.eventGroup === event.eventGroup);

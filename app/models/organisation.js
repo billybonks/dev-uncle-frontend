@@ -1,10 +1,12 @@
 import DS from 'ember-data';
-import { attr, hasMany } from '@ember-decorators/data';
 
-const { Model } = DS;
+const {
+ Model, attr, hasMany,
+} = DS;
+
 
 export default class Organisation extends Model {
     @attr('string') name;
     @attr('string') avatar;
-    @hasMany repos;
+    @hasMany() repos;
 }
